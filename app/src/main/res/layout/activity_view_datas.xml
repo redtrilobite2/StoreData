@@ -10,9 +10,9 @@
         android:id="@+id/sportname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="200 meter Swimming"
-        android:textSize="40sp"
-        tools:layout_editor_absoluteX="15dp"
+        android:text="Sport Name"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="112dp"
         tools:layout_editor_absoluteY="16dp" />
 
     <TextView
@@ -21,16 +21,16 @@
         android:layout_height="wrap_content"
         android:text="Add Data"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteX="29dp"
         tools:layout_editor_absoluteY="104dp" />
 
     <TextView
         android:id="@+id/textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="111dp"
+        android:layout_height="33dp"
         android:text="View Data"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="305dp"
+        tools:layout_editor_absoluteX="272dp"
         tools:layout_editor_absoluteY="104dp" />
 
     <Button
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:text="+"
         android:textSize="30sp"
-        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteX="24dp"
         tools:layout_editor_absoluteY="128dp" />
 
     <Button
@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:text="View"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="307dp"
+        tools:layout_editor_absoluteX="272dp"
         tools:layout_editor_absoluteY="128dp" />
 
     <Button
@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:text="Create Graph"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="107dp"
+        tools:layout_editor_absoluteX="94dp"
         tools:layout_editor_absoluteY="291dp" />
 
 </android.support.constraint.ConstraintLayout>
