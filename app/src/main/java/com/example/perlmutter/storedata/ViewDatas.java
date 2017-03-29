@@ -11,13 +11,13 @@ public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_datas);
+        setContentView(R.layout.activity_storedata);
     }
     public void nextPage(View view){
-        Intent intent = new Intent(this, Storedata.class);
+       Intent intent = new Intent(this, Storedata.class);
         EditText editText = (EditText) findViewById(R.id.RandomString);
-String display = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, display);
+        String display = editText.getText().toString();
+       intent.putExtra(EXTRA_MESSAGE, display);
         startActivity(intent);
     }
 }
