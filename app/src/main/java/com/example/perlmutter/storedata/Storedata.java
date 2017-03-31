@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ public class Storedata extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_storedata);
+
     }
     public void SaveData(View view){
         EditText number1 = (EditText) findViewById(R.id.data1);
@@ -38,10 +40,32 @@ public class Storedata extends AppCompatActivity {
 
     }
 
+    public void buttonClick(View v) {
+        Intent intent=new Intent(this, ViewDatas.class);
+        startActivity(intent);
+    }
+
+    /*public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.done:
+                buttonClick();
+                break;
+
+        }
+
+    }*/
+    // addData.setOnClickListener(new View.OnClickListener() {
+
+    //@Override
+    /*public void nextScreen(View view) {
+        Intent intent=new Intent(Storedata.this, ViewDatas.class);
+        startActivity(intent);
+    }
+
     @Override
     public void startActivity(Intent intent) {
         super.startActivity(intent);
         Intent viewdata = new Intent(getApplicationContext(), ViewData.class);
         startActivity(viewdata);
-    }
+    }*/
 }
