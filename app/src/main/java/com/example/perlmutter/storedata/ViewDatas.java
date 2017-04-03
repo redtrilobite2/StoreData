@@ -14,15 +14,10 @@ public class ViewDatas extends AppCompatActivity{
         setContentView(R.layout.activity_view_datas);
     }
 
-    //Button addData = (Button) findViewById(R.id.Add);
-
-   // addData.setOnClickListener(new View.OnClickListener() {
-
-        //@Override
-        public void nextScreen(View view) {
-            Intent intent=new Intent(ViewDatas.this, Storedata.class);
-            startActivity(intent);
-        }
+    public void nextScreen(View view) {
+        Intent intent=new Intent(ViewDatas.this, Storedata.class);
+        startActivity(intent);
+    }
 }
-   // });
+
 
