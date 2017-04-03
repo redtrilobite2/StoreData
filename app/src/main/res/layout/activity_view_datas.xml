@@ -14,34 +14,36 @@
         tools:layout_editor_absoluteX="8dp">
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/SportName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Sport Name"
             android:textSize="25sp" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/AddData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Add Data" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/SeeProgress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="See Progress" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/EditData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Edit Data" />
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/Home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Home" />
+
     </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
