@@ -17,7 +17,6 @@ public class Storedata extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_storedata);
     }
-
     public void SaveData(View view){
         EditText number1 = (EditText) findViewById(R.id.data1);
         EditText number2 = (EditText) findViewById(R.id.data2);
@@ -39,9 +38,10 @@ public class Storedata extends AppCompatActivity {
 
     }
 
-    public void doneButton(View view) {
-
-       // Intent viewdata = new Intent(this, ViewData.class);
-       // startActivity(viewdata);
-    }//
+    @Override
+    public void startActivity(Intent intent) {
+        super.startActivity(intent);
+        Intent viewdata = new Intent(getApplicationContext(), ViewData.class);
+        startActivity(viewdata);
+    }
 }
