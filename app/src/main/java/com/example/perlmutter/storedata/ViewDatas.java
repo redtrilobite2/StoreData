@@ -9,9 +9,9 @@ import android.widget.Button;
 public class ViewDatas extends AppCompatActivity{
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_datas);
+    public void startActivity(Intent intent) {
+        Intent viewdata = new Intent(this, ViewData.class);
+        startActivity(viewdata);
     }
 
     public void nextScreen(View view) {
