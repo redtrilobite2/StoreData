@@ -18,7 +18,7 @@
         </activity>
         <activity android:name=".ViewDatas" />
         <activity android:name=".WelcomeScreen" />
-        <activity android:name=".SportStyle"></activity>
+        <activity android:name=".HomeScreen"></activity>
     </application>
 
 </manifest>
