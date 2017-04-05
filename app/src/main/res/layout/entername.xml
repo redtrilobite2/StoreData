@@ -17,11 +17,25 @@
             android:id="@+id/entername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Enter Sport Name"
+            android:text="Enter Sport Name:"
             android:textSize="25sp" />
 
         <EditText
             android:id="@+id/sportname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Comments:"
+            android:textSize="25sp" />
+
+        <EditText
+            android:id="@+id/editText3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
