@@ -7,14 +7,13 @@ import android.view.View;
 import android.widget.Button;
 
 public class ViewData extends AppCompatActivity{
-
     @Override
-    public void startActivity(Intent intent) {
-        Intent viewdata = new Intent(this, ViewData.class);
-        startActivity(viewdata);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_viewData);
     }
 
-    public void nextScreen(View view) {
+    public void toStoreData(View view) {
         Intent intent=new Intent(ViewData.this, Storedata.class);
         startActivity(intent);
     }

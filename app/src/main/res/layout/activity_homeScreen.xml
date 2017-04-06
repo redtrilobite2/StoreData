@@ -51,9 +51,10 @@
             android:id="@+id/makeNewSport"
             android:layout_width="182dp"
             android:layout_height="wrap_content"
+            android:layout_weight="0.27"
+            android:onClick="toSportStyle"
             android:text="Make a new sport"
-            android:textSize="18sp"
-            android:layout_weight="0.27" />
+            android:textSize="18sp" />
     </LinearLayout>
 
 </LinearLayout>

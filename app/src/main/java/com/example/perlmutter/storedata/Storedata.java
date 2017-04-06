@@ -38,10 +38,13 @@ public class Storedata extends AppCompatActivity {
 
     }
 
-    @Override
-    public void startActivity(Intent intent) {
-        super.startActivity(intent);
-        Intent viewdata = new Intent(getApplicationContext(), ViewData.class);
-        startActivity(viewdata);
+    public void toHomeScreen(View view) {
+        Intent intent=new Intent(Storedata.this, HomeScreen.class);
+        startActivity(intent);
+    }
+
+    public void toSportHome(View view) {
+        Intent intent=new Intent(Storedata.this, SportHome.class);
+        startActivity(intent);
     }
 }

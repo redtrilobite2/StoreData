@@ -25,12 +25,14 @@
             android:id="@+id/AddData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="toStoreData"
             android:text="Add Data" />
 
         <Button
             android:id="@+id/SeeProgress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="toViewData"
             android:text="See Progress" />
 
         <Button
@@ -40,10 +42,11 @@
             android:text="Edit Data" />
 
         <Button
-            android:id="@+id/Home"
+            android:id="@+id/homeSportHome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Home" />
+            android:onClick="toHomeScreen"
+            android:text="Create New Sport" />
 
     </LinearLayout>
 

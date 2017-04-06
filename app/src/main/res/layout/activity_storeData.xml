@@ -5,13 +5,17 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.perlmutter.storedata.Storedata">
+    tools:context="com.example.perlmutter.storedata.Storedata"><![CDATA[
 
         android:layout_width="437dp"
         android:layout_height="667dp"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="29dp">
+
+
+
+    ]]>
 
     <TextView
         android:id="@+id/SportName"
@@ -80,11 +84,29 @@
         android:ems="10"
         android:inputType="textPersonName" />
 
-    <Button
-        android:id="@+id/done"
+    <LinearLayout
+        android:id="@+id/homeStoreData"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="buttonClick"
-        android:text="Done"
-        tools:onClick="ViewData" />
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="184dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.03"
+            android:onClick="toSportHome"
+            android:text="Submit"
+            tools:onClick="ViewData" />
+
+        <Button
+            android:id="@+id/submitStoreData"
+            android:layout_width="178dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.09"
+            android:onClick="toHomeScreen"
+            android:text="Home"
+            tools:onClick="ViewData" />
+    </LinearLayout>
+
 </LinearLayout>

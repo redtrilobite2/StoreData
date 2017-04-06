@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:layout_editor_absoluteX="0dp"
-    tools:layout_editor_absoluteY="81dp">
+    tools:layout_editor_absoluteY="81dp"
+    tools:context="com.example.perlmutter.storedata.ViewData">
 
 
     <TextView
@@ -60,6 +61,7 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="toSportHome"
             android:text="Home"
             tools:layout_editor_absoluteX="268dp"
             tools:layout_editor_absoluteY="447dp" />
@@ -69,19 +71,12 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="toStoreData"
             android:text="+"
             android:textSize="24sp"
             tools:layout_editor_absoluteX="142dp"
             tools:layout_editor_absoluteY="446dp" />
 
-        <Button
-            android:id="@+id/ReturnToData"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Return"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="447dp" />
     </LinearLayout>
 
     <EditText
