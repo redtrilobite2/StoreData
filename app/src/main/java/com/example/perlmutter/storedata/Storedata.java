@@ -15,7 +15,7 @@ public class Storedata extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_storedata);
+        setContentView(R.layout.activity_storeData);
     }
     public void SaveData(View view){
         EditText number1 = (EditText) findViewById(R.id.data1);

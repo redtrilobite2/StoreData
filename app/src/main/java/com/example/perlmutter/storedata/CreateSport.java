@@ -3,11 +3,11 @@ package com.example.perlmutter.storedata;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class entername extends AppCompatActivity {
+public class CreateSport extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.entername);
+        setContentView(R.layout.activity_createSport);
     }
 }

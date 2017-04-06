@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class ViewDatas extends AppCompatActivity{
+public class ViewData extends AppCompatActivity{
 
     @Override
     public void startActivity(Intent intent) {
@@ -15,7 +15,7 @@ public class ViewDatas extends AppCompatActivity{
     }
 
     public void nextScreen(View view) {
-        Intent intent=new Intent(ViewDatas.this, Storedata.class);
+        Intent intent=new Intent(ViewData.this, Storedata.class);
         startActivity(intent);
     }
 }
