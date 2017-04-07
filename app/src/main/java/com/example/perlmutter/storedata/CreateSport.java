@@ -10,7 +10,7 @@ public class CreateSport extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_createSport);
+        setContentView(R.layout.activity_createsport);
     }
     public void toHomeScreen(View view) {
         Intent intent=new Intent(CreateSport.this, HomeScreen.class);

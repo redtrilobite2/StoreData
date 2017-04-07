@@ -10,7 +10,7 @@ public class WelcomeScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcomeScreen);
+        setContentView(R.layout.activity_welcomescreen);
     }
     public void toHomeScreen(View view) {
         Intent intent=new Intent(WelcomeScreen.this, HomeScreen.class);

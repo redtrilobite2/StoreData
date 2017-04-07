@@ -15,9 +15,9 @@ public class Storedata extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_storeData);
+        setContentView(R.layout.activity_storedata);
     }
-    public void SaveData(View view){
+    /*public void SaveData(View view){
         EditText number1 = (EditText) findViewById(R.id.data1);
         EditText number2 = (EditText) findViewById(R.id.data2);
 
@@ -36,7 +36,7 @@ public class Storedata extends AppCompatActivity {
     }
     public void ViewData(View view){
 
-    }
+    }*/
 
     public void toHomeScreen(View view) {
         Intent intent=new Intent(Storedata.this, HomeScreen.class);

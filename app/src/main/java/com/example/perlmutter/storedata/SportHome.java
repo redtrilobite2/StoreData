@@ -13,7 +13,7 @@ public class SportHome extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sportHome);
+        setContentView(R.layout.activity_sporthome);
     }
     //button controls
     public void toStoreData(View view) {
