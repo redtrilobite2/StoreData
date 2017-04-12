@@ -6,29 +6,32 @@ package com.example.perlmutter.storedata;
 import java.util.ArrayList;
 
 public class Sport {
-    //Data
+    // Data
     ArrayList<Event> events = new ArrayList<Event>();
     String name;
     String comment;
 
-    //Constructor
-    public Sport(String name, String comment){
-        name = this.name;
-        comment = this.comment;
+    // Constructor
+    public Sport(String name, String comment) {
+        this.name = name;
+        this.comment = comment;
         events = new ArrayList<Event>();
     }
-//Methods
+    // Methods
 
-    public String getName(){
+    public String getName() {
         return name;
     }
-    public String getComment(){
+
+    public String getComment() {
         return comment;
     }
-    public ArrayList getEvent(){
+
+    public ArrayList getEvent() {
         return events;
     }
-    public void addEvent(Event event){
+
+    public void addEvent(Event event) {
         events.add(event);
     }
 }

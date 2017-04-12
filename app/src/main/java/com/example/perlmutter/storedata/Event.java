@@ -5,37 +5,38 @@ package com.example.perlmutter.storedata;
  */
 
 
+
 public class Event {
     // Data
-    String eventName;
+    //String eventName;
     String date;
-    int time;
-    int distance;
+    double time;
+    double distance;
     String comment;
 
     // Constructor
-    public Event(double time, double distance,String date, String comment) {
-        //eventName = this.eventName;
-        date = this.date;
-        time = this.time;
-        distance = this.distance;
-        comment = this.comment;
+    public Event(double time, double distance, String date,String comment) {
+        //	eventName = this.eventName;
+        this.date = date;
+        this.time = time;
+        this.distance = distance;
+        this.comment = comment;
     }
 
     // Method
-   /* public String getEventName() {
-        return eventName;
-    }*/
+	/*public String getEventName() {
+		return eventName;
+	}*/
 
     public String getDate() {
         return date;
     }
 
-    public int getTime() {
+    public double getTime() {
         return time;
     }
 
-    public int getDistance() {
+    public double getDistance() {
         return distance;
     }
 

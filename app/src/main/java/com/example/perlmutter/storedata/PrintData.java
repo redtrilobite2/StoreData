@@ -30,14 +30,14 @@ public class PrintData {
         ArrayList events = sport.getEvent();
 
         for (int i = 0; i < sports.size(); i++) {
-            out.println(sport.getName() + " " + sport.getComment() + "**");
+            Sport thisSport = sports.get(i);
+            out.println(thisSport.getName() + " ;; " + thisSport.getComment() + " !;");
             for (int m = 0; m < events.size(); m++) {
                 Event event = (Event) events.get(m);
-                out.println(
-                        event.getTime() + " " + event.getDistance() + " " + event.getDate() + " " + event.getComment());
+                out.println(event.getTime() + " ;;  " + event.getDistance() + " ;; " + event.getDate() + " ;; "
+                        + event.getComment());
             }
         }
         out.close();
     }
 }
-
