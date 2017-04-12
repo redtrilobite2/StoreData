@@ -41,7 +41,6 @@ public class ViewData extends AppCompatActivity{
         Intent intent=new Intent(ViewData.this, Storedata.class);
         startActivity(intent);
     }
-
     public void toSportHome(View view) {
         Intent intent=new Intent(ViewData.this, SportHome.class);
         startActivity(intent);

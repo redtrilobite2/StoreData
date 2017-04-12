@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import static java.lang.Double.parseDouble;
 
 public class Storedata extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,13 +37,31 @@ public class Storedata extends AppCompatActivity {
 
     }*/
 
-    public void toViewData(View view) {
-        Intent intent=new Intent(Storedata.this, ViewData.class);
+    public void toHomeScreen(View view) {
+        Intent intent = new Intent(Storedata.this, HomeScreen.class);
         startActivity(intent);
     }
 
     public void toSportHome(View view) {
-        Intent intent=new Intent(Storedata.this, SportHome.class);
+        Intent intent = new Intent(Storedata.this, SportHome.class);
         startActivity(intent);
+    }
+
+    public void addEvent() {
+        Sport sport = new Sport("Distance/time", "This is a comment");
+        EditText distancePull = (EditText) findViewById(R.id.distance);
+        EditText timePull = (EditText) findViewById(R.id.time);
+        EditText datePull = (EditText) findViewById(R.id.date);
+        EditText commentPull = (EditText) findViewById(R.id.comment);
+
+
+        String distanceStr = distancePull.getText().toString();
+        String timeStr = timePull.getText().toString();
+        String dateStr = datePull.getText().toString();
+        String commentStr = commentPull.getText().toString();
+        Double distance = parseDouble(distanceStr);
+        Double time = parseDouble(timeStr);
+        Event event = new Event(time, distance, dateStr, commentStr);
+        sport.addEvent(event);
     }
 }
