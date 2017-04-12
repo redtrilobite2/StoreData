@@ -95,7 +95,7 @@
             android:layout_width="184dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.03"
-            android:onClick="toSportHome"
+            android:onClick="toViewData"
             android:text="Submit"
             tools:onClick="ViewData" />
 
@@ -104,7 +104,7 @@
             android:layout_width="178dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.09"
-            android:onClick="toHomeScreen"
+            android:onClick="toSportHome"
             android:text="Home"
             tools:onClick="ViewData" />
     </LinearLayout>

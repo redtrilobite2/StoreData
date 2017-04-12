@@ -38,8 +38,8 @@ public class Storedata extends AppCompatActivity {
 
     }*/
 
-    public void toHomeScreen(View view) {
-        Intent intent=new Intent(Storedata.this, HomeScreen.class);
+    public void toViewData(View view) {
+        Intent intent=new Intent(Storedata.this, ViewData.class);
         startActivity(intent);
     }
 
