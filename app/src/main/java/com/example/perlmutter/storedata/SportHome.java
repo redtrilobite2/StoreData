@@ -15,19 +15,20 @@ public class SportHome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sporthome);
     }
+
     //button controls
     public void toStoreData(View view) {
-        Intent intent=new Intent(SportHome.this, Storedata.class);
+        Intent intent = new Intent(SportHome.this, Storedata.class);
         startActivity(intent);
     }
 
-    public void toViewData (View view) {
-        Intent intent=new Intent(SportHome.this, ViewData.class);
+    public void toViewData(View view) {
+        Intent intent = new Intent(SportHome.this, ViewData.class);
         startActivity(intent);
     }
 
     public void toHomeScreen(View view) {
-        Intent intent=new Intent(SportHome.this, HomeScreen.class);
+        Intent intent = new Intent(SportHome.this, HomeScreen.class);
         startActivity(intent);
     }
 }

@@ -1,37 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:http="http://schemas.android.com/apk/res-auto">
-   <!-- android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="app.num.graphview.MainActivity"-->
-<TextView
-android:id="@+id/linetext"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Line Graph"
-    android:textSize="16sp"
-    android:layout_marginBottom="20dp"/>
-<com.jjoe64.graphview.GraphView
-android:layout_width="match_parent"
-android:layout_height="200dip"
-    android:title="Graph Title"
-    android:id="@+id/graph"
-    android:layout_below="@+id/linetext"/>
-
-
-
-</RelativeLayout>
-
-<!--"<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -55,22 +25,71 @@ android:layout_height="200dip"
         tools:layout_editor_absoluteX="133dp"
         tools:layout_editor_absoluteY="47dp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="248dp"
-        android:orientation="horizontal"
-        android:weightSum="1">
 
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:http="http://schemas.android.com/apk/res-auto">
+        <!-- android:paddingBottom="@dimen/activity_vertical_margin"
+         android:paddingLeft="@dimen/activity_horizontal_margin"
+         android:paddingRight="@dimen/activity_horizontal_margin"
+         android:paddingTop="@dimen/activity_vertical_margin"
+         tools:context="app.num.graphview.MainActivity"-->
         <TextView
-            android:id="@+id/GraphDisplay"
-            android:layout_width="238dp"
-            android:layout_height="250dp"
-            android:layout_weight="0.14"
-            android:text="Graph"
-            android:visibility="visible"
-            tools:layout_editor_absoluteX="67dp"
-            tools:layout_editor_absoluteY="85dp" />
-    </LinearLayout>
+            android:id="@+id/linetext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Line Graph"
+            android:textSize="16sp"
+            android:layout_marginBottom="20dp" />
+
+        <com.jjoe64.graphview.GraphView
+            android:layout_width="match_parent"
+            android:layout_height="200dip"
+            android:title="Graph Title"
+            android:id="@+id/graph"
+            android:layout_below="@+id/linetext" />
+
+        <Button
+            android:id="@+id/ReturnHome"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/graph"
+            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="27dp"
+            android:layout_weight="1"
+            android:onClick="toSportHome"
+            android:text="Home"
+            tools:layout_editor_absoluteX="268dp"
+            tools:layout_editor_absoluteY="447dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="101dp"
+            android:layout_below="@+id/ReturnHome"
+            android:layout_marginTop="29dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/New_Data"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="toStoreData"
+                android:text="+"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="142dp"
+                tools:layout_editor_absoluteY="446dp" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
 
     <EditText
         android:id="@+id/xAxisLabel"
@@ -82,34 +101,6 @@ android:layout_height="200dip"
         android:textAlignment="center"
         tools:layout_editor_absoluteX="85dp"
         tools:layout_editor_absoluteY="347dp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="101dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/ReturnHome"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="toSportHome"
-            android:text="Home"
-            tools:layout_editor_absoluteX="268dp"
-            tools:layout_editor_absoluteY="447dp" />
-
-        <Button
-            android:id="@+id/New_Data"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="toStoreData"
-            android:text="+"
-            android:textSize="24sp"
-            tools:layout_editor_absoluteX="142dp"
-            tools:layout_editor_absoluteY="446dp" />
-
-    </LinearLayout>
 
     <EditText
         android:id="@+id/yAxisLabel"
@@ -123,4 +114,4 @@ android:layout_height="200dip"
         tools:layout_editor_absoluteX="-67dp"
         tools:layout_editor_absoluteY="182dp" />
 
-</LinearLayout>-->
+</LinearLayout>
