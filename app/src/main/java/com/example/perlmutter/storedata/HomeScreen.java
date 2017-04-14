@@ -13,20 +13,24 @@ public class HomeScreen extends AppCompatActivity {
     public Button makeNewSport;
 
     Spinner spin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homescreen);
 
-        spin=(Spinner)findViewById(R.id.spinner);
-        String sports[]={"Track", "Soccer", "Basketball", "Swimming"};
-        ArrayAdapter adapter=new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, sports);
+        spin = (Spinner) findViewById(R.id.spinner);
+        String sports[] = {"Track", "Soccer", "Basketball", "Swimming"};
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, sports);
         spin.setAdapter(adapter);
     }
-
     public void toSportStyle(View view) {
-        Intent intent=new Intent(HomeScreen.this, SportStyle.class);
+        Intent intent = new Intent(HomeScreen.this, SportStyle.class);
         startActivity(intent);
+    }
+
+    public String getSportName() {
+        return "Swimming";
     }
 
 

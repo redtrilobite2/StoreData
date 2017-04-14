@@ -5,7 +5,6 @@ package com.example.perlmutter.storedata;
  */
 
 
-
 public class Event {
     // Data
     //String eventName;
@@ -15,7 +14,7 @@ public class Event {
     String comment;
 
     // Constructor
-    public Event(double time, double distance, String date,String comment) {
+    public Event(double time, double distance, String date, String comment) {
         //	eventName = this.eventName;
         this.date = date;
         this.time = time;
@@ -24,7 +23,7 @@ public class Event {
     }
 
     // Method
-	/*public String getEventName() {
+    /*public String getEventName() {
 		return eventName;
 	}*/
 
