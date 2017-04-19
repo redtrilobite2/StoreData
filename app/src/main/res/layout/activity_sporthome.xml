@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation ="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.perlmutter.storedata.ViewDatas">
+    tools:context="com.example.perlmutter.storedata.SportHome">
 
     <LinearLayout
-        android:layout_width="368dp"
-        android:layout_height="495dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="23dp"
-        tools:layout_editor_absoluteY="16dp">
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
 
         <TextView
             android:id="@+id/SportName"
@@ -24,12 +25,14 @@
             android:id="@+id/AddData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="toStoreData"
             android:text="Add Data" />
 
         <Button
             android:id="@+id/SeeProgress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="toViewData"
             android:text="See Progress" />
 
         <Button
@@ -39,11 +42,12 @@
             android:text="Edit Data" />
 
         <Button
-            android:id="@+id/Home"
+            android:id="@+id/homeSportHome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Home" />
+            android:onClick="toHomeScreen"
+            android:text="Create New Sport" />
 
     </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

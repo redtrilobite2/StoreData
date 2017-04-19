@@ -1,97 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.perlmutter.storedata.Storedata">
+    tools:context="com.example.perlmutter.storedata.Storedata"><![CDATA[
 
-    <LinearLayout
         android:layout_width="437dp"
         android:layout_height="667dp"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="29dp">
 
-        <EditText
-            android:id="@+id/data1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="numberDecimal"
-            tools:onClick="SaveData" />
 
-        <EditText
-            android:id="@+id/data2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="numberDecimal" />
 
-        <EditText
-            android:id="@+id/data3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="numberDecimal" />
+    ]]>
 
-        <EditText
-            android:id="@+id/data4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="numberDecimal" />
+    <TextView
+        android:id="@+id/SportName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sport Name"
+        android:textAlignment="center"
+        android:textSize="30sp" />
 
-        <EditText
-            android:id="@+id/data5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="numberDecimal" />
+    <TextView
+        android:id="@+id/distanceTag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter Distance:"
+        android:textSize="24sp" />
 
-        <EditText
-            android:id="@+id/data6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="numberDecimal" />
+    <EditText
+        android:id="@+id/distance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        tools:onClick="SaveData" />
 
-        <EditText
-            android:id="@+id/data7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="numberDecimal" />
+    <TextView
+        android:id="@+id/timeTag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter Time:"
+        android:textSize="24sp" />
 
-        <EditText
-            android:id="@+id/data8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="numberDecimal" />
+    <EditText
+        android:id="@+id/time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal" />
 
-        <EditText
-            android:id="@+id/data9"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="numberDecimal" />
+    <TextView
+        android:id="@+id/dateTag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter date:"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:text="mm/dd/yyyy"
+        android:textColor="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/commentTag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Comments:"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <LinearLayout
+        android:id="@+id/homeStoreData"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
 
         <Button
-            android:id="@+id/done"
-            android:layout_width="match_parent"
+            android:id="@+id/button"
+            android:layout_width="184dp"
             android:layout_height="wrap_content"
-            android:onClick="buttonClick"
-            android:text="Done"
+            android:layout_weight="0.03"
+            android:onClick="toViewData"
+            android:text="Submit"
+            tools:onClick="ViewData" />
+
+        <Button
+            android:id="@+id/submitStoreData"
+            android:layout_width="178dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.09"
+            android:onClick="toSportHome"
+            android:text="Home"
             tools:onClick="ViewData" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/entertext"
-        android:layout_width="368dp"
-        android:layout_height="wrap_content"
-        android:text="Enter Data"
-        android:textSize="24sp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="0dp" />
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

@@ -42,9 +42,10 @@
             android:layout_weight="0.52" />
 
         <Button
-            android:id="@+id/startButton"
+            android:id="@+id/start"
             android:layout_width="266dp"
             android:layout_height="wrap_content"
+            android:onClick="toHomeScreen"
             android:text="Click here to start!"
             android:textAlignment="center"
             android:textSize="24sp" />
