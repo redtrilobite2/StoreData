@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Point;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -14,21 +15,54 @@ import com.jjoe64.graphview.series.LineGraphSeries;
 import com.jjoe64.graphview.series.OnDataPointTapListener;
 import com.jjoe64.graphview.series.Series;
 
+import java.util.ArrayList;
+
 public class ViewData extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ArrayList<Integer> Sportarray = new ArrayList<Integer>();
+        Sportarray.add(0);
+        Sportarray.add(5);
+        Sportarray.add(1);
+        Sportarray.add(4);
+        Sportarray.add(2);
+        Sportarray.add(3);
+        Sportarray.add(3);
+        Sportarray.add(5);
+        Sportarray.add(4);
+        Sportarray.add(5);
+
+
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_viewdata);
+
         GraphView line_graph = (GraphView) findViewById(R.id.graph);
+        DataPoint[] data = new DataPoint[Sportarray.size()/2];
+
+        int counter = 0;
+        for(int i = 0; i<(Sportarray.size()/2); i++){
+            data[i] = new DataPoint (Sportarray.get(i+counter), Sportarray.get(i+1+counter));
+            counter ++;}
+
+        for(int j =0; j<Sportarray.size()/2; j++ ){
+            DataPoint datap = data[j];
+            if(datap != null){Log.i("Kent", "Good");}
+            if(datap == null){
+
+            }
+            System.out.println(datap.getX());
+
+            System.out.println(datap.getY());
+        }
         LineGraphSeries<DataPoint> line_series =
-                new LineGraphSeries<DataPoint >(new DataPoint[] {
-                        new DataPoint(0, 1),
-                        new DataPoint(1, 5),
-                        new DataPoint(2, 3),
-                        new DataPoint(3, 2),
-                        new DataPoint(4, 6)
-                });
+
+                new LineGraphSeries<DataPoint>(data);
+
+
         line_graph.addSeries(line_series);
+        line_series.setDrawDataPoints(true);
+        line_series.setDataPointsRadius(10); // set the radius of data point
         line_series.setOnDataPointTapListener(new OnDataPointTapListener() {
             @Override
             public void onTap(Series series, DataPointInterface dataPoint) {
