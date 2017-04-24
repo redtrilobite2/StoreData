@@ -11,48 +11,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Create a New Sport"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="30sp" />
 
     <Button
-        android:id="@+id/timeBased"
-        android:layout_width="wrap_content"
+        android:id="@+id/Time"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="toCreateSport"
         android:text="Time-based"
-        android:textSize="18sp"
-        tools:layout_editor_absoluteX="128dp"
-        tools:layout_editor_absoluteY="93dp" />
+        android:textSize="18sp" />
 
     <Button
-        android:id="@+id/distanceBased"
-        android:layout_width="176dp"
+        android:id="@+id/Distance"
+        android:layout_width="match_parent"
         android:layout_height="44dp"
         android:text="Distance-based"
-        android:textSize="18sp"
-        tools:layout_editor_absoluteX="104dp"
-        tools:layout_editor_absoluteY="186dp" />
+        android:textSize="18sp" />
 
     <Button
-        android:id="@+id/pointBased"
-        android:layout_width="157dp"
+        android:id="@+id/Point"
+        android:layout_width="match_parent"
         android:layout_height="44dp"
         android:text="point-based"
-        android:textSize="18sp"
-        tools:layout_editor_absoluteX="114dp"
-        tools:layout_editor_absoluteY="284dp" />
+        android:textSize="18sp" />
 
     <Button
-        android:id="@+id/accuracyBased"
-        android:layout_width="185dp"
+        android:id="@+id/Accuracy"
+        android:layout_width="match_parent"
         android:layout_height="48dp"
         android:text="accuracy-based"
-        android:textSize="18sp"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="385dp" />
+        android:textSize="18sp" />
 
 </LinearLayout>
 
