@@ -24,43 +24,45 @@ public class ViewData extends AppCompatActivity{
         Sportarray.add(0);
         Sportarray.add(5);
         Sportarray.add(1);
-        Sportarray.add(8);
+        Sportarray.add(4);
         Sportarray.add(2);
         Sportarray.add(3);
         Sportarray.add(3);
         Sportarray.add(5);
         Sportarray.add(4);
         Sportarray.add(5);
+
+
         super.onCreate(savedInstanceState);
-        Log.i("Kent", "On create, ready to set view");
+
         setContentView(R.layout.activity_viewdata);
-        Log.i("Kent", "Finish setting view");
+
         GraphView line_graph = (GraphView) findViewById(R.id.graph);
-        DataPoint[] data = new DataPoint[Sportarray.size()];
-        Log.i("Kent", "Finish creating data point array");
+        DataPoint[] data = new DataPoint[Sportarray.size()/2];
+
         int counter = 0;
         for(int i = 0; i<(Sportarray.size()/2); i++){
             data[i] = new DataPoint (Sportarray.get(i+counter), Sportarray.get(i+1+counter));
             counter ++;}
-        Log.i("Kent", "Completed population of datapoint array");
-        for(int j =0; j<data.length; j++ ){
+
+        for(int j =0; j<Sportarray.size()/2; j++ ){
             DataPoint datap = data[j];
             if(datap != null){Log.i("Kent", "Good");}
             if(datap == null){
-                Log.i("Kent", "datap is null");
+
             }
-            datap.getX();
-            datap.getY();
+            System.out.println(datap.getX());
+
+            System.out.println(datap.getY());
         }
         LineGraphSeries<DataPoint> line_series =
 
-               new LineGraphSeries<DataPoint>(data);
-        Log.i("Kent", "Created line graph series");
-        if(line_graph!=null)
-        {        Log.i("Kent", "linegraph is null");}
-        if(line_series !=null){    Log.i("Kent", "line series is null");}
+                new LineGraphSeries<DataPoint>(data);
+
+
         line_graph.addSeries(line_series);
-        Log.i("Kent", "Add line series");
+        line_series.setDrawDataPoints(true);
+        line_series.setDataPointsRadius(10); // set the radius of data point
         line_series.setOnDataPointTapListener(new OnDataPointTapListener() {
             @Override
             public void onTap(Series series, DataPointInterface dataPoint) {

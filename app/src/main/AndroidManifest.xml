@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ViewData">
+        <activity android:name=".WelcomeScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,7 +20,7 @@
         <activity android:name=".HomeScreen"></activity>
         <activity android:name=".SportStyle"></activity>
         <activity android:name=".CreateSport"></activity>
-        <activity android:name=".WelcomeScreen"></activity>
+        <activity android:name=".ViewData"></activity>
         <activity android:name=".SportHome"></activity>
 
 
