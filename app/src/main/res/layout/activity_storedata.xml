@@ -66,6 +66,13 @@
         android:text="Comments:"
         android:textSize="24sp" />
 
+    <EditText
+        android:id="@+id/commentStoreData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
     <LinearLayout
         android:id="@+id/homeStoreData"
         android:layout_width="match_parent"

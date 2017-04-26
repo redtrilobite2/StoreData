@@ -22,6 +22,8 @@
         <activity android:name=".CreateSport"></activity>
         <activity android:name=".ViewData"></activity>
         <activity android:name=".SportHome"></activity>
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
 
     </application>

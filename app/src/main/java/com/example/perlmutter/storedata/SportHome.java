@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import java.util.ArrayList;
+
 /**
  * Created by Ellie DeSota on 4/6/2017.
  */
@@ -30,5 +32,6 @@ public class SportHome extends AppCompatActivity {
     public void toHomeScreen(View view) {
         Intent intent = new Intent(SportHome.this, HomeScreen.class);
         startActivity(intent);
+
     }
 }

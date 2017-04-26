@@ -39,6 +39,10 @@ public class Sport {
         return events;
     }
 
+    public void setName(String newName){ this.name = newName; }
+
+    public void setComment(String newComment){ this.name = newComment; }
+
     public void addEvent(Event event) {
         if(events == null){
             Log.i("Check", "Events is null");

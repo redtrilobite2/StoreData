@@ -52,20 +52,8 @@ public class Storedata extends AppCompatActivity {
                 String dateStr = datePull.getText().toString();
                 String commentStr = commentPull.getText().toString();
 
-                if (distanceStr.equals(null)) {
-                    distanceStr = "0";
-                    Log.i("Help", "Distance is empty");
-                }
-                if (timeStr.equals(null)) {
-                    timeStr = "0";
-                    Log.i("Help", "time is empty");
-                }
-                if (dateStr.equals(null)) {
-                    dateStr = "00/00/00";
-                    Log.i("Help", "date is empty");
-                }
                 if (commentStr.equals(null)) {
-                    Log.i("Help", "comment is empty");
+                    commentStr.equals("empty");
                 }
 
                 double distance = parseDouble(distanceStr);
@@ -74,8 +62,8 @@ public class Storedata extends AppCompatActivity {
                 if (distance != 0 && time != 0 && !dateStr.equals("00/00/00")) {
                     Event event = new Event(time, distance, dateStr, commentStr);
                     thisSport.addEvent(event);
-                    Log.i("newEvent", "Entered into newEvent");
                 }
+
             }
         }
     }
