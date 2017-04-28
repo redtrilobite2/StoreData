@@ -17,9 +17,9 @@ import java.util.ArrayList;
 public class CreateSport extends AppCompatActivity {
     private EditText sportName;
     static final int READ_BLOCK_SIZE = 200;
-    private ArrayList<Sport> sports = new ArrayList<Sport>();
-    private PrintData printSports = new PrintData();
-    private ArrayList<Event> events = new ArrayList<>();
+    //private ArrayList<Sport> sports = new ArrayList<Sport>();
+    //private PrintData printSports = new PrintData();
+   // private ArrayList<Event> events = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +51,7 @@ public class CreateSport extends AppCompatActivity {
         String nameStr = namePull.getText().toString();
         String commentStr = commentPull.getText().toString();
 
-        Sport sport = new Sport(nameStr,commentStr, events);
+        Sport sport = new Sport(nameStr,commentStr, new ArrayList<Event>());
 
         aController.addSport(sport);
 
@@ -62,10 +62,10 @@ public class CreateSport extends AppCompatActivity {
         printSport();
     }
 
-    public ArrayList getSports() {
+    /*public ArrayList getSports() {
         return sports;
     }
-
+*/
     public void printSport() throws IOException {
 
         try {

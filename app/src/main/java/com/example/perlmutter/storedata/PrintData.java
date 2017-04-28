@@ -10,13 +10,14 @@ import java.util.ArrayList;
 
 public class PrintData extends Activity {
     //Data
-    Controller aController = new Controller();
+    Controller aController = (Controller) getApplicationContext();
     Sport sport = new Sport();
     ArrayList<Event> events = new ArrayList<>();
     ArrayList<Sport> sports = new ArrayList<>();
 
     //Constructor
-    public PrintData() {
+    public PrintData(ArrayList sports) {
+        this.sports = sports;
         this.events = sport.getEvent();
     }
 

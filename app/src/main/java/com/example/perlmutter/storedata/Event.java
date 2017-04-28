@@ -60,4 +60,9 @@ public class Event {
     public void setComment(String comment) {
         this.comment = comment;
     }
+
+    @Override
+    public String toString(){
+        return date + " " + time + " " + distance + " " + comment;
+    }
 }

@@ -14,7 +14,7 @@ import static java.lang.Double.parseDouble;
 public class Storedata extends AppCompatActivity {
 
     CreateSport sports = new CreateSport();
-    ArrayList sport = sports.getSports();
+    //ArrayList sport = sports.getSports();
     HomeScreen name = new HomeScreen();
     Sport thisSport;
 
@@ -37,11 +37,10 @@ public class Storedata extends AppCompatActivity {
     }
 
     public void saveData(){
+        Controller aController = (Controller) getApplicationContext();
         Log.i("stop", "Entered into newEvent");
         thisSport = new Sport();
-        for (int i = 0; i < sport.size(); i++) {
-            thisSport = (Sport) sport.get(i);
-            if (name.getSportName().equals(thisSport.getName())) {
+
                 EditText distancePull = (EditText) findViewById(R.id.distance);
                 EditText timePull = (EditText) findViewById(R.id.time);
                 EditText datePull = (EditText) findViewById(R.id.date);
@@ -52,19 +51,16 @@ public class Storedata extends AppCompatActivity {
                 String dateStr = datePull.getText().toString();
                 String commentStr = commentPull.getText().toString();
 
-                if (commentStr.equals(null)) {
-                    commentStr.equals("empty");
-                }
-
                 double distance = parseDouble(distanceStr);
                 double time = parseDouble(timeStr);
 
                 if (distance != 0 && time != 0 && !dateStr.equals("00/00/00")) {
                     Event event = new Event(time, distance, dateStr, commentStr);
-                    thisSport.addEvent(event);
+                    aController.getSport("mySport").addEvent(event);
+                    Log.i("Ellie", event.toString());
                 }
-
+//through spinner, bundle, intent
             }
         }
-    }
-}
+
+

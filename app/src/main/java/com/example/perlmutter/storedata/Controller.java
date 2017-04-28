@@ -13,15 +13,23 @@ public class Controller extends Application {
     private ArrayList<Sport> allSports = new ArrayList<>();
 
     public Sport getNewSport() {
-
-        return (Sport) allSports.get(0);
-
-
+        return allSports.get(0);
     }
 
-    public void addSport(Sport sport){
+     public void addSport(Sport sport) {
         allSports.add(sport);
     }
 
-
+    public Sport getSport(String name) {
+        for (int i = 0; i < allSports.size(); i++) {
+            Sport thisSport = allSports.get(i);
+            if (name.equalsIgnoreCase(thisSport.getName())) {
+                return thisSport;
+            }
+        }
+        return null;
+    }
 }
+
+
+

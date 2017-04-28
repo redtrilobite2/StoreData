@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class Sport {
     // Data
-    ArrayList<Event> events = new ArrayList<Event>();
+    ArrayList<Event> events;
     String name;
     String comment;
 
@@ -21,9 +21,9 @@ public class Sport {
         this.events = events;
     }
     public Sport(){
-        this.name = null;
-        this.comment = null;
-        events = null;
+        this.name = "";
+        this.comment = "";
+        events = new ArrayList<Event>();
     }
     // Methods
 
@@ -44,12 +44,7 @@ public class Sport {
     public void setComment(String newComment){ this.name = newComment; }
 
     public void addEvent(Event event) {
-        if(events == null){
-            Log.i("Check", "Events is null");
-        }else
-            Log.i("Check", "Events is not null");
         events.add(event);
-
     }
 
     @Override
