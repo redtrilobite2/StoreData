@@ -12,8 +12,9 @@ public class SportStyle extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sportstyle);
     }
+
     public void toCreateSport(View view) {
-        Intent intent=new Intent(SportStyle.this, CreateSport.class);
+        Intent intent = new Intent(SportStyle.this, CreateSport.class);
         startActivity(intent);
     }
 }

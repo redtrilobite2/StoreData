@@ -15,10 +15,10 @@ public class Sport {
     String comment;
 
     // Constructor
-    public Sport(String name, String comment) {
+    public Sport(String name, String comment, ArrayList events) {
         this.name = name;
         this.comment = comment;
-        events = new ArrayList<Event>();
+        this.events = events;
     }
     public Sport(){
         this.name = null;
@@ -50,5 +50,10 @@ public class Sport {
             Log.i("Check", "Events is not null");
         events.add(event);
 
+    }
+
+    @Override
+    public String toString(){
+        return (String) name + " " + comment;
     }
 }

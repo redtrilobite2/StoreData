@@ -8,6 +8,7 @@ package com.example.perlmutter.storedata;
 public class Event {
     // Data
     //String eventName;
+    //String sportName;
     String date;
     double time;
     double distance;
@@ -31,15 +32,32 @@ public class Event {
         return date;
     }
 
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+
     public double getTime() {
         return time;
+    }
+
+    public void setTime(double time) {
+        this.time = time;
     }
 
     public double getDistance() {
         return distance;
     }
 
+    public void setDistance(double distance) {
+        this.distance = distance;
+    }
+
     public String getComment() {
         return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 }
