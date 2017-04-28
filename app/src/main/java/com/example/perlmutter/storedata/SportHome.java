@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -34,4 +37,11 @@ public class SportHome extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+    /*public void setTextView (View view){
+        TextView sportName=(TextView) findViewById(R.id.SportName);
+        Spinner spin = (Spinner) findViewById(R.id.spinner);
+        String text=spin.getSelectedItem().toString();
+        sportName.setText(text);
+    }*/
 }

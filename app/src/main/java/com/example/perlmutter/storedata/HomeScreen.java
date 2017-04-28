@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 public class HomeScreen extends Activity implements AdapterView.OnItemSelectedListener {
     public Button makeNewSport;
@@ -22,7 +23,7 @@ public class HomeScreen extends Activity implements AdapterView.OnItemSelectedLi
         setContentView(R.layout.activity_homescreen);
 
         spin = (Spinner) findViewById(R.id.spinner);
-        String sports[] = {"Select a sport","Track", "Soccer", "Basketball", "Swimming"};
+        String sports[] = {"Select your sport","Track", "Soccer", "Basketball", "Swimming"};
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, sports);
         spin.setAdapter(adapter);
         spin.setOnItemSelectedListener(this);
@@ -33,6 +34,11 @@ public class HomeScreen extends Activity implements AdapterView.OnItemSelectedLi
         if (pos!=0) {
             Intent intent = new Intent(HomeScreen.this, SportHome.class);
             startActivity(intent);
+
+            TextView sportName=(TextView) findViewById(R.id.SportName);
+            Spinner spin = (Spinner) findViewById(R.id.spinner);
+            String text=spin.getSelectedItem().toString();
+            sportName.setText(text);
         }
     }
 
