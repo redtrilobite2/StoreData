@@ -59,14 +59,43 @@ public class CreateSport extends AppCompatActivity {
         String check2 = sport.getName();
 
         Log.i("Ellie", check1 + check2);
-        printSport();
+        //printSport();
     }
 
     /*public ArrayList getSports() {
         return sports;
     }
 */
-    public void printSport() throws IOException {
+    @Override
+    public void onPause() {
+        super.onPause();
+        try {
+            ArrayList<String> print = new ArrayList<>();
+            FileOutputStream fOut = openFileOutput("NewSport.txt", MODE_PRIVATE);
+            OutputStreamWriter outputWriter = new OutputStreamWriter(fOut);
+            final Controller aController = (Controller) getApplicationContext();
+            ArrayList sports = aController.getSports();
+            PrintData printData = new PrintData(sports);
+            for (int i = 0; i < aController.getSports().size(); i++) {
+                print = printData.print();
+                outputWriter.write(print.get(i));
+            }
+
+            outputWriter.close();
+
+            //display file
+            Toast.makeText(getBaseContext(), (String) printData.print().get(1), Toast.LENGTH_LONG).show();
+            Log.i("Ellie", (String) printData.print().get(1));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // EditText test = (EditText) findViewById(R.id.sportname);
+        // ReadBtn(test);
+
+    }
+
+/*    public void printSport() throws IOException {
 
         try {
             FileOutputStream fOut = openFileOutput("NewSport.txt", MODE_PRIVATE);
@@ -112,7 +141,7 @@ public class CreateSport extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }
 
 

@@ -49,6 +49,6 @@ public class Sport {
 
     @Override
     public String toString(){
-        return (String) name + " " + comment;
+        return name + " " + comment;
     }
 }

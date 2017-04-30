@@ -16,6 +16,10 @@ public class Controller extends Application {
         return allSports.get(0);
     }
 
+    public ArrayList getSports(){
+        return allSports;
+    }
+
      public void addSport(Sport sport) {
         allSports.add(sport);
     }

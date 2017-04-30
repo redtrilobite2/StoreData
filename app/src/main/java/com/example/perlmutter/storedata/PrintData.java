@@ -1,45 +1,31 @@
 package com.example.perlmutter.storedata;
 
-
-/**
- * Created by Ellie DeSota on 4/12/2017.
- */
-import android.app.Activity;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
+/**
+ * Created by Ellie DeSota on 4/30/2017.
+ */
 
-public class PrintData extends Activity {
-    //Data
-    Controller aController = (Controller) getApplicationContext();
-    Sport sport = new Sport();
-    ArrayList<Event> events = new ArrayList<>();
-    ArrayList<Sport> sports = new ArrayList<>();
+class PrintData {
+    private ArrayList sports;
+    private Sport sport;
 
-    //Constructor
-    public PrintData(ArrayList sports) {
-        this.sports = sports;
-        this.events = sport.getEvent();
+    public PrintData(ArrayList sport) {
+        this.sports = sport;
     }
 
-    //Methods
-
-    public String printEvent() {
-        String output = new String();
+    public ArrayList print() {
+        ArrayList<String> data = new ArrayList<>();
+        ArrayList<Event> events = new ArrayList<>();
         for (int i = 0; i < sports.size(); i++) {
-            Sport thisSport = sports.get(i);
+            sport = (Sport) sports.get(i);
             for (int m = 0; m < events.size(); m++) {
-                Event event = (Event) events.get(m);
-               output = (thisSport.getName() + " ;; " + thisSport.getComment() + " ;; " + event.getTime() + " ;; "
-                        + event.getDistance() + " ;; " + event.getDate() + " ;; " + event.getComment());
+                events = sport.getEvent();
+                data.add(sport.getName() + " ;; " + sport.getComment() + " ;; " + events.get(m).getTime() + " ;; "
+                        + events.get(m).getDistance() + " ;; " + events.get(m).getDate() + " ;; " + events.get(m).getComment());
             }
-
-
         }
-        return output;
+        return data;
     }
 }
-
-
-
-
-
