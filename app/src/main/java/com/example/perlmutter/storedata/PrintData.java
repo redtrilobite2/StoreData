@@ -1,31 +1,35 @@
 package com.example.perlmutter.storedata;
 
-import java.io.FileNotFoundException;
+import android.util.Log;
+
 import java.util.ArrayList;
 
 /**
  * Created by Ellie DeSota on 4/30/2017.
+ * The PrintData class takes an ArrayList of the Sport class and prints out all of the events in the given format.
  */
 
-class PrintData {
-    private ArrayList sports;
-    private Sport sport;
+public class PrintData {
+    ArrayList <Sport> sports;
+    ArrayList<String> data = new ArrayList<>();
+    ArrayList<Event> events = new ArrayList<>();
 
-    public PrintData(ArrayList sport) {
-        this.sports = sport;
+    public PrintData(ArrayList <Sport> sports) {
+    this.sports = sports;
     }
 
     public ArrayList print() {
-        ArrayList<String> data = new ArrayList<>();
-        ArrayList<Event> events = new ArrayList<>();
+        Log.i("EllieWrite", "Inprint");
+        Sport sport;
         for (int i = 0; i < sports.size(); i++) {
-            sport = (Sport) sports.get(i);
+            sport = sports.get(i);
+            events = sport.getEvent();
             for (int m = 0; m < events.size(); m++) {
-                events = sport.getEvent();
                 data.add(sport.getName() + " ;; " + sport.getComment() + " ;; " + events.get(m).getTime() + " ;; "
                         + events.get(m).getDistance() + " ;; " + events.get(m).getDate() + " ;; " + events.get(m).getComment());
             }
         }
+        Log.i("EllieWrite", Integer.toString(data.size()));
         return data;
     }
 }

@@ -10,20 +10,21 @@ import android.widget.Toast;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.StringTokenizer;
 
 import static java.lang.Double.parseDouble;
 
 public class Storedata extends AppCompatActivity {
 
-    private CreateSport sports = new CreateSport();
+    /*private CreateSport sports = new CreateSport();
     private HomeScreen name = new HomeScreen();
     private EditText sportName;
-    static final int READ_BLOCK_SIZE = 200;
-    Sport thisSport;
+    static final int READ_BLOCK_SIZE = 200;*/
+    //Sport thisSport;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,19 +35,18 @@ public class Storedata extends AppCompatActivity {
     public void toViewData(View view) {
         Intent intent = new Intent(Storedata.this, ViewData.class);
         startActivity(intent);
-        saveData();
+        saveData(view);
     }
 
     public void toSportHome(View view) {
         Intent intent = new Intent(Storedata.this, SportHome.class);
         startActivity(intent);
-        saveData();
+        saveData(view);
     }
 
-    public void saveData() {
+    public void saveData(View view) {
         Controller aController = (Controller) getApplicationContext();
         Log.i("stop", "Entered into newEvent");
-        thisSport = new Sport();
 
         EditText distancePull = (EditText) findViewById(R.id.distance);
         EditText timePull = (EditText) findViewById(R.id.time);
@@ -67,23 +67,79 @@ public class Storedata extends AppCompatActivity {
         if (distance != 0 && time != 0 && !dateStr.equals("00/00/00")) {
             Event event = new Event(time, distance, dateStr, commentStr);
             aController.getSport("mySport").addEvent(event);
-            Log.i("EllieSaveSport", event.toString());
+            Log.i("EllieSaveSport", aController.getSport("mySport").getEvent().toString());
+            Log.i("Ellie", Integer.toString(aController.getSport("mySport").getEvent().size()));
+        }
+
+        click(view);
+    }
+
+    public void click(View view) {
+        //super.onDestroy();
+        try {
+            ArrayList<String> print;
+            FileOutputStream fOut = openFileOutput("NewSport.txt", MODE_PRIVATE);
+            OutputStreamWriter outputWriter = new OutputStreamWriter(fOut);
+            final Controller aController = (Controller) getApplicationContext();
+            ArrayList sports = aController.getSports();
+            PrintData printData = new PrintData(sports);
+            Log.i("EllieCheck",Integer.toString(aController.getSport("mySport").getEvent().size())+" "+ Integer.toString(sports.size()));
+            for (int i = 0; i < sports.size(); i++) {
+                Log.i("EllieWrite", "inForLoop");
+                print = printData.print();
+                Log.i("EllieWrite", print.get(i));
+                outputWriter.write(print.get(i));
+                Log.i("EllieWrite", print.get(i));
+            }
+            outputWriter.close();
+            //display file
+            Toast.makeText(getBaseContext(), (String) printData.print().get(1), Toast.LENGTH_LONG).show();
+            Log.i("Ellie", (String) printData.print().get(1));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        click2();
+    }
+   // @Override
+    public void click2() {
+      //  super.onStart();
+        //reading text from file
+        try {
+            FileInputStream fIn = openFileInput("NewSport.txt");
+            InputStreamReader inRead = new InputStreamReader(fIn);
+            Scanner scan = new Scanner(inRead);
+            Controller aController = new Controller();
+            ArrayList<Sport> sports = aController.getSports();
+            Log.i("EllieScannerCheck",scan.nextLine());
+
+            while (scan.hasNextLine()) {
+                String lineString = scan.nextLine();
+                StringTokenizer help = new StringTokenizer(lineString, ";;");
+                Log.i("EllieHelp", help.nextToken());
+
+            }
+            inRead.close();
+           // Toast.makeText(getBaseContext(), aController.getSport("mysport").getEvent().toString(), Toast.LENGTH_SHORT).show();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
+   /* @Override
+    public void onStop() {
+        super.onStop();
         try {
-            ArrayList<String> print = new ArrayList<>();
+            ArrayList<String> print;
             FileOutputStream fOut = openFileOutput("NewSport.txt", MODE_PRIVATE);
             OutputStreamWriter outputWriter = new OutputStreamWriter(fOut);
             final Controller aController = (Controller) getApplicationContext();
             ArrayList sports = aController.getSports();
             PrintData printData = new PrintData(sports);
             for (int i = 0; i < aController.getSports().size(); i++) {
-                print = printData.print();
-                outputWriter.write(print.get(i));
+                print =  printData.print();
+                outputWriter.write( print.get(i));
             }
 
             outputWriter.close();
@@ -95,36 +151,8 @@ public class Storedata extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        // EditText test = (EditText) findViewById(R.id.sportname);
-        // ReadBtn(test);
-
     }
-
-    public void ReadBtn(View v) throws IOException {
-        //reading text from file
-        try {
-            FileInputStream fIn = openFileInput("NewSport.txt");
-            InputStreamReader inRead = new InputStreamReader(fIn);
-
-
-            char[] inputBuffer = new char[READ_BLOCK_SIZE];
-            String s = "";
-            int charRead;
-
-            while ((charRead = inRead.read(inputBuffer)) > 0) {
-                // char to string conversion
-                String readString = String.copyValueOf(inputBuffer, 0, charRead);
-                s += readString;
-            }
-            inRead.close();
-            sportName.setText(s);
-            Toast.makeText(getBaseContext(), s, Toast.LENGTH_SHORT).show();
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+*/
 }
 
 

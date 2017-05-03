@@ -2,6 +2,7 @@ package com.example.perlmutter.storedata;
 
 /**
  * Created by Ellie DeSota on 4/12/2017.
+ * This class Event constricts an instance of an Event with the paramaters time, distance, date, and comment.
  */
 
 
@@ -9,10 +10,10 @@ public class Event {
     // Data
     //String eventName;
     //String sportName;
-    String date;
-    double time;
-    double distance;
-    String comment;
+    private String date;
+    private double time;
+    private double distance;
+    private String comment;
 
     // Constructor
     public Event(double time, double distance, String date, String comment) {
@@ -32,33 +33,16 @@ public class Event {
         return date;
     }
 
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-
     public double getTime() {
         return time;
-    }
-
-    public void setTime(double time) {
-        this.time = time;
     }
 
     public double getDistance() {
         return distance;
     }
 
-    public void setDistance(double distance) {
-        this.distance = distance;
-    }
-
     public String getComment() {
         return comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
     }
 
     @Override

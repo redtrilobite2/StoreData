@@ -24,11 +24,11 @@ public class SportStyle extends AppCompatActivity {
         startActivity(intent);
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
+   /* @Override
+    public void onStop() {
+        super.onStop();
         try {
-            ArrayList<String> print = new ArrayList<>();
+            ArrayList<String> print;
             FileOutputStream fOut = openFileOutput("NewSport.txt", MODE_PRIVATE);
             OutputStreamWriter outputWriter = new OutputStreamWriter(fOut);
             final Controller aController = (Controller) getApplicationContext();
@@ -47,9 +47,5 @@ public class SportStyle extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        // EditText test = (EditText) findViewById(R.id.sportname);
-        // ReadBtn(test);
-
-    }
+    }*/
 }

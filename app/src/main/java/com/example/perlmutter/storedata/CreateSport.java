@@ -7,16 +7,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
 public class CreateSport extends AppCompatActivity {
-    private EditText sportName;
-    static final int READ_BLOCK_SIZE = 200;
+    //static final int READ_BLOCK_SIZE = 200;
     //private ArrayList<Sport> sports = new ArrayList<Sport>();
     //private PrintData printSports = new PrintData();
    // private ArrayList<Event> events = new ArrayList<>();
@@ -26,7 +23,7 @@ public class CreateSport extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_createsport);
 
-        sportName = (EditText) findViewById(R.id.sportname);
+        //EditText sportName = (EditText) findViewById(R.id.sportname);
     }
 
     public void toHomeScreen(View view) throws IOException {
@@ -44,14 +41,14 @@ public class CreateSport extends AppCompatActivity {
 
     public void newSport() throws IOException {
         //get Global Controller Class object (see application tag in AndroidManifest.xml)
-       final Controller aController = (Controller) getApplicationContext();
+        Controller aController = (Controller) getApplicationContext();
         EditText namePull = (EditText) findViewById(R.id.sportname);
         EditText commentPull = (EditText) findViewById(R.id.commentCreateSport);
 
         String nameStr = namePull.getText().toString();
         String commentStr = commentPull.getText().toString();
 
-        Sport sport = new Sport(nameStr,commentStr, new ArrayList<Event>());
+        Sport sport = new Sport(nameStr,commentStr);
 
         aController.addSport(sport);
 
@@ -59,65 +56,36 @@ public class CreateSport extends AppCompatActivity {
         String check2 = sport.getName();
 
         Log.i("Ellie", check1 + check2);
-        //printSport();
     }
 
-    /*public ArrayList getSports() {
-        return sports;
-    }
-*/
-    @Override
-    public void onPause() {
-        super.onPause();
+   // @Override
+   /* public void click() {
+        //super.onDestroy();
+        Log.i("Ellie", "I entered");
         try {
-            ArrayList<String> print = new ArrayList<>();
+            ArrayList<String> print;
             FileOutputStream fOut = openFileOutput("NewSport.txt", MODE_PRIVATE);
             OutputStreamWriter outputWriter = new OutputStreamWriter(fOut);
             final Controller aController = (Controller) getApplicationContext();
             ArrayList sports = aController.getSports();
-            PrintData printData = new PrintData(sports);
+            PrintData printData = new PrintData();
             for (int i = 0; i < aController.getSports().size(); i++) {
-                print = printData.print();
+                print = printData.print(sports);
                 outputWriter.write(print.get(i));
+                Log.i("Ellie", print.get(i));
             }
-
             outputWriter.close();
-
             //display file
-            Toast.makeText(getBaseContext(), (String) printData.print().get(1), Toast.LENGTH_LONG).show();
-            Log.i("Ellie", (String) printData.print().get(1));
+            Toast.makeText(getBaseContext(), (String) printData.print(sports).get(1), Toast.LENGTH_LONG).show();
+            Log.i("Ellie", (String) printData.print(sports).get(1));
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        // EditText test = (EditText) findViewById(R.id.sportname);
-        // ReadBtn(test);
-
     }
+*/
 
-/*    public void printSport() throws IOException {
 
-        try {
-            FileOutputStream fOut = openFileOutput("NewSport.txt", MODE_PRIVATE);
-            OutputStreamWriter outputWriter = new OutputStreamWriter(fOut);
-            final Controller aController = (Controller) getApplicationContext();
-            String output = aController.getNewSport().toString();
-            outputWriter.write("finished");
-            outputWriter.close();
-
-            //display file
-            Toast.makeText(getBaseContext()," ", Toast.LENGTH_LONG).show();
-            Log.i("Ellie", output);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        EditText test = (EditText) findViewById(R.id.sportname);
-        ReadBtn(test);
-
-    }
-
-    public void ReadBtn(View v) throws IOException {
+/*    public void ReadBtn(View v) throws IOException {
         //reading text from file
         try {
             FileInputStream fIn = openFileInput("NewSport.txt");

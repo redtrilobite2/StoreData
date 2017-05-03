@@ -1,12 +1,13 @@
 package com.example.perlmutter.storedata;
 
 import android.app.Application;
+import android.util.Log;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
  * Created by Ellie DeSota on 4/25/2017.
+ * The class Controller saves all the data for the app while the app is running.
  */
 
 public class Controller extends Application {
@@ -28,12 +29,15 @@ public class Controller extends Application {
         for (int i = 0; i < allSports.size(); i++) {
             Sport thisSport = allSports.get(i);
             if (name.equalsIgnoreCase(thisSport.getName())) {
+                Log.i("Ellie", "entered getSport");
                 return thisSport;
             }
         }
+
         return null;
     }
-}
+    }
+
 
 
 

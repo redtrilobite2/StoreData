@@ -2,23 +2,19 @@ package com.example.perlmutter.storedata;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
 public class HomeScreen extends Activity implements AdapterView.OnItemSelectedListener {
-    public Button makeNewSport;
 
     Spinner spin;
 
@@ -55,20 +51,17 @@ public class HomeScreen extends Activity implements AdapterView.OnItemSelectedLi
         startActivity(intent);
     }
 
-    public String getSportName() {
-        return "Swimming";
-    }
 
-    @Override
+    /*@Override
     public void onPause() {
         super.onPause();
         try {
-            ArrayList<String> print = new ArrayList<>();
+            ArrayList<String> print;
             FileOutputStream fOut = openFileOutput("NewSport.txt", MODE_PRIVATE);
             OutputStreamWriter outputWriter = new OutputStreamWriter(fOut);
             final Controller aController = (Controller) getApplicationContext();
             ArrayList sports = aController.getSports();
-            PrintData printData = new PrintData(sports);
+            PrintData printData = new PrintData();
             for (int i = 0; i < aController.getSports().size(); i++) {
                 print = printData.print();
                 outputWriter.write(print.get(i));
@@ -82,11 +75,5 @@ public class HomeScreen extends Activity implements AdapterView.OnItemSelectedLi
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        // EditText test = (EditText) findViewById(R.id.sportname);
-        // ReadBtn(test);
-
-    }
-
-
+    }*/
 }

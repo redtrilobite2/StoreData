@@ -5,9 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.FileOutputStream;
@@ -16,6 +13,7 @@ import java.util.ArrayList;
 
 /**
  * Created by Ellie DeSota on 4/6/2017.
+ * Will add comments
  */
 
 public class SportHome extends AppCompatActivity {
@@ -49,16 +47,16 @@ public class SportHome extends AppCompatActivity {
         sportName.setText(text);
     }*/
 
-    @Override
-    public void onPause() {
-        super.onPause();
+   /* @Override
+    public void onStop() {
+        super.onStop();
         try {
-            ArrayList<String> print = new ArrayList<>();
+            ArrayList<String> print;
             FileOutputStream fOut = openFileOutput("NewSport.txt", MODE_PRIVATE);
             OutputStreamWriter outputWriter = new OutputStreamWriter(fOut);
             final Controller aController = (Controller) getApplicationContext();
             ArrayList sports = aController.getSports();
-            PrintData printData = new PrintData(sports);
+            PrintData printData = new PrintData();
             for (int i = 0; i < aController.getSports().size(); i++) {
                 print = printData.print();
                 outputWriter.write(print.get(i));
@@ -72,9 +70,5 @@ public class SportHome extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        // EditText test = (EditText) findViewById(R.id.sportname);
-        // ReadBtn(test);
-
-    }
+    }*/
 }

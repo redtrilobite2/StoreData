@@ -1,20 +1,17 @@
 package com.example.perlmutter.storedata;
 
 import android.content.Intent;
-import android.graphics.Point;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
-
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.DataPointInterface;
 import com.jjoe64.graphview.series.LineGraphSeries;
 import com.jjoe64.graphview.series.OnDataPointTapListener;
 import com.jjoe64.graphview.series.Series;
-
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
@@ -22,7 +19,7 @@ import java.util.ArrayList;
 public class ViewData extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        ArrayList<Integer> Sportarray = new ArrayList<Integer>();
+        ArrayList<Integer> Sportarray = new ArrayList<>();
         Sportarray.add(0);
         Sportarray.add(5);
         Sportarray.add(1);
@@ -59,7 +56,7 @@ public class ViewData extends AppCompatActivity{
         }
         LineGraphSeries<DataPoint> line_series =
 
-                new LineGraphSeries<DataPoint>(data);
+                new LineGraphSeries<>(data);
 
 
         line_graph.addSeries(line_series);
@@ -82,11 +79,11 @@ public class ViewData extends AppCompatActivity{
         startActivity(intent);
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
+  /*  @Override
+    public void onStop() {
+        super.onStop();
         try {
-            ArrayList<String> print = new ArrayList<>();
+            ArrayList<String> print;
             FileOutputStream fOut = openFileOutput("NewSport.txt", MODE_PRIVATE);
             OutputStreamWriter outputWriter = new OutputStreamWriter(fOut);
             final Controller aController = (Controller) getApplicationContext();
@@ -109,7 +106,7 @@ public class ViewData extends AppCompatActivity{
         // EditText test = (EditText) findViewById(R.id.sportname);
         // ReadBtn(test);
 
-    }
+    }*/
 }
 //String tolkenizer
 
