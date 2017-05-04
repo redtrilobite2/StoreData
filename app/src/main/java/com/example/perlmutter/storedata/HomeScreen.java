@@ -22,24 +22,28 @@ public class HomeScreen extends Activity implements AdapterView.OnItemSelectedLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homescreen);
-
+        final Controller aController = (Controller) getApplicationContext();
+        ArrayList<String> sports=aController.allNames();
+        sports.add(0,"Select a sport");
         spin = (Spinner) findViewById(R.id.spinner);
-        String sports[] = {"Select your sport","Track", "Soccer", "Basketball", "Swimming"};
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, sports);
+        //String sports[] = {"Select your sport","Track", "Soccer", "Basketball", "Swimming"};
+        ArrayAdapter<CharSequence> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, sports);
         spin.setAdapter(adapter);
         spin.setOnItemSelectedListener(this);
     }
     public void onItemSelected(AdapterView<?> parent, View view,
                                int pos, long id) {
+        final Controller aController = (Controller) getApplicationContext();
         pos=spin.getSelectedItemPosition();
         if (pos!=0) {
             Intent intent = new Intent(HomeScreen.this, SportHome.class);
             startActivity(intent);
+            aController.setInti(pos);
 
-            TextView sportName=(TextView) findViewById(R.id.SportName);
-            Spinner spin = (Spinner) findViewById(R.id.spinner);
-            String text=spin.getSelectedItem().toString();
-            sportName.setText(text);
+            //TextView sportName=(TextView) findViewById(R.id.SportName);
+            //Spinner spin = (Spinner) findViewById(R.id.spinner);
+            //String text=spin.getSelectedItem().toString();
+            //sportName.setText(text);
         }
     }
 

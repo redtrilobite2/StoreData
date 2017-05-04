@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.FileInputStream;
@@ -30,6 +31,10 @@ public class Storedata extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_storedata);
+        final Controller aController = (Controller) getApplicationContext();
+        String name=aController.allNames().get(aController.getInti());
+        TextView sportName=(TextView) findViewById(R.id.SportName);
+        sportName.setText(name);
     }
 
     public void toViewData(View view) {

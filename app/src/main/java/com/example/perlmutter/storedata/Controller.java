@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class Controller extends Application {
     private ArrayList<Sport> allSports = new ArrayList<>();
-
+    private int i;
     public Sport getNewSport() {
         return allSports.get(0);
     }
@@ -33,8 +33,23 @@ public class Controller extends Application {
                 return thisSport;
             }
         }
-
         return null;
+    }
+    public ArrayList<String> allNames(){
+        Log.i("Please",Integer.toString(allSports.size()));
+        ArrayList<String> allNames=new ArrayList<>();
+        for (int i=0; i<allSports.size(); i++){
+            String name=allSports.get(i).getName();
+            allNames.add(name);
+        }
+        return allNames;
+    }
+    public void setInti(int i){
+        this.i=i;
+    }
+
+    public int getInti(){
+        return i;
     }
     }
 

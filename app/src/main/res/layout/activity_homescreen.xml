@@ -28,15 +28,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.10" />
-    <!--<?xml version="1.0" encoding="utf-8"?>
-    <resources>
-        <string-array android:name="sports_array">
-            <item>Track</item>
-            <item>Soccer</item>
-            <item>Basketball</item>
-            <item>Swimming</item>
-        </string-array>
-    </resources>-->
 
     <TextView
         android:id="@+id/textView5"

@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.FileOutputStream;
@@ -17,10 +19,16 @@ import java.util.ArrayList;
  */
 
 public class SportHome extends AppCompatActivity {
+
+    TextView sport;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sporthome);
+        final Controller aController = (Controller) getApplicationContext();
+        String name=aController.allNames().get(aController.getInti());
+        TextView sportName=(TextView) findViewById(R.id.SportName);
+        sportName.setText(name);
     }
 
     //button controls
@@ -39,6 +47,7 @@ public class SportHome extends AppCompatActivity {
         startActivity(intent);
 
     }
+
 
     /*public void setTextView (View view){
         TextView sportName=(TextView) findViewById(R.id.SportName);

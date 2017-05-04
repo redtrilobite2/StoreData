@@ -40,7 +40,7 @@ class Sport {
         return events;
     }
 
-    public void setName(String newName){ this.name = newName; }
+    public void setName(String newName) { this.name = newName; }
 
     public void addEvent(Event event) {
         Log.i("Ellie", "Entered Event");

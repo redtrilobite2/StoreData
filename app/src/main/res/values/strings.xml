@@ -2,4 +2,6 @@
     <string name="app_name">StoreData</string>
     <string name="title_activity_welcome__screen">Welcome Screen</string>
     <string name="title_activity_welcome_screen">WelcomeScreen</string>
+
+
 </resources>
