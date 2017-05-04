@@ -24,10 +24,6 @@ public class Event {
         this.comment = comment;
     }
 
-    // Method
-    /*public String getEventName() {
-		return eventName;
-	}*/
 
     public String getDate() {
         return date;
