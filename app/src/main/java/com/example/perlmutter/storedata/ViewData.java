@@ -25,9 +25,18 @@ public class ViewData extends AppCompatActivity{
         final Controller control = (Controller)getApplicationContext();
         ArrayList<Double> Sportarray = new ArrayList<Double>();
        ArrayList<Event> sportsarray = control.getSport(control.allNames().get(control.getInti())).getEvent();
-        for(int q= 0; q<sportsarray.size(); q++) {
+        for(int q=0; q<sportsarray.size(); q++) {
+                       if(q==0){
+                Sportarray.add(sportsarray.get(q).getTime());
+                Sportarray.add(sportsarray.get(q).getDistance());
+            }
             Sportarray.add(sportsarray.get(q).getTime());
-            Sportarray.add(  sportsarray.get(q).getDistance());
+            Sportarray.add(sportsarray.get(q).getDistance());
+
+            // time is not 0
+            // Sportarray.add(q);
+            // Sportarray.add(sportsarray.get(q).getDistance())/sportsarray.get(q).getTime());
+
         }
 
         super.onCreate(savedInstanceState);
