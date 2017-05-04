@@ -20,15 +20,18 @@ import java.util.ArrayList;
 
 public class SportHome extends AppCompatActivity {
 
-    TextView sport;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sporthome);
+
         final Controller aController = (Controller) getApplicationContext();
         String name=aController.allNames().get(aController.getInti());
         TextView sportName=(TextView) findViewById(R.id.SportName);
+        Intent intent = getIntent();
+        name=intent.getStringExtra("sportName");
         sportName.setText(name);
+
     }
 
     //button controls

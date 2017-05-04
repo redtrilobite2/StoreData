@@ -25,6 +25,9 @@ public class HomeScreen extends Activity implements AdapterView.OnItemSelectedLi
         final Controller aController = (Controller) getApplicationContext();
         ArrayList<String> sports=aController.allNames();
         sports.add(0,"Select a sport");
+        sports.add(1,"Track");
+        sports.add(2,"Soccer");
+        sports.add(3,"Basketball");
         spin = (Spinner) findViewById(R.id.spinner);
         //String sports[] = {"Select your sport","Track", "Soccer", "Basketball", "Swimming"};
         ArrayAdapter<CharSequence> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, sports);
@@ -35,8 +38,11 @@ public class HomeScreen extends Activity implements AdapterView.OnItemSelectedLi
                                int pos, long id) {
         final Controller aController = (Controller) getApplicationContext();
         pos=spin.getSelectedItemPosition();
+
         if (pos!=0) {
+            //Log.i("Sally", "Por favor");
             Intent intent = new Intent(HomeScreen.this, SportHome.class);
+            intent.putExtra("sportName", spin.getSelectedItem().toString());
             startActivity(intent);
             aController.setInti(pos);
 
