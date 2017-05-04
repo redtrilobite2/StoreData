@@ -1,17 +1,20 @@
 package com.example.perlmutter.storedata;
 
 import android.content.Intent;
+import android.graphics.Point;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.DataPointInterface;
 import com.jjoe64.graphview.series.LineGraphSeries;
 import com.jjoe64.graphview.series.OnDataPointTapListener;
 import com.jjoe64.graphview.series.Series;
+
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
@@ -19,18 +22,13 @@ import java.util.ArrayList;
 public class ViewData extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        ArrayList<Integer> Sportarray = new ArrayList<>();
-        Sportarray.add(0);
-        Sportarray.add(5);
-        Sportarray.add(1);
-        Sportarray.add(4);
-        Sportarray.add(2);
-        Sportarray.add(3);
-        Sportarray.add(3);
-        Sportarray.add(5);
-        Sportarray.add(4);
-        Sportarray.add(5);
-
+        final Controller control = (Controller)getApplicationContext();
+        ArrayList<Double> Sportarray = new ArrayList<Double>();
+       ArrayList<Event> sportsarray = control.getSport(control.allNames().get(control.getInti())).getEvent();
+        for(int q= 0; q<sportsarray.size(); q++) {
+            Sportarray.add(sportsarray.get(q).getTime());
+            Sportarray.add(  sportsarray.get(q).getDistance());
+        }
 
         super.onCreate(savedInstanceState);
 
@@ -56,7 +54,7 @@ public class ViewData extends AppCompatActivity{
         }
         LineGraphSeries<DataPoint> line_series =
 
-                new LineGraphSeries<>(data);
+                new LineGraphSeries<DataPoint>(data);
 
 
         line_graph.addSeries(line_series);
@@ -79,11 +77,11 @@ public class ViewData extends AppCompatActivity{
         startActivity(intent);
     }
 
-  /*  @Override
-    public void onStop() {
-        super.onStop();
+    @Override
+    public void onPause() {
+        super.onPause();
         try {
-            ArrayList<String> print;
+            ArrayList<String> print = new ArrayList<>();
             FileOutputStream fOut = openFileOutput("NewSport.txt", MODE_PRIVATE);
             OutputStreamWriter outputWriter = new OutputStreamWriter(fOut);
             final Controller aController = (Controller) getApplicationContext();
@@ -106,7 +104,7 @@ public class ViewData extends AppCompatActivity{
         // EditText test = (EditText) findViewById(R.id.sportname);
         // ReadBtn(test);
 
-    }*/
+    }
 }
 //String tolkenizer
 
