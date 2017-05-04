@@ -57,7 +57,30 @@ public class CreateSport extends AppCompatActivity {
 
         Log.i("Ellie", check1 + check2);
     }
+@Override
+    public void onDestroy() {
+        super.onDestroy();
+        try {
+            ArrayList<String> print;
+            FileOutputStream fOut = openFileOutput("NewSport.txt", MODE_PRIVATE);
+            OutputStreamWriter outputWriter = new OutputStreamWriter(fOut);
+            final Controller aController = (Controller) getApplicationContext();
+            ArrayList sports = aController.getSports();
+            PrintData printData = new PrintData(sports);
+            Log.i("EllieCheck",Integer.toString(aController.getSport("mySport").getEvent().size())+" "+ Integer.toString(sports.size()));
+            for (int i = 0; i < sports.size(); i++) {
+                print = printData.print();
+                outputWriter.write(print.get(i));
+                Log.i("EllieWrite", print.get(i));
+            }
+            outputWriter.close();
+            //display file
+            Toast.makeText(getBaseContext(), (String) printData.print().get(1), Toast.LENGTH_LONG).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
+    }
    // @Override
    /* public void click() {
         //super.onDestroy();

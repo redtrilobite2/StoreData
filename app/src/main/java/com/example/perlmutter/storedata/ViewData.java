@@ -1,7 +1,6 @@
 package com.example.perlmutter.storedata;
 
 import android.content.Intent;
-import android.graphics.Point;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,11 +22,11 @@ public class ViewData extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         final Controller control = (Controller)getApplicationContext();
-        ArrayList<Double> Sportarray = new ArrayList<Double>();
-       ArrayList<Event> sportsarray = control.getSport(control.allNames().get(control.getInti())).getEvent();
-        for(int q= 0; q<sportsarray.size(); q++) {
-            Sportarray.add(sportsarray.get(q).getTime());
-            Sportarray.add(  sportsarray.get(q).getDistance());
+        ArrayList<Double> Sportarray = new ArrayList<>();
+       ArrayList<Event> eventArray = control.getSport(control.allNames().get(control.getInti())).getEvent();
+        for(int q= 0; q<eventArray.size(); q++) {
+            Sportarray.add(eventArray.get(q).getTime());
+            Sportarray.add(eventArray.get(q).getDistance());
         }
 
         super.onCreate(savedInstanceState);
@@ -54,7 +53,7 @@ public class ViewData extends AppCompatActivity{
         }
         LineGraphSeries<DataPoint> line_series =
 
-                new LineGraphSeries<DataPoint>(data);
+                new LineGraphSeries<>(data);
 
 
         line_graph.addSeries(line_series);
@@ -78,33 +77,28 @@ public class ViewData extends AppCompatActivity{
     }
 
     @Override
-    public void onPause() {
-        super.onPause();
-        try {
-            ArrayList<String> print = new ArrayList<>();
-            FileOutputStream fOut = openFileOutput("NewSport.txt", MODE_PRIVATE);
-            OutputStreamWriter outputWriter = new OutputStreamWriter(fOut);
-            final Controller aController = (Controller) getApplicationContext();
-            ArrayList sports = aController.getSports();
-            PrintData printData = new PrintData(sports);
-            for (int i = 0; i < aController.getSports().size(); i++) {
-                print = printData.print();
-                outputWriter.write(print.get(i));
+        public void onDestroy() {
+            super.onDestroy();
+            try {
+                ArrayList<String> print;
+                FileOutputStream fOut = openFileOutput("NewSport.txt", MODE_PRIVATE);
+                OutputStreamWriter outputWriter = new OutputStreamWriter(fOut);
+                final Controller aController = (Controller) getApplicationContext();
+                ArrayList sports = aController.getSports();
+                PrintData printData = new PrintData(sports);
+                Log.i("EllieCheck",Integer.toString(aController.getSport("mySport").getEvent().size())+" "+ Integer.toString(sports.size()));
+                for (int i = 0; i < sports.size(); i++) {
+                    print = printData.print();
+                    outputWriter.write(print.get(i));
+                    Log.i("EllieWrite", print.get(i));
+                }
+                outputWriter.close();
+                //display file
+                Toast.makeText(getBaseContext(), (String) printData.print().get(1), Toast.LENGTH_LONG).show();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-
-            outputWriter.close();
-
-            //display file
-            Toast.makeText(getBaseContext(), (String) printData.print().get(1), Toast.LENGTH_LONG).show();
-            Log.i("Ellie", (String) printData.print().get(1));
-        } catch (Exception e) {
-            e.printStackTrace();
         }
-
-        // EditText test = (EditText) findViewById(R.id.sportname);
-        // ReadBtn(test);
-
     }
-}
-//String tolkenizer
+
 
