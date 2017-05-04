@@ -90,16 +90,13 @@ public class Storedata extends AppCompatActivity {
             PrintData printData = new PrintData(sports);
             Log.i("EllieCheck",Integer.toString(aController.getSport("mySport").getEvent().size())+" "+ Integer.toString(sports.size()));
             for (int i = 0; i < sports.size(); i++) {
-                Log.i("EllieWrite", "inForLoop");
                 print = printData.print();
-                Log.i("EllieWrite", print.get(i));
                 outputWriter.write(print.get(i));
                 Log.i("EllieWrite", print.get(i));
             }
             outputWriter.close();
             //display file
             Toast.makeText(getBaseContext(), (String) printData.print().get(1), Toast.LENGTH_LONG).show();
-            Log.i("Ellie", (String) printData.print().get(1));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -115,12 +112,16 @@ public class Storedata extends AppCompatActivity {
             Scanner scan = new Scanner(inRead);
             Controller aController = new Controller();
             ArrayList<Sport> sports = aController.getSports();
-            Log.i("EllieScannerCheck",scan.nextLine());
 
             while (scan.hasNextLine()) {
+                Log.i("EllieInWhile", "In while loop");
                 String lineString = scan.nextLine();
                 StringTokenizer help = new StringTokenizer(lineString, ";;");
-                Log.i("EllieHelp", help.nextToken());
+                String sportName = help.nextToken();
+                sports.add(new Sport(sportName, help.nextToken()));
+
+                aController.getSport(sportName).addEvent(new Event (Double.parseDouble(help.nextToken()), Double.parseDouble(help.nextToken()), help.nextToken(), help.nextToken()));
+
 
             }
             inRead.close();
