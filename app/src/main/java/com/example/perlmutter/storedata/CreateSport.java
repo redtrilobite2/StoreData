@@ -35,6 +35,9 @@ public class CreateSport extends AppCompatActivity {
     public void toStoreData(View view) throws IOException {
         newSport();
         Intent intent = new Intent(CreateSport.this, SportHome.class);
+        EditText namePull = (EditText) findViewById(R.id.sportname);
+        String nameStr = namePull.getText().toString();
+        intent.putExtra("sportName", nameStr);
         startActivity(intent);
     }
 

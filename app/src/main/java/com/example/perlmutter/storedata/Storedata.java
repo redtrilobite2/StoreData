@@ -31,9 +31,11 @@ public class Storedata extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_storedata);
-        final Controller aController = (Controller) getApplicationContext();
-        String name=aController.allNames().get(aController.getInti());
+      //  final Controller aController = (Controller) getApplicationContext();
+        //String name=aController.allNames().get(aController.getInti());
         TextView sportName=(TextView) findViewById(R.id.SportName);
+        Intent intent = getIntent();
+        String name=intent.getStringExtra("sportName");
         sportName.setText(name);
     }
 
