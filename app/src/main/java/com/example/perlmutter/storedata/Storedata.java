@@ -78,11 +78,12 @@ public class Storedata extends AppCompatActivity {
             Log.i("Ellie", Integer.toString(aController.getSport("mySport").getEvent().size()));
         }
 
-        click(view);
+
     }
 
-    public void click(View view) {
-        //super.onDestroy();
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
         try {
             ArrayList<String> print;
             FileOutputStream fOut = openFileOutput("NewSport.txt", MODE_PRIVATE);
@@ -102,37 +103,7 @@ public class Storedata extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        click2();
-    }
-   // @Override
-    public void click2() {
-      //  super.onStart();
-        //reading text from file
-        try {
-            FileInputStream fIn = openFileInput("NewSport.txt");
-            InputStreamReader inRead = new InputStreamReader(fIn);
-            Scanner scan = new Scanner(inRead);
-            Controller aController = new Controller();
-            ArrayList<Sport> sports = aController.getSports();
 
-            while (scan.hasNextLine()) {
-                Log.i("EllieInWhile", "In while loop");
-                String lineString = scan.nextLine();
-                StringTokenizer help = new StringTokenizer(lineString, ";;");
-                String sportName = help.nextToken();
-                sports.add(new Sport(sportName, help.nextToken()));
-
-                aController.getSport(sportName).addEvent(new Event (Double.parseDouble(help.nextToken()), Double.parseDouble(help.nextToken()), help.nextToken(), help.nextToken()));
-
-
-            }
-            inRead.close();
-           // Toast.makeText(getBaseContext(), aController.getSport("mysport").getEvent().toString(), Toast.LENGTH_SHORT).show();
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
    /* @Override

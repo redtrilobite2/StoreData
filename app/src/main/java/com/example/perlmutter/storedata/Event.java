@@ -2,7 +2,7 @@ package com.example.perlmutter.storedata;
 
 /**
  * Created by Ellie DeSota on 4/12/2017.
- * This class Event constricts an instance of an Event with the paramaters time, distance, date, and comment.
+ * This class Event constructs an instance of an Event with the paramaters time, distance, date, and comment.
  */
 
 
