@@ -23,7 +23,7 @@ public class ViewData extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         final Controller control = (Controller)getApplicationContext();
-        ArrayList<Double> Sportarray = new ArrayList<Double>();
+        ArrayList<Double> Sportarray = new ArrayList<>();
        ArrayList<Event> sportsarray = control.getSport(control.allNames().get(control.getInti())).getEvent();
         for(int q= 0; q<sportsarray.size(); q++) {
             Sportarray.add(sportsarray.get(q).getTime());
@@ -54,7 +54,7 @@ public class ViewData extends AppCompatActivity{
         }
         LineGraphSeries<DataPoint> line_series =
 
-                new LineGraphSeries<DataPoint>(data);
+                new LineGraphSeries<>(data);
 
 
         line_graph.addSeries(line_series);
@@ -75,6 +75,7 @@ public class ViewData extends AppCompatActivity{
     public void toSportHome(View view) {
         Intent intent=new Intent(ViewData.this, SportHome.class);
         startActivity(intent);
+        //does this push
     }
 
     @Override

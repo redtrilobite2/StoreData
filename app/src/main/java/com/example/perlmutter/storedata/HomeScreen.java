@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
@@ -23,43 +22,40 @@ public class HomeScreen extends Activity implements AdapterView.OnItemSelectedLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homescreen);
         final Controller aController = (Controller) getApplicationContext();
-        ArrayList<String> sports=aController.allNames();
-        sports.add(0,"Select a sport");
-        sports.add(1,"Track");
-        sports.add(2,"Soccer");
-        sports.add(3,"Basketball");
+        ArrayList<String> sports = aController.allNames();
+        sports.add(0, "Select a sport");
+        sports.add(1, "Track");
+        sports.add(2, "Soccer");
+        sports.add(3, "Basketball");
         spin = (Spinner) findViewById(R.id.spinner);
-        //String sports[] = {"Select your sport","Track", "Soccer", "Basketball", "Swimming"};
         ArrayAdapter<CharSequence> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, sports);
         spin.setAdapter(adapter);
         spin.setOnItemSelectedListener(this);
     }
+
     public void onItemSelected(AdapterView<?> parent, View view,
                                int pos, long id) {
         final Controller aController = (Controller) getApplicationContext();
-        pos=spin.getSelectedItemPosition();
+        pos = spin.getSelectedItemPosition();
 
-        if (pos!=0) {
-            //Log.i("Sally", "Por favor");
+        if (pos != 0) {
             Intent intent = new Intent(HomeScreen.this, SportHome.class);
             intent.putExtra("sportName", spin.getSelectedItem().toString());
             startActivity(intent);
             aController.setInti(pos);
 
-            //TextView sportName=(TextView) findViewById(R.id.SportName);
-            //Spinner spin = (Spinner) findViewById(R.id.spinner);
-            //String text=spin.getSelectedItem().toString();
-            //sportName.setText(text);
         }
     }
 
     public void onNothingSelected(AdapterView<?> parent) {
         // Another interface callback
     }
+
     public void toSportStyle(View view) {
         Intent intent = new Intent(HomeScreen.this, SportStyle.class);
         startActivity(intent);
     }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -70,7 +66,7 @@ public class HomeScreen extends Activity implements AdapterView.OnItemSelectedLi
             final Controller aController = (Controller) getApplicationContext();
             ArrayList sports = aController.getSports();
             PrintData printData = new PrintData(sports);
-            Log.i("EllieCheck",Integer.toString(aController.getSport("mySport").getEvent().size())+" "+ Integer.toString(sports.size()));
+            Log.i("EllieCheck", Integer.toString(aController.getSport("mySport").getEvent().size()) + " " + Integer.toString(sports.size()));
             for (int i = 0; i < sports.size(); i++) {
                 print = printData.print();
                 outputWriter.write(print.get(i));
@@ -85,28 +81,4 @@ public class HomeScreen extends Activity implements AdapterView.OnItemSelectedLi
 
     }
 
-    /*@Override
-    public void onPause() {
-        super.onPause();
-        try {
-            ArrayList<String> print;
-            FileOutputStream fOut = openFileOutput("NewSport.txt", MODE_PRIVATE);
-            OutputStreamWriter outputWriter = new OutputStreamWriter(fOut);
-            final Controller aController = (Controller) getApplicationContext();
-            ArrayList sports = aController.getSports();
-            PrintData printData = new PrintData();
-            for (int i = 0; i < aController.getSports().size(); i++) {
-                print = printData.print();
-                outputWriter.write(print.get(i));
-            }
-
-            outputWriter.close();
-
-            //display file
-            Toast.makeText(getBaseContext(), (String) printData.print().get(1), Toast.LENGTH_LONG).show();
-            Log.i("Ellie", (String) printData.print().get(1));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }*/
 }

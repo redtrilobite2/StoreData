@@ -34,7 +34,7 @@ public class WelcomeScreen extends AppCompatActivity {
 
                 aController.getSport(sportName).addEvent(new Event(Double.parseDouble(help.nextToken()), Double.parseDouble(help.nextToken()), help.nextToken(), help.nextToken()));
 
-
+Log.i("EllieHelp", sports.get(0).toString());
             }
             inRead.close();
             // Toast.makeText(getBaseContext(), aController.getSport("mysport").getEvent().toString(), Toast.LENGTH_SHORT).show();
