@@ -25,18 +25,20 @@ public class SportHome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sporthome);
 
-        final Controller aController = (Controller) getApplicationContext();
-        String name=aController.allNames().get(aController.getInti());
+        //final Controller aController = (Controller) getApplicationContext();
+       // String name=aController.allNames().get(aController.getInti());
         TextView sportName=(TextView) findViewById(R.id.SportName);
         Intent intent = getIntent();
-        name=intent.getStringExtra("sportName");
+        String name=intent.getStringExtra("sportName");
         sportName.setText(name);
 
     }
 
     //button controls
     public void toStoreData(View view) {
+        TextView sportName=(TextView) findViewById(R.id.SportName);
         Intent intent = new Intent(SportHome.this, Storedata.class);
+        intent.putExtra("sportName", sportName.getText());
         startActivity(intent);
     }
 
