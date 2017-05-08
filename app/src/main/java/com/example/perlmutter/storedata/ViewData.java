@@ -28,19 +28,21 @@ public class ViewData extends AppCompatActivity{
        double counterdt = 0;
         double dt = 1;
         for(int q=0; q<sportsarray.size(); q++) {
-            counterdt++;
-            dt = sportsarray.get(q).getDistance()/sportsarray.get(q).getTime();
-                       if(q==0){
-                                 Sportarray.add(0.0);
-                                 Sportarray.add(0.0);
 
-               // Sportarray.add(sportsarray.get(q).getTime());
-              //  Sportarray.add(sportsarray.get(q).getDistance());
+            if(sportsarray.get(q).getTime()!=0) {
+                counterdt++;
+                dt = sportsarray.get(q).getDistance() / sportsarray.get(q).getTime();
+                if (q == 0) {
+                    Sportarray.add(0.0);
+                    Sportarray.add(0.0);
+
+                    // Sportarray.add(sportsarray.get(q).getTime());
+                    //  Sportarray.add(sportsarray.get(q).getDistance());
+                }
+
+                Sportarray.add(counterdt);
+                Sportarray.add(dt);
             }
-
-            Sportarray.add(counterdt);
-            Sportarray.add(dt);
-
            // Sportarray.add(sportsarray.get(q).getTime());
             //Sportarray.add(sportsarray.get(q).getDistance());
 
