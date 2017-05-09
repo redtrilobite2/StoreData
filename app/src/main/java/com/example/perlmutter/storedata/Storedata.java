@@ -26,7 +26,7 @@ public class Storedata extends AppCompatActivity {
     private EditText sportName;
     static final int READ_BLOCK_SIZE = 200;*/
     //Sport thisSport;
-
+    //TextView sportName=(TextView) findViewById(R.id.SportName);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +54,7 @@ public class Storedata extends AppCompatActivity {
     public void saveData(View view) {
         Controller aController = (Controller) getApplicationContext();
         Log.i("stop", "Entered into newEvent");
-
+        TextView sportName=(TextView) findViewById(R.id.SportName);
         EditText distancePull = (EditText) findViewById(R.id.distance);
         EditText timePull = (EditText) findViewById(R.id.time);
         EditText datePull = (EditText) findViewById(R.id.date);
@@ -73,7 +73,7 @@ public class Storedata extends AppCompatActivity {
 
         if (distance != 0 && time != 0 && !dateStr.equals("00/00/00")) {
             Event event = new Event(time, distance, dateStr, commentStr);
-            aController.getSport("mySport").addEvent(event);
+            aController.getSport(sportName.getText().toString()).addEvent(event);
             Log.i("EllieSaveSport", aController.getSport("mySport").getEvent().toString());
             Log.i("Ellie", Integer.toString(aController.getSport("mySport").getEvent().size()));
         }
