@@ -26,12 +26,12 @@ public class ViewData extends AppCompatActivity{
         ArrayList<Double> Sportarray = new ArrayList<Double>();
        ArrayList<Event> sportsarray = control.getSport(control.allNames().get(control.getInti())).getEvent();
        double counterdt = 0;
-        double dt = 1;
+        double rate = 1;
         for(int q=0; q<sportsarray.size(); q++) {
 
             if(sportsarray.get(q).getTime()!=0) {
                 counterdt++;
-                dt = sportsarray.get(q).getDistance() / sportsarray.get(q).getTime();
+                rate = sportsarray.get(q).getDistance() / sportsarray.get(q).getTime();
                 if (q == 0) {
                     Sportarray.add(0.0);
                     Sportarray.add(0.0);
@@ -41,7 +41,7 @@ public class ViewData extends AppCompatActivity{
                 }
 
                 Sportarray.add(counterdt);
-                Sportarray.add(dt);
+                Sportarray.add(rate);
             }
            // Sportarray.add(sportsarray.get(q).getTime());
             //Sportarray.add(sportsarray.get(q).getDistance());
@@ -64,10 +64,7 @@ public class ViewData extends AppCompatActivity{
 
         for(int j =0; j<Sportarray.size()/2; j++ ){
             DataPoint datap = data[j];
-            if(datap != null){Log.i("Kent", "Good");}
-            if(datap == null){
 
-            }
             System.out.println(datap.getX());
 
             System.out.println(datap.getY());
