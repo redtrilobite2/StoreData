@@ -37,13 +37,11 @@ public class Controller extends Application {
     }
     public ArrayList<String> allNames(){
         Log.i("Please",Integer.toString(allSports.size()));
-        String name;
-        ArrayList<String> allNames = new ArrayList<>();
-        for (int i=0; i < allSports.size(); i++){
-            name = allSports.get(i).getName();
+        ArrayList<String> allNames=new ArrayList<>();
+        for (int i=0; i<allSports.size(); i++){
+            String name=allSports.get(i).getName();
             allNames.add(name);
         }
-        Log.i("Ellie", Integer.toString(allNames.size()));
         return allNames;
     }
     public void setInti(int i){
