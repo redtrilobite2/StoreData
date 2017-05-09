@@ -61,81 +61,31 @@ public class CreateSport extends AppCompatActivity {
         Log.i("Ellie", check1 + check2);
     }
 @Override
-    public void onDestroy() {
-        super.onDestroy();
-        try {
-            ArrayList<String> print;
-            FileOutputStream fOut = openFileOutput("NewSport.txt", MODE_PRIVATE);
-            OutputStreamWriter outputWriter = new OutputStreamWriter(fOut);
-            final Controller aController = (Controller) getApplicationContext();
-            ArrayList sports = aController.getSports();
-            PrintData printData = new PrintData(sports);
-            Log.i("EllieCheck",Integer.toString(aController.getSport("mySport").getEvent().size())+" "+ Integer.toString(sports.size()));
-            for (int i = 0; i < sports.size(); i++) {
-                print = printData.print();
-                outputWriter.write(print.get(i));
-                Log.i("EllieWrite", print.get(i));
-            }
-            outputWriter.close();
-            //display file
-            Toast.makeText(getBaseContext(), (String) printData.print().get(1), Toast.LENGTH_LONG).show();
-        } catch (Exception e) {
-            e.printStackTrace();
+public void onDestroy() {
+    Log.i("Ellie", "In onDestroy");
+    // super.onDestroy();
+    try {
+        ArrayList<String> print;
+        FileOutputStream fOut = openFileOutput("NewSport.txt", MODE_PRIVATE);
+        OutputStreamWriter outputWriter = new OutputStreamWriter(fOut);
+        final Controller aController = (Controller) getApplicationContext();
+        ArrayList sports = aController.getSports();
+        PrintData printData = new PrintData(sports);
+        Log.i("EllieCheck",Integer.toString(aController.getSport("mySport").getEvent().size())+" "+ Integer.toString(sports.size()));
+        for (int i = 0; i < sports.size(); i++) {
+            print = printData.print();
+            outputWriter.write(print.get(i));
+            Log.i("EllieWrite", print.get(i));
         }
-
+        outputWriter.close();
+        //display file
+        Toast.makeText(getBaseContext(), (String) printData.print().get(1), Toast.LENGTH_LONG).show();
+    } catch (Exception e) {
+        e.printStackTrace();
     }
-   // @Override
-   /* public void click() {
-        //super.onDestroy();
-        Log.i("Ellie", "I entered");
-        try {
-            ArrayList<String> print;
-            FileOutputStream fOut = openFileOutput("NewSport.txt", MODE_PRIVATE);
-            OutputStreamWriter outputWriter = new OutputStreamWriter(fOut);
-            final Controller aController = (Controller) getApplicationContext();
-            ArrayList sports = aController.getSports();
-            PrintData printData = new PrintData();
-            for (int i = 0; i < aController.getSports().size(); i++) {
-                print = printData.print(sports);
-                outputWriter.write(print.get(i));
-                Log.i("Ellie", print.get(i));
-            }
-            outputWriter.close();
-            //display file
-            Toast.makeText(getBaseContext(), (String) printData.print(sports).get(1), Toast.LENGTH_LONG).show();
-            Log.i("Ellie", (String) printData.print(sports).get(1));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-*/
 
+}
 
-/*    public void ReadBtn(View v) throws IOException {
-        //reading text from file
-        try {
-            FileInputStream fIn = openFileInput("NewSport.txt");
-            InputStreamReader inRead = new InputStreamReader(fIn);
-
-
-            char[] inputBuffer = new char[READ_BLOCK_SIZE];
-            String s = "";
-            int charRead;
-
-            while ((charRead = inRead.read(inputBuffer)) > 0) {
-                // char to string conversion
-                String readString = String.copyValueOf(inputBuffer, 0, charRead);
-                s += readString;
-            }
-            inRead.close();
-            sportName.setText(s);
-            Toast.makeText(getBaseContext(), s, Toast.LENGTH_SHORT).show();
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }*/
 }
 
 

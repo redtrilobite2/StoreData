@@ -55,7 +55,7 @@ public class SportHome extends AppCompatActivity {
 
     @Override
     public void onDestroy() {
-        super.onDestroy();
+       // super.onDestroy();
         try {
             ArrayList<String> print;
             FileOutputStream fOut = openFileOutput("NewSport.txt", MODE_PRIVATE);
