@@ -1,6 +1,7 @@
 package com.example.perlmutter.storedata;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Point;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import com.jjoe64.graphview.series.Series;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+
 
 public class ViewData extends AppCompatActivity{
     @Override
@@ -76,6 +78,7 @@ public class ViewData extends AppCompatActivity{
 
         line_graph.addSeries(line_series);
         line_series.setDrawDataPoints(true);
+        line_series.setColor(Color.rgb(27, 119, 20));
         line_series.setDataPointsRadius(10); // set the radius of data point
         line_series.setOnDataPointTapListener(new OnDataPointTapListener() {
             @Override
