@@ -15,6 +15,7 @@ public class WelcomeScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.i("EllieInOnCreate", "InOnCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcomescreen);
 
@@ -22,7 +23,7 @@ public class WelcomeScreen extends AppCompatActivity {
             FileInputStream fIn = openFileInput("NewSport.txt");
             InputStreamReader inRead = new InputStreamReader(fIn);
             Scanner scan = new Scanner(inRead);
-            Controller aController = new Controller();
+            Controller aController = (Controller) getApplicationContext();
             ArrayList<Sport> sports = aController.getSports();
 
             while (scan.hasNextLine()) {
@@ -34,12 +35,10 @@ public class WelcomeScreen extends AppCompatActivity {
 
                 aController.getSport(sportName).addEvent(new Event(Double.parseDouble(help.nextToken()), Double.parseDouble(help.nextToken()), help.nextToken(), help.nextToken()));
 
-Log.i("EllieHelp", sports.get(0).toString());
+                aController.allNames();
+                Log.i("EllieHelp", aController.allNames().get(0));
             }
             inRead.close();
-            // Toast.makeText(getBaseContext(), aController.getSport("mysport").getEvent().toString(), Toast.LENGTH_SHORT).show();
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -21,18 +21,10 @@ import static java.lang.Double.parseDouble;
 
 public class Storedata extends AppCompatActivity {
 
-    /*private CreateSport sports = new CreateSport();
-    private HomeScreen name = new HomeScreen();
-    private EditText sportName;
-    static final int READ_BLOCK_SIZE = 200;*/
-    //Sport thisSport;
-    //TextView sportName=(TextView) findViewById(R.id.SportName);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_storedata);
-      //  final Controller aController = (Controller) getApplicationContext();
-        //String name=aController.allNames().get(aController.getInti());
         TextView sportName=(TextView) findViewById(R.id.SportName);
         Intent intent = getIntent();
         String name=intent.getStringExtra("sportName");
@@ -53,7 +45,7 @@ public class Storedata extends AppCompatActivity {
 
     public void saveData(View view) {
         Controller aController = (Controller) getApplicationContext();
-        Log.i("stop", "Entered into newEvent");
+        Log.i("Ellie", "Entered into newEvent");
         TextView sportName=(TextView) findViewById(R.id.SportName);
         EditText distancePull = (EditText) findViewById(R.id.distance);
         EditText timePull = (EditText) findViewById(R.id.time);
@@ -74,16 +66,14 @@ public class Storedata extends AppCompatActivity {
         if (distance != 0 && time != 0 && !dateStr.equals("00/00/00")) {
             Event event = new Event(time, distance, dateStr, commentStr);
             aController.getSport(sportName.getText().toString()).addEvent(event);
-            Log.i("EllieSaveSport", aController.getSport("mySport").getEvent().toString());
-            Log.i("Ellie", Integer.toString(aController.getSport("mySport").getEvent().size()));
+            Log.i("EllieSaveSport", aController.getSport(sportName.getText().toString()).getEvent().toString());
+            Log.i("Ellie", Integer.toString(aController.getSport(sportName.getText().toString()).getEvent().size()));
         }
-
-
     }
 
     @Override
     public void onDestroy() {
-        //super.onDestroy();
+        super.onDestroy();
         try {
             ArrayList<String> print;
             FileOutputStream fOut = openFileOutput("NewSport.txt", MODE_PRIVATE);
@@ -91,7 +81,7 @@ public class Storedata extends AppCompatActivity {
             final Controller aController = (Controller) getApplicationContext();
             ArrayList sports = aController.getSports();
             PrintData printData = new PrintData(sports);
-            Log.i("EllieCheck",Integer.toString(aController.getSport("mySport").getEvent().size())+" "+ Integer.toString(sports.size()));
+            Log.i("EllieCheck", sports.toString());
             for (int i = 0; i < sports.size(); i++) {
                 print = printData.print();
                 outputWriter.write(print.get(i));
@@ -103,35 +93,7 @@ public class Storedata extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
-
-   /* @Override
-    public void onStop() {
-        super.onStop();
-        try {
-            ArrayList<String> print;
-            FileOutputStream fOut = openFileOutput("NewSport.txt", MODE_PRIVATE);
-            OutputStreamWriter outputWriter = new OutputStreamWriter(fOut);
-            final Controller aController = (Controller) getApplicationContext();
-            ArrayList sports = aController.getSports();
-            PrintData printData = new PrintData(sports);
-            for (int i = 0; i < aController.getSports().size(); i++) {
-                print =  printData.print();
-                outputWriter.write( print.get(i));
-            }
-
-            outputWriter.close();
-
-            //display file
-            Toast.makeText(getBaseContext(), (String) printData.print().get(1), Toast.LENGTH_LONG).show();
-            Log.i("Ellie", (String) printData.print().get(1));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
-*/
 }
 
 

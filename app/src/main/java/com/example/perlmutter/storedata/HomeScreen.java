@@ -21,9 +21,9 @@ public class HomeScreen extends Activity implements AdapterView.OnItemSelectedLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homescreen);
-        final Controller aController = (Controller) getApplicationContext();
+        Controller aController = (Controller) getApplicationContext();
         ArrayList<String> sports = aController.allNames();
-        Log.i("Ellie", Integer.toString(sports.size()));
+        Log.i("EllieSportSize", Integer.toString(sports.size()));
         sports.add(0, "Select a sport");
         sports.add(1, "Track");
         sports.add(2, "Soccer");
@@ -60,7 +60,7 @@ public class HomeScreen extends Activity implements AdapterView.OnItemSelectedLi
     @Override
     public void onDestroy() {
         Log.i("Ellie", "In onDestroy");
-        // super.onDestroy();
+        super.onDestroy();
         try {
             ArrayList<String> print;
             FileOutputStream fOut = openFileOutput("NewSport.txt", MODE_PRIVATE);
@@ -68,7 +68,7 @@ public class HomeScreen extends Activity implements AdapterView.OnItemSelectedLi
             final Controller aController = (Controller) getApplicationContext();
             ArrayList sports = aController.getSports();
             PrintData printData = new PrintData(sports);
-            Log.i("EllieCheck",Integer.toString(aController.getSport("mySport").getEvent().size())+" "+ Integer.toString(sports.size()));
+            Log.i("EllieCheck", sports.toString());
             for (int i = 0; i < sports.size(); i++) {
                 print = printData.print();
                 outputWriter.write(print.get(i));
