@@ -81,6 +81,7 @@
         android:orientation="horizontal">
 
         <Button
+            android:background="#3af362"
             android:id="@+id/button"
             android:layout_width="184dp"
             android:layout_height="wrap_content"
@@ -90,6 +91,7 @@
             tools:onClick="ViewData" />
 
         <Button
+            android:background="#fd5f5f"
             android:id="@+id/submitStoreData"
             android:layout_width="178dp"
             android:layout_height="wrap_content"

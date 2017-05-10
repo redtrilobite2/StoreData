@@ -14,6 +14,7 @@
         android:textSize="30sp" />
 
     <Button
+        android:background="#47bef9"
         android:id="@+id/Time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,6 +23,7 @@
         android:textSize="18sp" />
 
     <Button
+        android:background="#fffc4e"
         android:id="@+id/Distance"
         android:layout_width="match_parent"
         android:layout_height="44dp"
@@ -29,6 +31,8 @@
         android:textSize="18sp" />
 
     <Button
+        android:background="#f96062"
+
         android:id="@+id/Point"
         android:layout_width="match_parent"
         android:layout_height="44dp"
@@ -36,6 +40,7 @@
         android:textSize="18sp" />
 
     <Button
+        android:background="#c291f7"
         android:id="@+id/Accuracy"
         android:layout_width="match_parent"
         android:layout_height="48dp"
