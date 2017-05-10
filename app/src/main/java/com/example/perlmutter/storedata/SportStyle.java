@@ -26,7 +26,7 @@ public class SportStyle extends AppCompatActivity {
 
     @Override
     public void onDestroy() {
-      //  super.onDestroy();
+      super.onDestroy();
         try {
             ArrayList<String> print;
             FileOutputStream fOut = openFileOutput("NewSport.txt", MODE_PRIVATE);
@@ -34,7 +34,7 @@ public class SportStyle extends AppCompatActivity {
             final Controller aController = (Controller) getApplicationContext();
             ArrayList sports = aController.getSports();
             PrintData printData = new PrintData(sports);
-            Log.i("EllieCheck",Integer.toString(aController.getSport("mySport").getEvent().size())+" "+ Integer.toString(sports.size()));
+            Log.i("EllieCheck", sports.toString());
             for (int i = 0; i < sports.size(); i++) {
                 print = printData.print();
                 outputWriter.write(print.get(i));
@@ -48,28 +48,4 @@ public class SportStyle extends AppCompatActivity {
         }
 
     }
-   /* @Override
-    public void onStop() {
-        super.onStop();
-        try {
-            ArrayList<String> print;
-            FileOutputStream fOut = openFileOutput("NewSport.txt", MODE_PRIVATE);
-            OutputStreamWriter outputWriter = new OutputStreamWriter(fOut);
-            final Controller aController = (Controller) getApplicationContext();
-            ArrayList sports = aController.getSports();
-            PrintData printData = new PrintData(sports);
-            for (int i = 0; i < aController.getSports().size(); i++) {
-                print = printData.print();
-                outputWriter.write(print.get(i));
-            }
-
-            outputWriter.close();
-
-            //display file
-            Toast.makeText(getBaseContext(), (String) printData.print().get(1), Toast.LENGTH_LONG).show();
-            Log.i("Ellie", (String) printData.print().get(1));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }*/
 }
