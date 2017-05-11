@@ -19,9 +19,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Sport Name"
-            android:textSize="25sp" />
+            android:textAlignment="center"
+            android:textSize="40sp" />
 
         <Button
+            android:background="#47bef9"
             android:id="@+id/AddData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -29,6 +31,7 @@
             android:text="Add Data" />
 
         <Button
+            android:background="#fffc4e"
             android:id="@+id/SeeProgress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -36,6 +39,7 @@
             android:text="See Progress" />
 
         <Button
+            android:background="#f96062"
             android:id="@+id/EditData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -43,6 +47,8 @@
             android:text="Edit Data" />
 
         <Button
+            android:background="#c291f7"
+
             android:id="@+id/homeSportHome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

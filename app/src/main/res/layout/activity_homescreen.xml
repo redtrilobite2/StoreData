@@ -23,6 +23,7 @@
         android:textAlignment="center"
         android:textSize="24sp" />
 
+
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="match_parent"
@@ -48,6 +49,7 @@
             android:layout_weight="0.06" />
 
         <Button
+            android:background="#3af362"
             android:id="@+id/makeNewSport"
             android:layout_width="182dp"
             android:layout_height="wrap_content"
