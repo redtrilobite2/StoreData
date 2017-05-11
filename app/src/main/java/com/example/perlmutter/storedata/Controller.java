@@ -13,9 +13,6 @@ import java.util.ArrayList;
 public class Controller extends Application {
     private ArrayList<Sport> allSports = new ArrayList<>();
     private int i;
-    ArrayList<String> allNames=new ArrayList<>();
-    String name;
-
     public Sport getNewSport() {
         return allSports.get(0);
     }
@@ -40,10 +37,10 @@ public class Controller extends Application {
     }
     public ArrayList<String> allNames(){
         Log.i("Please",Integer.toString(allSports.size()));
+        ArrayList<String> allNames=new ArrayList<>();
         for (int i=0; i<allSports.size(); i++){
-            name=allSports.get(i).getName();
+            String name=allSports.get(i).getName();
             allNames.add(name);
-            Log.i("Please",Integer.toString(allSports.size()));
         }
         return allNames;
     }

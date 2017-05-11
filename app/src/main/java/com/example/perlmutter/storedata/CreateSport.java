@@ -63,7 +63,7 @@ public class CreateSport extends AppCompatActivity {
 @Override
 public void onDestroy() {
     Log.i("Ellie", "In onDestroy");
-     super.onDestroy();
+    super.onDestroy();
     try {
         ArrayList<String> print;
         FileOutputStream fOut = openFileOutput("NewSport.txt", MODE_PRIVATE);
@@ -71,7 +71,7 @@ public void onDestroy() {
         final Controller aController = (Controller) getApplicationContext();
         ArrayList sports = aController.getSports();
         PrintData printData = new PrintData(sports);
-        Log.i("EllieCheck",sports.toString());
+        Log.i("EllieCheck",Integer.toString(aController.getSport("mySport").getEvent().size())+" "+ Integer.toString(sports.size()));
         for (int i = 0; i < sports.size(); i++) {
             print = printData.print();
             outputWriter.write(print.get(i));

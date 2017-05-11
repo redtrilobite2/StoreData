@@ -17,11 +17,17 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
 public class ViewData extends AppCompatActivity {
+
+    private String sportName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        Bundle bundle=getIntent().getExtras();
+        sportName=bundle.getString("sportName");
+
         final Controller control = (Controller) getApplicationContext();
         ArrayList<Double> Sportarray = new ArrayList<Double>();
-        ArrayList<Event> sportsarray = control.getSport(control.allNames().get(control.getInti())).getEvent();
+        ArrayList<Event> sportsarray = control.getSport(sportName).getEvent();
         double counterdt = 0;
         double rate = 1;
         for (int q = 0; q < sportsarray.size(); q++) {
@@ -75,12 +81,13 @@ public class ViewData extends AppCompatActivity {
     }
 
     public void toStoreData(View view) {
-        Intent intent = new Intent(ViewData.this, Storedata.class);
+        Intent intent=new Intent(ViewData.this, Storedata.class);
+        intent.putExtra("sportName", sportName);
         startActivity(intent);
     }
-
     public void toSportHome(View view) {
-        Intent intent = new Intent(ViewData.this, SportHome.class);
+        Intent intent=new Intent(ViewData.this, SportHome.class);
+        intent.putExtra("sportName", sportName);
         startActivity(intent);
     }
 
@@ -95,7 +102,7 @@ public class ViewData extends AppCompatActivity {
             final Controller aController = (Controller) getApplicationContext();
             ArrayList sports = aController.getSports();
             PrintData printData = new PrintData(sports);
-            Log.i("EllieCheck", sports.toString());
+            Log.i("EllieCheck",Integer.toString(aController.getSport("mySport").getEvent().size())+" "+ Integer.toString(sports.size()));
             for (int i = 0; i < sports.size(); i++) {
                 print = printData.print();
                 outputWriter.write(print.get(i));
@@ -107,7 +114,13 @@ public class ViewData extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-}
 
+    }
+
+        // EditText test = (EditText) findViewById(R.id.sportname);
+        // ReadBtn(test);
+
+
+}
+//String tolkenizer
 

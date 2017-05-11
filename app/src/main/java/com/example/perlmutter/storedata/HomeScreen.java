@@ -23,11 +23,8 @@ public class HomeScreen extends Activity implements AdapterView.OnItemSelectedLi
         setContentView(R.layout.activity_homescreen);
         Controller aController = (Controller) getApplicationContext();
         ArrayList<String> sports = aController.allNames();
-        Log.i("EllieSportSize", Integer.toString(sports.size()));
+        Log.i("Ellie", Integer.toString(sports.size()));
         sports.add(0, "Select a sport");
-        sports.add(1, "Track");
-        sports.add(2, "Soccer");
-        sports.add(3, "Basketball");
         spin = (Spinner) findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, sports);
         spin.setAdapter(adapter);
@@ -68,7 +65,7 @@ public class HomeScreen extends Activity implements AdapterView.OnItemSelectedLi
             final Controller aController = (Controller) getApplicationContext();
             ArrayList sports = aController.getSports();
             PrintData printData = new PrintData(sports);
-            Log.i("EllieCheck", sports.toString());
+            Log.i("EllieCheck",Integer.toString(aController.getSport("mySport").getEvent().size())+" "+ Integer.toString(sports.size()));
             for (int i = 0; i < sports.size(); i++) {
                 print = printData.print();
                 outputWriter.write(print.get(i));

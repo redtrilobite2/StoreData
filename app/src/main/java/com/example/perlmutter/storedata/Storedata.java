@@ -21,13 +21,22 @@ import static java.lang.Double.parseDouble;
 
 public class Storedata extends AppCompatActivity {
 
+    /*private CreateSport sports = new CreateSport();
+    private HomeScreen name = new HomeScreen();
+    private EditText sportName;
+    static final int READ_BLOCK_SIZE = 200;*/
+    //Sport thisSport;
+    //TextView sportName=(TextView) findViewById(R.id.SportName);
+    private String name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_storedata);
+      //  final Controller aController = (Controller) getApplicationContext();
+        //String name=aController.allNames().get(aController.getInti());
         TextView sportName=(TextView) findViewById(R.id.SportName);
-        Intent intent = getIntent();
-        String name=intent.getStringExtra("sportName");
+        Bundle bundle=getIntent().getExtras();
+        name=bundle.getString("sportName");
         sportName.setText(name);
     }
 
@@ -45,7 +54,7 @@ public class Storedata extends AppCompatActivity {
 
     public void saveData(View view) {
         Controller aController = (Controller) getApplicationContext();
-        Log.i("Ellie", "Entered into newEvent");
+        Log.i("stop", "Entered into newEvent");
         TextView sportName=(TextView) findViewById(R.id.SportName);
         EditText distancePull = (EditText) findViewById(R.id.distance);
         EditText timePull = (EditText) findViewById(R.id.time);
@@ -66,9 +75,11 @@ public class Storedata extends AppCompatActivity {
         if (distance != 0 && time != 0 && !dateStr.equals("00/00/00")) {
             Event event = new Event(time, distance, dateStr, commentStr);
             aController.getSport(sportName.getText().toString()).addEvent(event);
-            Log.i("EllieSaveSport", aController.getSport(sportName.getText().toString()).getEvent().toString());
-            Log.i("Ellie", Integer.toString(aController.getSport(sportName.getText().toString()).getEvent().size()));
+            Log.i("EllieSaveSport", aController.getSport("mySport").getEvent().toString());
+            Log.i("Ellie", Integer.toString(aController.getSport("mySport").getEvent().size()));
         }
+
+
     }
 
     @Override

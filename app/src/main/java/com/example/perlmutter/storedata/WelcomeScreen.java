@@ -23,7 +23,7 @@ public class WelcomeScreen extends AppCompatActivity {
             FileInputStream fIn = openFileInput("NewSport.txt");
             InputStreamReader inRead = new InputStreamReader(fIn);
             Scanner scan = new Scanner(inRead);
-            Controller aController = (Controller) getApplicationContext();
+            final Controller aController = (Controller) getApplicationContext();
             ArrayList<Sport> sports = aController.getSports();
 
             while (scan.hasNextLine()) {
@@ -35,8 +35,8 @@ public class WelcomeScreen extends AppCompatActivity {
 
                 aController.getSport(sportName).addEvent(new Event(Double.parseDouble(help.nextToken()), Double.parseDouble(help.nextToken()), help.nextToken(), help.nextToken()));
 
-                aController.allNames();
-                Log.i("EllieHelp", aController.allNames().get(0));
+               // aController.allNames();
+               // Log.i("EllieHelp", aController.allNames().get(0));
             }
             inRead.close();
         } catch (Exception e) {
