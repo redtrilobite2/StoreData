@@ -21,7 +21,14 @@
         android:layout_weight="0.07"
         android:text="Welcome to the Athlete's Log!"
         android:textAlignment="center"
-        android:textSize="36sp" />
+        android:textSize="40sp" />
+
+    <ImageView
+        android:id="@+id/SportTrackerLogo"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="150dp"
+        android:layout_height="150dp" />
+
 
     <TextView
         android:id="@+id/textView4"

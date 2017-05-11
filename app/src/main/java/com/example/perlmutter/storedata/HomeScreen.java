@@ -35,9 +35,9 @@ public class HomeScreen extends Activity implements AdapterView.OnItemSelectedLi
             Intent intent = new Intent(HomeScreen.this, SportHome.class);
             startActivity(intent);
 
-            TextView sportName=(TextView) findViewById(R.id.SportName);
+            TextView sportName = (TextView) findViewById(R.id.SportName);
             Spinner spin = (Spinner) findViewById(R.id.spinner);
-            String text=spin.getSelectedItem().toString();
+            String text = spin.getSelectedItem().toString();
             sportName.setText(text);
         }
     }
