@@ -10,7 +10,9 @@ import java.util.ArrayList;
  * The class Controller saves all the data for the app while the app is running.
  */
 
+
 public class Controller extends Application {
+    Boolean add = true;
     private ArrayList<Sport> allSports = new ArrayList<>();
     private int i;
     public Sport getNewSport() {
@@ -22,7 +24,17 @@ public class Controller extends Application {
     }
 
      public void addSport(Sport sport) {
-        allSports.add(sport);
+        for(int i = 0; i < allSports.size(); i++){
+            if(allSports.get(i).getName().equalsIgnoreCase(sport.getName())){
+                add = false;
+            }
+        }
+         if(add){
+            allSports.add(sport);
+         }
+    }
+    public Boolean sportIsAdded(){
+        return add;
     }
 
     public Sport getSport(String name) {

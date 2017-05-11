@@ -28,7 +28,7 @@ public class SportHome extends AppCompatActivity {
         //final Controller aController = (Controller) getApplicationContext();
        // String name=aController.allNames().get(aController.getInti());
         TextView sportName=(TextView) findViewById(R.id.SportName);
-        Bundle bundle=getIntent().getExtras();
+        Bundle bundle = getIntent().getExtras();
         String name=bundle.getString("sportName");
         sportName.setText(name);
 
@@ -38,7 +38,7 @@ public class SportHome extends AppCompatActivity {
     public void toStoreData(View view) {
         TextView sportName=(TextView) findViewById(R.id.SportName);
         Intent intent = new Intent(SportHome.this, Storedata.class);
-        intent.putExtra("sportName", sportName.getText().toString());
+        intent.putExtra("sportName", sportName.getText());
         startActivity(intent);
     }
 
@@ -64,10 +64,11 @@ public class SportHome extends AppCompatActivity {
             ArrayList sports = aController.getSports();
             PrintData printData = new PrintData(sports);
             Log.i("EllieCheck",Integer.toString(aController.getSport("mySport").getEvent().size())+" "+ Integer.toString(sports.size()));
+            Log.i("EllieSportToString", sports.toString());
             for (int i = 0; i < sports.size(); i++) {
                 print = printData.print();
                 outputWriter.write(print.get(i));
-                Log.i("EllieWrite", print.get(i));
+                Log.i("EllieSport@i", print.get(i));
             }
             outputWriter.close();
             //display file

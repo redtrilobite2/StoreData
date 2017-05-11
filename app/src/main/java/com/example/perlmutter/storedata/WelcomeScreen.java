@@ -24,6 +24,7 @@ public class WelcomeScreen extends AppCompatActivity {
             InputStreamReader inRead = new InputStreamReader(fIn);
             Scanner scan = new Scanner(inRead);
             final Controller aController = (Controller) getApplicationContext();
+            Log.i("ellie", "PastController");
             ArrayList<Sport> sports = aController.getSports();
 
             while (scan.hasNextLine()) {

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 public class ViewData extends AppCompatActivity {
 
     private String sportName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -85,6 +87,7 @@ public class ViewData extends AppCompatActivity {
         intent.putExtra("sportName", sportName);
         startActivity(intent);
     }
+
     public void toSportHome(View view) {
         Intent intent=new Intent(ViewData.this, SportHome.class);
         intent.putExtra("sportName", sportName);
@@ -102,7 +105,7 @@ public class ViewData extends AppCompatActivity {
             final Controller aController = (Controller) getApplicationContext();
             ArrayList sports = aController.getSports();
             PrintData printData = new PrintData(sports);
-            Log.i("EllieCheck",Integer.toString(aController.getSport("mySport").getEvent().size())+" "+ Integer.toString(sports.size()));
+            Log.i("EllieCheck", sports.toString());
             for (int i = 0; i < sports.size(); i++) {
                 print = printData.print();
                 outputWriter.write(print.get(i));
@@ -114,13 +117,7 @@ public class ViewData extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
-
-        // EditText test = (EditText) findViewById(R.id.sportname);
-        // ReadBtn(test);
-
-
 }
-//String tolkenizer
+
 
