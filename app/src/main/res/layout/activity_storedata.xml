@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:text="Sport Name"
         android:textAlignment="center"
-        android:textSize="30sp" />
+        android:textSize="40sp" />
 
     <TextView
         android:id="@+id/distanceTag"
