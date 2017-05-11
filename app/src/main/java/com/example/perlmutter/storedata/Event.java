@@ -2,16 +2,18 @@ package com.example.perlmutter.storedata;
 
 /**
  * Created by Ellie DeSota on 4/12/2017.
+ * This class Event constructs an instance of an Event with the paramaters time, distance, date, and comment.
  */
 
 
 public class Event {
     // Data
     //String eventName;
-    String date;
-    double time;
-    double distance;
-    String comment;
+    //String sportName;
+    private String date;
+    private double time;
+    private double distance;
+    private String comment;
 
     // Constructor
     public Event(double time, double distance, String date, String comment) {
@@ -22,10 +24,6 @@ public class Event {
         this.comment = comment;
     }
 
-    // Method
-    /*public String getEventName() {
-		return eventName;
-	}*/
 
     public String getDate() {
         return date;
@@ -41,5 +39,10 @@ public class Event {
 
     public String getComment() {
         return comment;
+    }
+
+    @Override
+    public String toString(){
+        return date + " " + time + " " + distance + " " + comment;
     }
 }

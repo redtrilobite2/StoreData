@@ -1,39 +1,35 @@
 package com.example.perlmutter.storedata;
 
+import android.util.Log;
+
+import java.util.ArrayList;
+
 /**
- * Created by Ellie DeSota on 4/12/2017.
+ * Created by Ellie DeSota on 4/30/2017.
+ * The PrintData class takes an ArrayList of the Sport class and prints out all of the events in the given format.
  */
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Scanner;
-
 public class PrintData {
-    public static void main(String[] args) throws FileNotFoundException {
-        // Construct the Scanner and PrinterWriter objects for reading and
-        // writing
-        File inputFile = new File("C:\\Users\\shalo\\D\\AppsForGood\\Sports.txt");
-        Scanner in = new Scanner(inputFile);
-        PrintWriter out = new PrintWriter("C:\\Users\\shalo\\D\\AppsForGood\\Sports.txt");
+    ArrayList <Sport> sports;
+    ArrayList<String> data = new ArrayList<>();
+    ArrayList<Event> events = new ArrayList<>();
 
-        CreateSport arrayList = new CreateSport();
-        ArrayList sports = arrayList.getSports();
+    public PrintData(ArrayList <Sport> sports) {
+    this.sports = sports;
+    }
 
-        // Read write the output
-
-
+    public ArrayList print() {
+        Log.i("EllieWrite", "Inprint");
+        Sport sport;
         for (int i = 0; i < sports.size(); i++) {
-            Sport thisSport = (Sport) sports.get(i);
-            ArrayList events = thisSport.getEvent();
-            out.println(thisSport.getName() + " ;; " + thisSport.getComment() + " !;");
+            sport = sports.get(i);
+            events = sport.getEvent();
             for (int m = 0; m < events.size(); m++) {
-                Event event = (Event) events.get(m);
-                out.println(event.getTime() + " ;;  " + event.getDistance() + " ;; " + event.getDate() + " ;; "
-                        + event.getComment());
+                data.add(sport.getName() + " ;; " + sport.getComment() + " ;; " + events.get(m).getTime() + " ;; "
+                        + events.get(m).getDistance() + " ;; " + events.get(m).getDate() + " ;; " + events.get(m).getComment());
             }
         }
-        out.close();
+        Log.i("EllieWrite", Integer.toString(data.size()));
+        return data;
     }
 }

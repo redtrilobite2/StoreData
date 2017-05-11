@@ -49,6 +49,8 @@
             android:layout_weight="0.52" />
 
         <Button
+
+            android:background="#3af362"
             android:id="@+id/start"
             android:layout_width="266dp"
             android:layout_height="wrap_content"

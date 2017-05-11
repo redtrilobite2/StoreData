@@ -3,72 +3,97 @@ package com.example.perlmutter.storedata;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.StringTokenizer;
 
 import static java.lang.Double.parseDouble;
 
 public class Storedata extends AppCompatActivity {
 
-    CreateSport sports = new CreateSport();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_storedata);
+        TextView sportName=(TextView) findViewById(R.id.SportName);
+        Intent intent = getIntent();
+        String name=intent.getStringExtra("sportName");
+        sportName.setText(name);
     }
-    /*public void SaveData(View view){
-        EditText number1 = (EditText) findViewById(R.id.data1);
-        EditText number2 = (EditText) findViewById(R.id.data2);
 
-
-        String num1str =  number1.getText().toString();
-        String num2str =  number2.getText().toString();
-        Double num1 = parseDouble(num1str);
-        Double num2 = parseDouble(num2str);
-
-        ArrayList<Double> num1s = new ArrayList<Double>();
-        ArrayList<Double> num2s = new ArrayList<Double>();
-
-        num1s.add(num1);
-        num2s.add(num2);
-
-    }
-    public void ViewData(View view){
-
-    }*/
-
-    public void toHomeScreen(View view) {
-        Intent intent = new Intent(Storedata.this, HomeScreen.class);
+    public void toViewData(View view) {
+        Intent intent = new Intent(Storedata.this, ViewData.class);
         startActivity(intent);
+        saveData(view);
     }
 
     public void toSportHome(View view) {
         Intent intent = new Intent(Storedata.this, SportHome.class);
         startActivity(intent);
+        saveData(view);
     }
- public void onSubmit(){
-     Storedata store = new Storedata();
 
- }
-    public void newEvent(Sport sport) {
-
+    public void saveData(View view) {
+        Controller aController = (Controller) getApplicationContext();
+        Log.i("Ellie", "Entered into newEvent");
+        TextView sportName=(TextView) findViewById(R.id.SportName);
         EditText distancePull = (EditText) findViewById(R.id.distance);
         EditText timePull = (EditText) findViewById(R.id.time);
         EditText datePull = (EditText) findViewById(R.id.date);
-        EditText commentPull = (EditText) findViewById(R.id.comment);
+        EditText commentPull = (EditText) findViewById(R.id.commentStoreData);
 
         String distanceStr = distancePull.getText().toString();
         String timeStr = timePull.getText().toString();
         String dateStr = datePull.getText().toString();
         String commentStr = commentPull.getText().toString();
 
-        Double distance = parseDouble(distanceStr);
-        Double time = parseDouble(timeStr);
+        double distance = parseDouble(distanceStr);
+        double time = parseDouble(timeStr);
+        if (commentStr.equals("")) {
+            commentStr = " ";
+        }
 
-        Event event = new Event(time, distance, dateStr, commentStr);
-        sport.addEvent(event);
+        if (distance != 0 && time != 0 && !dateStr.equals("00/00/00")) {
+            Event event = new Event(time, distance, dateStr, commentStr);
+            aController.getSport(sportName.getText().toString()).addEvent(event);
+            Log.i("EllieSaveSport", aController.getSport(sportName.getText().toString()).getEvent().toString());
+            Log.i("Ellie", Integer.toString(aController.getSport(sportName.getText().toString()).getEvent().size()));
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        try {
+            ArrayList<String> print;
+            FileOutputStream fOut = openFileOutput("NewSport.txt", MODE_PRIVATE);
+            OutputStreamWriter outputWriter = new OutputStreamWriter(fOut);
+            final Controller aController = (Controller) getApplicationContext();
+            ArrayList sports = aController.getSports();
+            PrintData printData = new PrintData(sports);
+            Log.i("EllieCheck", sports.toString());
+            for (int i = 0; i < sports.size(); i++) {
+                print = printData.print();
+                outputWriter.write(print.get(i));
+                Log.i("EllieWrite", print.get(i));
+            }
+            outputWriter.close();
+            //display file
+            Toast.makeText(getBaseContext(), (String) printData.print().get(1), Toast.LENGTH_LONG).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
+
+

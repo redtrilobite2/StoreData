@@ -1,29 +1,30 @@
 package com.example.perlmutter.storedata;
 
-/**
+/*
  * Created by Ellie DeSota on 4/12/2017.
+ * The Sport class constructs a Sport with name, comment, and ArrayLIst of the Event class.
  */
 
 import android.util.Log;
 
 import java.util.ArrayList;
 
-public class Sport {
+class Sport {
     // Data
-    ArrayList<Event> events = new ArrayList<Event>();
-    String name;
-    String comment;
+    private ArrayList<Event> events;
+    private String name;
+    private String comment;
 
     // Constructor
     public Sport(String name, String comment) {
         this.name = name;
         this.comment = comment;
-        events = new ArrayList<Event>();
+        this.events = new ArrayList<>();
     }
     public Sport(){
-        this.name = null;
-        this.comment = null;
-        events = null;
+        this.name = "";
+        this.comment = "";
+        events = new ArrayList<>();
     }
     // Methods
 
@@ -39,12 +40,15 @@ public class Sport {
         return events;
     }
 
-    public void addEvent(Event event) {
-        if(events == null){
-            Log.i("Check", "Events is null");
-        }else
-            Log.i("Check", "Events is not null");
-        events.add(event);
+    public void setName(String newName) { this.name = newName; }
 
+    public void addEvent(Event event) {
+        Log.i("Ellie", "Entered Event");
+        events.add(event);
+    }
+
+    @Override
+    public String toString(){
+        return name + " " + comment;
     }
 }
