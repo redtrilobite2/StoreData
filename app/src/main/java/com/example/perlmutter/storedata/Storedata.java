@@ -39,9 +39,19 @@ public class Storedata extends AppCompatActivity {
     }
 
     public void toViewData(View view) {
-        Intent intent = new Intent(Storedata.this, ViewData.class);
-        intent.putExtra("sportName",name);
-        startActivity(intent);
+        EditText distancePull = (EditText) findViewById(R.id.distance);
+        EditText timePull = (EditText) findViewById(R.id.time);
+        EditText datePull = (EditText) findViewById(R.id.date);
+
+        String distanceStr = distancePull.getText().toString();
+        String timeStr = timePull.getText().toString();
+        String dateStr = datePull.getText().toString();
+
+        if(!distanceStr.isEmpty() && !timeStr.isEmpty() && !dateStr.isEmpty()) {
+            Intent intent = new Intent(Storedata.this, ViewData.class);
+            intent.putExtra("sportName", name);
+            startActivity(intent);
+        }
         saveData(view);
     }
 
@@ -50,6 +60,19 @@ public class Storedata extends AppCompatActivity {
         intent.putExtra("sportName", name);
         startActivity(intent);
         saveData(view);
+        TextView sportName=(TextView) findViewById(R.id.SportName);
+        /*if (distanceStr.equals("")) {
+            Toast.makeText(getBaseContext(),"Please enter a distance", Toast.LENGTH_LONG).show();
+        }
+        if (timeStr.equals("")) {
+            Toast.makeText(getBaseContext(),"Please enter a time", Toast.LENGTH_LONG).show();
+        }
+        if (dateStr.equals("")) {
+            Toast.makeText(getBaseContext(),"Please enter a date", Toast.LENGTH_LONG).show();
+        }
+        if (commentStr.equals("")) {
+            commentStr = " ";
+        }*/
     }
 
     public void saveData(View view) {
@@ -65,28 +88,28 @@ public class Storedata extends AppCompatActivity {
         String timeStr = timePull.getText().toString();
         String dateStr = datePull.getText().toString();
         String commentStr = commentPull.getText().toString();
-
-        if (commentStr.equals("")) {
+boolean print = true;
+        if (commentStr.isEmpty()) {
             commentStr = " ";
         }
-        if (distanceStr.equals("")) {
+        if (distanceStr.isEmpty()) {
             Toast.makeText(getBaseContext(),"Please enter a distance", Toast.LENGTH_LONG).show();
+            print = false;
         }
-        if (timeStr.equals("")) {
+        if (timeStr.isEmpty()) {
             Toast.makeText(getBaseContext(),"Please enter a time", Toast.LENGTH_LONG).show();
+            print = false;
         }
-        if (dateStr.equals("")) {
+        if (dateStr.isEmpty()) {
             Toast.makeText(getBaseContext(),"Please enter a date", Toast.LENGTH_LONG).show();
-        }
-        if (commentStr.equals("")) {
-            commentStr = " ";
+            print = false;
         }
 
-        double distance = parseDouble(distanceStr);
-        double time = parseDouble(timeStr);
 
+        if (print) {
+            double distance = parseDouble(distanceStr);
+            double time = parseDouble(timeStr);
 
-        if (!Double.isNaN(distance) && !Double.isNaN(distance) && !dateStr.equals("00/00/00")) {
             Event event = new Event(time, distance, dateStr, commentStr);
             aController.getSport(sportName.getText().toString()).addEvent(event);
             Log.i("EllieSaveSport", aController.getSport(sportName.getText().toString()).getEvent().toString());
