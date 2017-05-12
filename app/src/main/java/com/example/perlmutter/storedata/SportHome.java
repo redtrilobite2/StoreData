@@ -19,17 +19,15 @@ import java.util.ArrayList;
  */
 
 public class SportHome extends AppCompatActivity {
+    private String name  = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sporthome);
-
-        //final Controller aController = (Controller) getApplicationContext();
-       // String name=aController.allNames().get(aController.getInti());
         TextView sportName=(TextView) findViewById(R.id.SportName);
         Bundle bundle = getIntent().getExtras();
-        String name=bundle.getString("sportName");
+        name=bundle.getString("sportName");
         sportName.setText(name);
 
     }
@@ -44,6 +42,7 @@ public class SportHome extends AppCompatActivity {
 
     public void toViewData(View view) {
         Intent intent = new Intent(SportHome.this, ViewData.class);
+        intent.putExtra("sportName", name);
         startActivity(intent);
     }
 
@@ -78,36 +77,4 @@ public class SportHome extends AppCompatActivity {
         }
 
     }
-
-    /*public void setTextView (View view){
-        TextView sportName=(TextView) findViewById(R.id.SportName);
-        Spinner spin = (Spinner) findViewById(R.id.spinner);
-        String text=spin.getSelectedItem().toString();
-        sportName.setText(text);
-    }*/
-
-   /* @Override
-    public void onStop() {
-        super.onStop();
-        try {
-            ArrayList<String> print;
-            FileOutputStream fOut = openFileOutput("NewSport.txt", MODE_PRIVATE);
-            OutputStreamWriter outputWriter = new OutputStreamWriter(fOut);
-            final Controller aController = (Controller) getApplicationContext();
-            ArrayList sports = aController.getSports();
-            PrintData printData = new PrintData();
-            for (int i = 0; i < aController.getSports().size(); i++) {
-                print = printData.print();
-                outputWriter.write(print.get(i));
-            }
-
-            outputWriter.close();
-
-            //display file
-            Toast.makeText(getBaseContext(), (String) printData.print().get(1), Toast.LENGTH_LONG).show();
-            Log.i("Ellie", (String) printData.print().get(1));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }*/
 }
