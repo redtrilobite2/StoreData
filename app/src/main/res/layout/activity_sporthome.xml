@@ -12,7 +12,8 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
+        tools:layout_editor_absoluteY="8dp"
+        android:weightSum="1">
 
         <TextView
             android:id="@+id/SportName"
@@ -20,40 +21,59 @@
             android:layout_height="wrap_content"
             android:text="Sport Name"
             android:textAlignment="center"
-            android:textSize="40sp" />
+            android:textSize="40sp"
+      />
 
-        <Button
-            android:background="#47bef9"
-            android:id="@+id/AddData"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="toStoreData"
-            android:text="Add Data" />
+            android:layout_height="225dp"
+            android:orientation="horizontal">
 
-        <Button
-            android:background="#fffc4e"
-            android:id="@+id/SeeProgress"
+            <Button
+                android:layout_marginLeft="75dp"
+                android:id="@+id/AddData"
+                android:layout_width="225dp"
+                android:layout_height="225dp"
+                android:background="#1d7e47"
+                android:onClick="toStoreData"
+                android:text="Add Data"
+                />
+
+            <Button
+
+                android:id="@+id/SeeProgress"
+                android:layout_width="225dp"
+                android:layout_height="225dp"
+                android:background="#419f22"
+                android:onClick="toViewData"
+                android:text="See Progress" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="toViewData"
-            android:text="See Progress" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-        <Button
-            android:background="#f96062"
-            android:id="@+id/EditData"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="buttonClick"
-            android:text="Edit Data" />
+            <Button
+                android:layout_marginLeft="75dp"
+                android:id="@+id/EditData"
+                android:layout_width="225dp"
+                android:layout_height="225dp"
+                android:background="#0bf52b"
+                android:onClick="buttonClick"
+                android:text="Edit Data"
+                 />
 
-        <Button
-            android:background="#c291f7"
-
-            android:id="@+id/homeSportHome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="toHomeScreen"
-            android:text="Create New Sport" />
+            <Button
+                android:id="@+id/homeSportHome"
+                android:layout_width="225dp"
+                android:layout_height="225dp"
+                android:background="#60f99b"
+                android:onClick="toHomeScreen"
+                android:text="Create New Sport"
+            />
+        </LinearLayout>
 
     </LinearLayout>
 
