@@ -53,7 +53,7 @@
             android:layout_below="@+id/linetext" />
 
         <Button
-            android:background="#fd5f5f"
+            android:background="#60f99b"
             android:id="@+id/ReturnHome"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
@@ -78,7 +78,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:background="#47bef9"
+                android:background="#0bf52b"
                 android:id="@+id/New_Data"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
