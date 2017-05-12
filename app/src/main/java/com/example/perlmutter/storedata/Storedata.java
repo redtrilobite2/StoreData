@@ -66,13 +66,27 @@ public class Storedata extends AppCompatActivity {
         String dateStr = datePull.getText().toString();
         String commentStr = commentPull.getText().toString();
 
-        double distance = parseDouble(distanceStr);
-        double time = parseDouble(timeStr);
+        if (commentStr.equals("")) {
+            commentStr = " ";
+        }
+        if (distanceStr.equals("")) {
+            Toast.makeText(getBaseContext(),"Please enter a distance", Toast.LENGTH_LONG).show();
+        }
+        if (timeStr.equals("")) {
+            Toast.makeText(getBaseContext(),"Please enter a time", Toast.LENGTH_LONG).show();
+        }
+        if (dateStr.equals("")) {
+            Toast.makeText(getBaseContext(),"Please enter a date", Toast.LENGTH_LONG).show();
+        }
         if (commentStr.equals("")) {
             commentStr = " ";
         }
 
-        if (distance != 0 && time != 0 && !dateStr.equals("00/00/00")) {
+        double distance = parseDouble(distanceStr);
+        double time = parseDouble(timeStr);
+
+
+        if (!Double.isNaN(distance) && !Double.isNaN(distance) && !dateStr.equals("00/00/00")) {
             Event event = new Event(time, distance, dateStr, commentStr);
             aController.getSport(sportName.getText().toString()).addEvent(event);
             Log.i("EllieSaveSport", aController.getSport(sportName.getText().toString()).getEvent().toString());
