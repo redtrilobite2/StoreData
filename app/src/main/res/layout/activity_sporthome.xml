@@ -46,8 +46,7 @@
                 android:layout_height="225dp"
                 android:background="#419f22"
                 android:onClick="toViewData"
-                android:text="See Progress"
-  />
+                android:text="See Progress" />
 
         </LinearLayout>
 
