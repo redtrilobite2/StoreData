@@ -17,11 +17,11 @@ import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
-public class Pointsvstime extends AppCompatActivity {
+public class Timevstime extends AppCompatActivity {
 
     private String sportName;
 
-   /* @Override
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         Bundle bundle=getIntent().getExtras();
@@ -32,15 +32,12 @@ public class Pointsvstime extends AppCompatActivity {
         ArrayList<Event> sportsarray = control.getSport(sportName).getEvent();
 
         for (int q = 0; q < sportsarray.size(); q++) {
-
-
                 if (q == 0) {
                     Sportarray.add(0.0);
                     Sportarray.add(0.0);
                 }
-                Sportarray.add((double)(q)+1);
-                Sportarray.add(sportsarray.get(q).getPoints());
-
+                Sportarray.add((double)q+1);
+                Sportarray.add(sportsarray.get(q).getTime());
 
         }
 
@@ -75,19 +72,19 @@ public class Pointsvstime extends AppCompatActivity {
         line_series.setOnDataPointTapListener(new OnDataPointTapListener() {
             @Override
             public void onTap(Series series, DataPointInterface dataPoint) {
-                Toast.makeText(Pointsvstime.this, "Series: On Data Point clicked:" + dataPoint, Toast.LENGTH_SHORT).show();
+                Toast.makeText(Timevstime.this, "Series: On Data Point clicked:" + dataPoint, Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     public void toStoreData(View view) {
-        Intent intent=new Intent(Pointsvstime.this, Storedata.class);
+        Intent intent=new Intent(Timevstime.this, Storedata.class);
         intent.putExtra("sportName", sportName);
         startActivity(intent);
     }
 
     public void toSportHome(View view) {
-        Intent intent=new Intent(Pointsvstime.this, SportHome.class);
+        Intent intent=new Intent(Timevstime.this, SportHome.class);
         intent.putExtra("sportName", sportName);
         startActivity(intent);
     }
@@ -115,7 +112,7 @@ public class Pointsvstime extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }*/
+    }
 }
 
 
