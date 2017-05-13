@@ -30,9 +30,9 @@
             android:orientation="horizontal">
 
             <Button
-                android:layout_marginLeft="75dp"
+
                 android:id="@+id/AddData"
-                android:layout_width="225dp"
+                android:layout_width="206dp"
                 android:layout_height="225dp"
                 android:background="#1d7e47"
                 android:onClick="toStoreData"
@@ -42,7 +42,7 @@
             <Button
 
                 android:id="@+id/SeeProgress"
-                android:layout_width="225dp"
+                android:layout_width="206dp"
                 android:layout_height="225dp"
                 android:background="#419f22"
                 android:onClick="toViewData"
@@ -56,9 +56,9 @@
             android:orientation="horizontal">
 
             <Button
-                android:layout_marginLeft="75dp"
+
                 android:id="@+id/EditData"
-                android:layout_width="225dp"
+                android:layout_width="206dp"
                 android:layout_height="225dp"
                 android:background="#0bf52b"
                 android:onClick="buttonClick"
@@ -67,7 +67,7 @@
 
             <Button
                 android:id="@+id/homeSportHome"
-                android:layout_width="225dp"
+                android:layout_width="206dp"
                 android:layout_height="225dp"
                 android:background="#60f99b"
                 android:onClick="toHomeScreen"

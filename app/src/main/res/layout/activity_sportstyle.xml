@@ -29,10 +29,10 @@
             android:orientation="horizontal">
 
             <Button
-                android:layout_marginLeft="75dp"
                 android:id="@+id/Time"
-                android:layout_width="225dp"
+                android:layout_width="206dp"
                 android:layout_height="225dp"
+
                 android:background="#1d7e47"
                 android:onClick="toCreateSport"
                 android:text="Time-based"
@@ -40,7 +40,7 @@
 
             <Button
                 android:id="@+id/Distance"
-                android:layout_width="225dp"
+                android:layout_width="206dp"
                 android:layout_height="225dp"
                 android:background="#44be1c"
                 android:text="Distance-based"
@@ -56,19 +56,19 @@
 
             <Button
                 android:id="@+id/Point"
-                android:layout_marginLeft="75dp"
-                android:layout_width="225dp"
+                android:layout_width="206dp"
                 android:layout_height="225dp"
+
                 android:background="#0bf52b"
                 android:text="point-based"
                 android:textSize="18sp" />
 
             <Button
                 android:id="@+id/Accuracy"
-                android:layout_width="225dp"
+                android:layout_width="206dp"
                 android:layout_height="225dp"
                 android:background="#60f99b"
-                android:text="accuracy-based"
+                android:text="accuracy-base"
                 android:textSize="18sp" />
 
         </LinearLayout>
