@@ -33,12 +33,18 @@ public class CreateSport extends AppCompatActivity {
     }
 
     public void toStoreData(View view) throws IOException {
-        newSport();
+        EditText name = (EditText) findViewById(R.id.sportname);
+        if (!name.getText().toString().isEmpty()){
+            newSport();
         Intent intent = new Intent(CreateSport.this, SportHome.class);
-        EditText namePull = (EditText) findViewById(R.id.sportname);
-        String nameStr = namePull.getText().toString();
+        //EditText namePull = (EditText) findViewById(R.id.sportname);
+        String nameStr = name.getText().toString();
         intent.putExtra("sportName", nameStr);
         startActivity(intent);
+        }
+        else {
+            Toast.makeText(getBaseContext(), "Please enter your sport name", Toast.LENGTH_LONG).show();
+        }
     }
 
 
@@ -50,15 +56,16 @@ public class CreateSport extends AppCompatActivity {
 
         String nameStr = namePull.getText().toString();
         String commentStr = commentPull.getText().toString();
+        if (!namePull.getText().toString().isEmpty()) {
+            Sport sport = new Sport(nameStr, commentStr);
 
-        Sport sport = new Sport(nameStr,commentStr);
+            aController.addSport(sport);
 
-        aController.addSport(sport);
+            String check1 = sport.getComment();
+            String check2 = sport.getName();
 
-        String check1 = sport.getComment();
-        String check2 = sport.getName();
-
-        Log.i("Ellie", check1 + check2);
+            Log.i("Ellie", check1 + check2);
+        }
     }
 @Override
 public void onDestroy() {
