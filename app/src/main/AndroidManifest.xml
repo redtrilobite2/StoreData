@@ -24,7 +24,8 @@
         <activity android:name=".ViewData" />
         <activity android:name=".SportHome" />
         <activity android:name=".Bargraph" />
-        <activity android:name=".Pointsvstime"></activity>
+        <activity android:name=".Pointsvstime" />
+        <activity android:name=".Accuracyvstime"></activity>
     </application>
 
 </manifest>

@@ -17,30 +17,32 @@ import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
-public class Pointsvstime extends AppCompatActivity {
+public class Accuracyvstime extends AppCompatActivity {
 
     private String sportName;
 
-   /* @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    /* @Override
+      protected void onCreate(Bundle savedInstanceState) {
 
         Bundle bundle=getIntent().getExtras();
         sportName=bundle.getString("sportName");
 
-        final Controller control = (Controller) getApplicationContext();
+       final Controller control = (Controller) getApplicationContext();
         ArrayList<Double> Sportarray = new ArrayList<Double>();
         ArrayList<Event> sportsarray = control.getSport(sportName).getEvent();
-
+        double counterdt = 0;
+        double accuracy = 1;
         for (int q = 0; q < sportsarray.size(); q++) {
 
-            if (sportsarray.get(q).getTime() != 0) {
+            if (sportsarray.get(q).getMissed() != 0) {
+                counterdt++;
+                accuracy = sportsarray.get(q).getScored() / sportsarray.get(q).getMissed();
                 if (q == 0) {
                     Sportarray.add(0.0);
                     Sportarray.add(0.0);
                 }
-                Sportarray.add((double)q);
-                Sportarray.add(sportsarray.get(q).getPoints());
-
+                Sportarray.add(counterdt);
+                Sportarray.add(accuracy);
             }
         }
 
@@ -75,19 +77,19 @@ public class Pointsvstime extends AppCompatActivity {
         line_series.setOnDataPointTapListener(new OnDataPointTapListener() {
             @Override
             public void onTap(Series series, DataPointInterface dataPoint) {
-                Toast.makeText(Pointsvstime.this, "Series: On Data Point clicked:" + dataPoint, Toast.LENGTH_SHORT).show();
+                Toast.makeText(Accuracyvstime.this, "Series: On Data Point clicked:" + dataPoint, Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     public void toStoreData(View view) {
-        Intent intent=new Intent(Pointsvstime.this, Storedata.class);
+        Intent intent=new Intent(Accuracyvstime.this, Storedata.class);
         intent.putExtra("sportName", sportName);
         startActivity(intent);
     }
 
     public void toSportHome(View view) {
-        Intent intent=new Intent(Pointsvstime.this, SportHome.class);
+        Intent intent=new Intent(Accuracyvstime.this, SportHome.class);
         intent.putExtra("sportName", sportName);
         startActivity(intent);
     }
