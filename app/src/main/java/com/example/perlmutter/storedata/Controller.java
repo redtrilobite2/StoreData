@@ -26,7 +26,7 @@ public class Controller extends Application {
 
      public void addSport(Sport sport) {
         for(int i = 0; i < allSports.size(); i++){
-            if(allSports.get(i).getName().equalsIgnoreCase(sport.getName())){
+            if(allSports.get(i).getName().equalsIgnoreCase(sport.getName()) || sport.getName().equalsIgnoreCase("")){
                 add = false;
             }
         }
