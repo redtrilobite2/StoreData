@@ -23,9 +23,10 @@
         <activity android:name=".CreateSport" />
         <activity android:name=".ViewData" />
         <activity android:name=".SportHome" />
-        <activity android:name=".DistanceBased" />
-        <activity android:name=".PointBased" />
-        <activity android:name=".AccuracyBased"></activity>
+        <activity android:name=".Bargraph" />
+        <activity android:name=".Pointsvstime" />
+        <activity android:name=".Accuracyvstime" />
+        <activity android:name=".Timevstime"></activity>
     </application>
 
 </manifest>
