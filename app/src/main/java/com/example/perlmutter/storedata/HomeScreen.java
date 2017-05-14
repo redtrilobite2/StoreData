@@ -50,7 +50,7 @@ public class HomeScreen extends Activity implements AdapterView.OnItemSelectedLi
     }
 
     public void toSportStyle(View view) {
-        Intent intent = new Intent(HomeScreen.this, SportStyle.class);
+        Intent intent = new Intent(HomeScreen.this, CreateSport.class);
         startActivity(intent);
     }
 

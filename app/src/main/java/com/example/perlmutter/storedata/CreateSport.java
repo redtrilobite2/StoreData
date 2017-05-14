@@ -36,7 +36,7 @@ public class CreateSport extends AppCompatActivity {
         EditText name = (EditText) findViewById(R.id.sportname);
         if (!name.getText().toString().isEmpty()){
             newSport();
-        Intent intent = new Intent(CreateSport.this, SportHome.class);
+        Intent intent = new Intent(CreateSport.this, SportStyle.class);
         //EditText namePull = (EditText) findViewById(R.id.sportname);
         String nameStr = name.getText().toString();
         intent.putExtra("sportName", nameStr);

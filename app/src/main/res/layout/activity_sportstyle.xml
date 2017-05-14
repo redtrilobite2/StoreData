@@ -16,7 +16,7 @@
         tools:layout_editor_absoluteY="8dp">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/sport"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Create a New Sport"
@@ -34,7 +34,7 @@
                 android:layout_height="225dp"
 
                 android:background="#1d7e47"
-                android:onClick="toCreateSport"
+                android:onClick="toSportHome"
                 android:text="Time-based"
                 android:textSize="18sp" />
 
@@ -43,6 +43,7 @@
                 android:layout_width="206dp"
                 android:layout_height="225dp"
                 android:background="#44be1c"
+                android:onClick="toSportHome"
                 android:text="Distance-based"
                 android:textSize="18sp" />
 
@@ -60,6 +61,7 @@
                 android:layout_height="225dp"
 
                 android:background="#0bf52b"
+                android:onClick="toSportHome"
                 android:text="point-based"
                 android:textSize="18sp" />
 
@@ -68,7 +70,8 @@
                 android:layout_width="206dp"
                 android:layout_height="225dp"
                 android:background="#60f99b"
-                android:text="accuracy-base"
+                android:onClick="toSportHome"
+                android:text="accuracy-based"
                 android:textSize="18sp" />
 
         </LinearLayout>

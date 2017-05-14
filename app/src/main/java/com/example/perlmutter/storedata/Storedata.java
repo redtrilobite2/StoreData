@@ -61,18 +61,7 @@ public class Storedata extends AppCompatActivity {
         startActivity(intent);
         saveData(view);
         TextView sportName=(TextView) findViewById(R.id.SportName);
-        /*if (distanceStr.equals("")) {
-            Toast.makeText(getBaseContext(),"Please enter a distance", Toast.LENGTH_LONG).show();
-        }
-        if (timeStr.equals("")) {
-            Toast.makeText(getBaseContext(),"Please enter a time", Toast.LENGTH_LONG).show();
-        }
-        if (dateStr.equals("")) {
-            Toast.makeText(getBaseContext(),"Please enter a date", Toast.LENGTH_LONG).show();
-        }
-        if (commentStr.equals("")) {
-            commentStr = " ";
-        }*/
+
     }
 
     public void saveData(View view) {

@@ -5,23 +5,39 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
 public class SportStyle extends AppCompatActivity {
-
+    private String name  = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sportstyle);
+        TextView sportName=(TextView) findViewById(R.id.sport);
+        Bundle bundle = getIntent().getExtras();
+        name=bundle.getString("sportName");
+        sportName.setText(name);
     }
 
-    public void toCreateSport(View view) {
-        Intent intent = new Intent(SportStyle.this, CreateSport.class);
-        startActivity(intent);
+    public void toSportHome(View view) {
+        //Intent intent = new Intent(SportStyle.this, SportHome.class);
+        //startActivity(intent);
+        TextView name = (TextView) findViewById(R.id.sport);
+        if (!name.getText().toString().isEmpty()){
+
+            Intent intent = new Intent(SportStyle.this, SportHome.class);
+            //EditText namePull = (EditText) findViewById(R.id.sportname);
+            String nameStr = name.getText().toString();
+            intent.putExtra("sportName", nameStr);
+            startActivity(intent);
+        }
     }
 
     @Override

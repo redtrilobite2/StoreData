@@ -24,6 +24,27 @@ public class Event {
         this.comment = comment;
     }
 
+    public Event(double distance, String date, String comment) {
+        //	eventName = this.eventName;
+        this.date = date;
+        this.distance = distance;
+        this.comment = comment;
+    }
+
+    /*public Event(double points, String date, String comment) {
+        //	eventName = this.eventName;
+        this.date = date;
+        this.points = points;
+        this.comment = comment;
+    }
+    public Event(double successfulAttempts, double totalAttempts, String date, String comment) {
+        //	eventName = this.eventName;
+        this.date = date;
+        this.successfulAttempts = successfulAttempts;
+        this.totalAttempts = totalAttempts;
+        this.comment = comment;
+    }*/
+
 
     public String getDate() {
         return date;
