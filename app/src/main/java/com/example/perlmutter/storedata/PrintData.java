@@ -14,10 +14,18 @@ public class PrintData {
     ArrayList<String> data = new ArrayList<>();
     ArrayList<Event> events = new ArrayList<>();
 
+    /**
+     * Constructs a PrintData object with a given ArrayList of sports
+     * @param sports
+     */
     public PrintData(ArrayList <Sport> sports) {
     this.sports = sports;
     }
 
+    /**
+     * Returns and prints out all of the sport and event data in a file
+     * @return
+     */
     public ArrayList print() {
         Log.i("EllieWrite", "Inprint");
         Sport sport;

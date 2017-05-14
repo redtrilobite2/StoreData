@@ -22,6 +22,7 @@ public class HomeScreen extends Activity implements AdapterView.OnItemSelectedLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homescreen);
+        //populates the spinner with the sports in the ArrayList of sports
         Controller aController = (Controller) getApplicationContext();
         ArrayList<String> sports = aController.allNames();
         Log.i("Ellie", Integer.toString(sports.size()));
@@ -31,7 +32,7 @@ public class HomeScreen extends Activity implements AdapterView.OnItemSelectedLi
         spin.setAdapter(adapter);
         spin.setOnItemSelectedListener(this);
     }
-
+    //Creates a new intent and goes to the sport home screen when an item from the spinner is selected
     public void onItemSelected(AdapterView<?> parent, View view,
                                int pos, long id) {
         final Controller aController = (Controller) getApplicationContext();
@@ -45,16 +46,16 @@ public class HomeScreen extends Activity implements AdapterView.OnItemSelectedLi
 
         }
     }
-
+    //does nothing when no item from the spinner is selected
     public void onNothingSelected(AdapterView<?> parent) {
         // Another interface callback
     }
-
+    //creates a new intent and goes to the create sport screen
     public void toCreateSport(View view) {
         Intent intent = new Intent(HomeScreen.this, CreateSport.class);
         startActivity(intent);
     }
-
+    //when the app is closed this method prints the sport data into a file
     @Override
     public void onDestroy() {
         Log.i("Ellie", "In onDestroy");

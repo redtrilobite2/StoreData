@@ -15,7 +15,6 @@ import java.util.ArrayList;
 
 /**
  * Created by Ellie DeSota on 4/6/2017.
- * Will add comments
  */
 
 public class SportHome extends AppCompatActivity {

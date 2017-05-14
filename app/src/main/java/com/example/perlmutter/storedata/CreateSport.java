@@ -25,6 +25,7 @@ public class CreateSport extends Activity implements AdapterView.OnItemSelectedL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //populates a spinner with the different styles of sports
         setContentView(R.layout.activity_createsport);
         styles.add("Select a Sport Type");
         styles.add("Time-Distance based");
@@ -38,7 +39,8 @@ public class CreateSport extends Activity implements AdapterView.OnItemSelectedL
         spin.setOnItemSelectedListener(this);
         //EditText sportName = (EditText) findViewById(R.id.sportname);
     }
-
+    //when an item from the spinner is called, this method gets the position of that item and assigns it
+    //to a style of sport
     public void onItemSelected(AdapterView<?> parent, View view,
                                int pos, long id) {
         final Controller aController = (Controller) getApplicationContext();
@@ -54,16 +56,16 @@ public class CreateSport extends Activity implements AdapterView.OnItemSelectedL
             sportStyle = "accuracy";
         }
     }
-
+    //doees nothing when no item from the spinner is called
     public void onNothingSelected(AdapterView<?> parent) {
         // Another interface callback
     }
-
+    //creates new intent and goes to the home screen
     public void toHomeScreen(View view) throws IOException {
         Intent intent = new Intent(CreateSport.this, HomeScreen.class);
         startActivity(intent);
     }
-
+    //creates new intent and goes to the sport home screen
     public void toSportHome(View view) throws IOException {
         EditText name = (EditText) findViewById(R.id.sportname);
         if (!name.getText().toString().isEmpty()) {
@@ -77,13 +79,14 @@ public class CreateSport extends Activity implements AdapterView.OnItemSelectedL
         }
     }
 
-
+    //Adds a new sport to the arraylist of sports
+    //The name of the sport and the comment that is added is gotten from the user's input in the edit text boxes on the screen
     public void newSport(String style) throws IOException {
         //get Global Controller Class object (see application tag in AndroidManifest.xml)
         Controller aController = (Controller) getApplicationContext();
         EditText namePull = (EditText) findViewById(R.id.sportname);
         EditText commentPull = (EditText) findViewById(R.id.commentCreateSport);
-Log.i("EllieStyle", style);
+        Log.i("EllieStyle", style);
         String nameStr = namePull.getText().toString();
         String commentStr = commentPull.getText().toString();
         if (!namePull.getText().toString().isEmpty()) {
@@ -98,7 +101,7 @@ Log.i("EllieStyle", style);
             Log.i("Ellie", check1 + check2 + check3);
         }
     }
-
+    //when the app is closed this method saves the data from the ArrayLists of sports and events to a text file
     @Override
     public void onDestroy() {
         Log.i("Ellie", "In onDestroy");
