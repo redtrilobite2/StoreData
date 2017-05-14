@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
-public class CreateSport extends Activity implements AdapterView.OnItemSelectedListener {
+public class CreateSport extends AppCompatActivity {
 
     Spinner spin;
     String sportStyle;
@@ -25,7 +25,7 @@ public class CreateSport extends Activity implements AdapterView.OnItemSelectedL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_createsport);
-        ArrayList<String> styles = new ArrayList<>();
+        /*ArrayList<String> styles = new ArrayList<>();
         Log.i("Ellie", Integer.toString(styles.size()));
         styles.add(0, "Select a Sport Type");
         styles.add(1, "Time-Distance based");
@@ -36,10 +36,10 @@ public class CreateSport extends Activity implements AdapterView.OnItemSelectedL
         ArrayAdapter<CharSequence> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, styles);
         spin.setAdapter(adapter);
         spin.setOnItemSelectedListener(this);
-        //EditText sportName = (EditText) findViewById(R.id.sportname);
+        //EditText sportName = (EditText) findViewById(R.id.sportname);*/
     }
 
-    public void onItemSelected(AdapterView<?> parent, View view,
+    /*public void onItemSelected(AdapterView<?> parent, View view,
                                int pos, long id) {
         final Controller aController = (Controller) getApplicationContext();
         pos = spin.getSelectedItemPosition();
@@ -57,7 +57,7 @@ public class CreateSport extends Activity implements AdapterView.OnItemSelectedL
 
     public void onNothingSelected(AdapterView<?> parent) {
         // Another interface callback
-    }
+    }*/
 
     public void toHomeScreen(View view) throws IOException {
         Intent intent = new Intent(CreateSport.this, HomeScreen.class);

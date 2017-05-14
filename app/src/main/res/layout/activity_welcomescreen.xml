@@ -18,24 +18,22 @@
         android:id="@+id/welcome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.07"
         android:text="Welcome to the Athlete's Log!"
         android:textAlignment="center"
         android:textColor="@android:color/background_dark"
-        android:textSize="40sp" />
-
+        android:textSize="50sp" />
 
     <ImageView
         android:id="@+id/s"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_gravity="center_horizontal" />
+        android:layout_width="match_parent"
+        android:layout_height="193dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/icon" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.15" />
+        android:layout_height="6dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -46,9 +44,9 @@
         <Button
             android:id="@+id/start"
             android:layout_width="match_parent"
-            android:layout_height="68dp"
+            android:layout_height="75dp"
             android:layout_gravity="center_horizontal"
-            android:background="#3af362"
+            android:background="@color/colorPrimary"
             android:onClick="toHomeScreen"
             android:text="Click here to start!"
             android:textAlignment="center"

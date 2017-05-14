@@ -11,9 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:weightSum="1"
         tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp"
-        android:weightSum="1">
+        tools:layout_editor_absoluteY="8dp">
 
         <TextView
             android:id="@+id/SportName"
@@ -76,7 +76,7 @@
                 android:layout_weight="0.5"
                 android:background="@color/colorPrimaryDark"
                 android:onClick="buttonClick"
-                android:text="Edit Data"
+                android:text="Edit Data or View data"
                 android:textSize="24sp" />
 
             <Button
@@ -86,7 +86,7 @@
                 android:layout_weight="0.5"
                 android:background="@color/colorAccent"
                 android:onClick="toHomeScreen"
-                android:text="Create New Sport"
+                android:text="Create New or Select different  sport"
                 android:textSize="24sp" />
         </LinearLayout>
 

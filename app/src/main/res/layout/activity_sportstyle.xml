@@ -42,7 +42,6 @@
                 android:layout_height="225dp"
                 android:layout_weight="0.5"
                 android:background="@color/colorPrimaryDark"
-                android:fontFamily="sans-serif"
                 android:onClick="toSportHome"
                 android:text="Time-based"
                 android:textSize="24sp" />
