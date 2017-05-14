@@ -1,6 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -12,53 +9,66 @@
     tools:context="com.example.perlmutter.storedata.Pointsvstime">
 
 
-    <TextView
-        android:id="@+id/GraphTitle"
+    <RelativeLayout
+
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.01"
-        android:text="Graph Title"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textSize="24sp"
-        android:verticalScrollbarPosition="right"
-        tools:layout_editor_absoluteX="133dp"
-        tools:layout_editor_absoluteY="47dp" />
-
-
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        xmlns:http="http://schemas.android.com/apk/res-auto">
+        android:layout_height="match_parent">
         <!-- android:paddingBottom="@dimen/activity_vertical_margin"
          android:paddingLeft="@dimen/activity_horizontal_margin"
          android:paddingRight="@dimen/activity_horizontal_margin"
          android:paddingTop="@dimen/activity_vertical_margin"
          tools:context="app.num.graphview.MainActivity"-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"></LinearLayout>
+
         <TextView
             android:id="@+id/linetext"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:text="Line Graph"
+            android:text="Your Points Over Time"
+            android:textAlignment="center"
             android:textColor="@android:color/background_dark"
-            android:textSize="20sp" />
+            android:textColorHint="@color/colorPrimary"
+            android:textSize="30sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/ReturnHome"
+            android:layout_below="@+id/yAxisLabel"
+            android:orientation="horizontal">
+
+        </LinearLayout>
 
         <com.jjoe64.graphview.GraphView
-            android:layout_width="match_parent"
-            android:layout_height="200dip"
-            android:title="Graph Title"
             android:id="@+id/graph"
-            android:layout_below="@+id/linetext" />
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_below="@+id/linetext"
+            android:layout_toEndOf="@+id/yAxisLabel"
+            android:title="Graph Title" />
 
         <Button
             android:id="@+id/ReturnHome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/graph"
-            android:layout_marginTop="27dp"
+            android:layout_marginTop="48dp"
             android:layout_weight="1"
             android:background="#60f99b"
             android:onClick="toSportHome"
@@ -66,6 +76,7 @@
             android:textAlignment="center"
             tools:layout_editor_absoluteX="268dp"
             tools:layout_editor_absoluteY="447dp"
+            android:layout_below="@+id/xAxisLabel"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
@@ -90,30 +101,56 @@
 
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/xAxisLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/graph"
+            android:layout_marginTop="12dp"
+            android:layout_toEndOf="@+id/yAxisLabel"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Time"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_dark"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="85dp"
+            tools:layout_editor_absoluteY="347dp" />
+
+        <EditText
+            android:id="@+id/yAxisLabel"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/xAxisLabel"
+            android:layout_below="@+id/linetext"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Y axis"
+            android:inputType="textPersonName"
+            android:rotation="270"
+            android:text="Pts."
+            android:textColor="@android:color/background_dark"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="-67dp"
+            tools:layout_editor_absoluteY="182dp" />
+
 
     </RelativeLayout>
 
-    <EditText
-        android:id="@+id/xAxisLabel"
-        android:layout_width="75dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="X Axis"
+    <TextView
+        android:id="@+id/GraphTitle"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.01"
+        android:text="Graph Title"
         android:textAlignment="center"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="347dp" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="24sp"
+        android:verticalScrollbarPosition="right"
+        tools:layout_editor_absoluteX="133dp"
+        tools:layout_editor_absoluteY="47dp" />
 
-    <EditText
-        android:id="@+id/yAxisLabel"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Y axis"
-        android:inputType="textPersonName"
-        android:rotation="270"
-        android:text="Name"
-        tools:layout_editor_absoluteX="-67dp"
-        tools:layout_editor_absoluteY="182dp" />
 
 </LinearLayout>
