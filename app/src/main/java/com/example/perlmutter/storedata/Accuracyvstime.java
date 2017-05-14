@@ -36,7 +36,7 @@ public class Accuracyvstime extends AppCompatActivity {
 
             if (sportsarray.get(q).getMissed() != 0) {
                 counterdt++;
-                accuracy = sportsarray.get(q).getScored() / sportsarray.get(q).getMissed();
+                accuracy = (sportsarray.get(q).getScored() / sportsarray.get(q).getTotal())*100;
                 if (q == 0) {
                     Sportarray.add(0.0);
                     Sportarray.add(0.0);
