@@ -29,7 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.04"
-        android:background="#108329"/>
+        android:background="#108329" />
 
     <TextView
         android:id="@+id/textView5"
@@ -50,12 +50,12 @@
             android:layout_weight="0.06" />
 
         <Button
-            android:background="#3af362"
             android:id="@+id/makeNewSport"
             android:layout_width="182dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.27"
-            android:onClick="toSportStyle"
+            android:background="#3af362"
+            android:onClick="toCreateSport"
             android:text="Make a new sport"
             android:textSize="18sp" />
     </LinearLayout>
