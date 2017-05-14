@@ -25,7 +25,7 @@ public class PrintData {
             sport = sports.get(i);
             events = sport.getEvent();
             for (int m = 0; m < events.size(); m++) {
-                data.add(sport.getName() + " ;; " + sport.getComment() + " ;; " + events.get(m).getTime() + " ;; "
+                data.add(sport.getName() + " ;; " + sport.getComment() + " ;; " + sport.getStyle() + " ;; "+ events.get(m).getTime() + " ;; "
                         + events.get(m).getDistance() + " ;; " + events.get(m).getDate() + " ;; " + events.get(m).getComment());
             }
         }

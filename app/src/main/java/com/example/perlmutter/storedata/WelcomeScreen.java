@@ -32,12 +32,14 @@ public class WelcomeScreen extends AppCompatActivity {
                 String lineString = scan.nextLine();
                 StringTokenizer help = new StringTokenizer(lineString, ";;");
                 String sportName = help.nextToken();
-                sports.add(new Sport(sportName, help.nextToken()));
+                String sportComment = help.nextToken();
+                String sportStyle = help.nextToken();
+                sports.add(new Sport(sportName, sportComment, sportStyle));
+                Log.i("EllieNextStyle", sportStyle);
 
                 aController.getSport(sportName).addEvent(new Event(Double.parseDouble(help.nextToken()), Double.parseDouble(help.nextToken()), help.nextToken(), help.nextToken()));
 
                // aController.allNames();
-               // Log.i("EllieHelp", aController.allNames().get(0));
             }
             inRead.close();
         } catch (Exception e) {
