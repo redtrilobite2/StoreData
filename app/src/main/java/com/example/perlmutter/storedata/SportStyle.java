@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,19 +27,58 @@ public class SportStyle extends AppCompatActivity {
         sportName.setText(name);
     }
 
-    public void toSportHome(View view) {
+    public void toSportHome(View view) throws IOException {
         //Intent intent = new Intent(SportStyle.this, SportHome.class);
         //startActivity(intent);
+        //Controller aController = (Controller) getApplicationContext();
         TextView name = (TextView) findViewById(R.id.sport);
         if (!name.getText().toString().isEmpty()){
+            //newSport();
+           // ((Button) view).getText().toString();
+            //Bundle bundle = getIntent().getExtras();
+            //String sportName=bundle.getString("sportName");
+           // String commentStr=bundle.getString("commentStr");
+
+            //Sport sport = new Sport(name.toString(), commentStr);
+
+            //aController.addSport(sport);
+
+            //String check1 = sport.getComment();
+            //String check2 = sport.getName();
+
+            //Log.i("Ellie", check1 + check2);
 
             Intent intent = new Intent(SportStyle.this, SportHome.class);
             //EditText namePull = (EditText) findViewById(R.id.sportname);
             String nameStr = name.getText().toString();
             intent.putExtra("sportName", nameStr);
+            //intent.putExtra("sportStyle",((Button) view).getText().toString());
             startActivity(intent);
         }
     }
+
+    /*public void newSport() throws IOException {
+        //get Global Controller Class object (see application tag in AndroidManifest.xml)
+        Controller aController = (Controller) getApplicationContext();
+        //EditText namePull = (EditText) findViewById(R.id.sportname);
+        //EditText commentPull = (EditText) findViewById(R.id.commentCreateSport);
+
+        //String nameStr = namePull.getText().toString();
+        //String commentStr = commentPull.getText().toString();
+        Bundle bundle = getIntent().getExtras();
+        name=bundle.getString("sportName");
+        String commentStr=bundle.getString("commentStr");
+       // if (!namePull.getText().toString().isEmpty()) {
+            Sport sport = new Sport(name, commentStr,);
+
+            aController.addSport(sport);
+
+            String check1 = sport.getComment();
+            String check2 = sport.getName();
+
+            Log.i("Ellie", check1 + check2);
+        }*/
+    //}
 
     @Override
     public void onDestroy() {

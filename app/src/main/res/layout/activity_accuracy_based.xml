@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:text="Sport Name"
         android:textAlignment="center"
+        android:textColor="@android:color/background_dark"
         android:textSize="40sp" />
 
     <TextView
@@ -20,6 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Enter successful attempts:"
+        android:textColor="@android:color/background_dark"
         android:textSize="24sp" />
 
     <EditText
@@ -35,6 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Enter total attempts:"
+        android:textColor="@android:color/background_dark"
         android:textSize="24sp" />
 
     <EditText
@@ -49,6 +52,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Enter date:"
+        android:textColor="@android:color/background_dark"
         android:textSize="24sp" />
 
     <EditText
@@ -64,6 +68,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Comments:"
+        android:textColor="@android:color/background_dark"
         android:textSize="24sp" />
 
     <EditText
@@ -81,23 +86,25 @@
         android:orientation="horizontal">
 
         <Button
-            android:background="#0bf52b"
             android:id="@+id/button"
             android:layout_width="184dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.03"
+            android:background="@color/colorPrimary"
             android:onClick="toViewData"
             android:text="Submit"
+            android:textSize="18sp"
             tools:onClick="ViewData" />
 
         <Button
-            android:background="#419f22"
             android:id="@+id/submitStoreData"
             android:layout_width="178dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.09"
+            android:background="@color/colorAccent"
             android:onClick="toSportHome"
             android:text="Home"
+            android:textSize="18sp"
             tools:onClick="ViewData" />
     </LinearLayout>
 

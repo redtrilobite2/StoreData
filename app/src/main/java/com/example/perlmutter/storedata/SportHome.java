@@ -35,9 +35,10 @@ public class SportHome extends AppCompatActivity {
     //button controls
     public void toStoreData(View view) {
         TextView sportName=(TextView) findViewById(R.id.SportName);
-        Intent intent = new Intent(SportHome.this, Storedata.class);
-        intent.putExtra("sportName", sportName.getText());
-        startActivity(intent);
+
+            Intent intent = new Intent(SportHome.this, Storedata.class);
+            intent.putExtra("sportName", sportName.getText());
+            startActivity(intent);
     }
 
     public void toViewData(View view) {
