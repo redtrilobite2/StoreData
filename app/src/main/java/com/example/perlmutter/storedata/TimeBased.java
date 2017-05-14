@@ -1,8 +1,8 @@
 package com.example.perlmutter.storedata;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -11,33 +11,35 @@ import android.widget.Toast;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
-
-
 import static java.lang.Double.parseDouble;
 
-public class Storedata extends AppCompatActivity {
+/**
+ * Created by Ellie DeSota on 5/14/2017.
+ *
+ */
+
+public class TimeBased extends AppCompatActivity {
     private String name;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_storedata);
-        TextView sportName=(TextView) findViewById(R.id.SportName);
-        Bundle bundle=getIntent().getExtras();
-        name=bundle.getString("sportName");
+        setContentView(R.layout.activity_point_based);
+        TextView sportName = (TextView) findViewById(R.id.SportName);
+        Bundle bundle = getIntent().getExtras();
+        name = bundle.getString("sportName");
         sportName.setText(name);
     }
 
     public void toViewData(View view) {
-        EditText distancePull = (EditText) findViewById(R.id.distance);
-        EditText timePull = (EditText) findViewById(R.id.time);
+        EditText pointsPull = (EditText) findViewById(R.id.total);
         EditText datePull = (EditText) findViewById(R.id.date);
 
-        String distanceStr = distancePull.getText().toString();
-        String timeStr = timePull.getText().toString();
+        String timeStr = pointsPull.getText().toString();
         String dateStr = datePull.getText().toString();
 
-        if(!distanceStr.isEmpty() && !timeStr.isEmpty() && !dateStr.isEmpty()) {
-            Intent intent = new Intent(Storedata.this, ViewData.class);
+        if (!timeStr.isEmpty() && !dateStr.isEmpty()) {
+            Intent intent = new Intent(TimeBased.this, Timevstime.class);
             intent.putExtra("sportName", name);
             startActivity(intent);
         }
@@ -45,51 +47,43 @@ public class Storedata extends AppCompatActivity {
     }
 
     public void toSportHome(View view) {
-        Intent intent = new Intent(Storedata.this, SportHome.class);
+        Intent intent = new Intent(TimeBased.this, SportHome.class);
         intent.putExtra("sportName", name);
         startActivity(intent);
         saveData(view);
-        TextView sportName=(TextView) findViewById(R.id.SportName);
+        //TextView sportName=(TextView) findViewById(R.id.SportName);
 
     }
 
     public void saveData(View view) {
         Controller aController = (Controller) getApplicationContext();
         Log.i("Ellie", "Entered into newEvent");
-        TextView sportName=(TextView) findViewById(R.id.SportName);
-        EditText distancePull = (EditText) findViewById(R.id.distance);
-        EditText timePull = (EditText) findViewById(R.id.time);
+        TextView sportName = (TextView) findViewById(R.id.SportName);
+        EditText timePull = (EditText) findViewById(R.id.total);
         EditText datePull = (EditText) findViewById(R.id.date);
         EditText commentPull = (EditText) findViewById(R.id.commentStoreData);
 
-        String distanceStr = distancePull.getText().toString();
         String timeStr = timePull.getText().toString();
         String dateStr = datePull.getText().toString();
         String commentStr = commentPull.getText().toString();
-
-boolean print = true;
+        boolean print = true;
         if (commentStr.isEmpty()) {
             commentStr = " ";
         }
-        if (distanceStr.isEmpty()) {
-            Toast.makeText(getBaseContext(),"Please enter a distance", Toast.LENGTH_LONG).show();
-            print = false;
-        }
         if (timeStr.isEmpty()) {
-            Toast.makeText(getBaseContext(),"Please enter a time", Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), "Please enter a distance", Toast.LENGTH_LONG).show();
             print = false;
         }
         if (dateStr.isEmpty()) {
-            Toast.makeText(getBaseContext(),"Please enter a date", Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), "Please enter a date", Toast.LENGTH_LONG).show();
             print = false;
         }
 
 
         if (print) {
-            double distance = parseDouble(distanceStr);
-            double time = parseDouble(timeStr);
+            double distance = parseDouble(timeStr);
 
-            Event event = new Event(time, distance, dateStr, commentStr);
+            Event event = new Event(distance, dateStr, commentStr);
             aController.getSport(sportName.getText().toString()).addEvent(event);
             Log.i("EllieSaveSport", aController.getSport(sportName.getText().toString()).getEvent().toString());
             Log.i("Ellie", Integer.toString(aController.getSport(sportName.getText().toString()).getEvent().size()));
@@ -121,6 +115,5 @@ boolean print = true;
             e.printStackTrace();
         }
     }
+
 }
-
-

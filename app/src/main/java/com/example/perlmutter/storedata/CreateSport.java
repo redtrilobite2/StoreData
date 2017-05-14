@@ -17,29 +17,29 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
-public class CreateSport extends AppCompatActivity {
+public class CreateSport extends Activity implements AdapterView.OnItemSelectedListener {
 
     Spinner spin;
     String sportStyle;
+    ArrayList<String> styles = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_createsport);
-        /*ArrayList<String> styles = new ArrayList<>();
+        styles.add("Select a Sport Type");
+        styles.add("Time-Distance based");
+        styles.add("Time based");
+        styles.add("Distance based");
+        styles.add("Accuracy based");
         Log.i("Ellie", Integer.toString(styles.size()));
-        styles.add(0, "Select a Sport Type");
-        styles.add(1, "Time-Distance based");
-        styles.add(2, "Time based");
-        styles.add(3, "Distance based");
-        styles.add(4, "Accuracy based");
-        spin = (Spinner) findViewById(R.id.spinner);
-        ArrayAdapter<CharSequence> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, styles);
+        spin = (Spinner) findViewById(R.id.sportStyleSpinner);
+        ArrayAdapter<CharSequence> adapter = new ArrayAdapter(CreateSport.this, android.R.layout.simple_spinner_item, styles);
         spin.setAdapter(adapter);
         spin.setOnItemSelectedListener(this);
-        //EditText sportName = (EditText) findViewById(R.id.sportname);*/
+        //EditText sportName = (EditText) findViewById(R.id.sportname);
     }
 
-    /*public void onItemSelected(AdapterView<?> parent, View view,
+    public void onItemSelected(AdapterView<?> parent, View view,
                                int pos, long id) {
         final Controller aController = (Controller) getApplicationContext();
         pos = spin.getSelectedItemPosition();
@@ -57,19 +57,18 @@ public class CreateSport extends AppCompatActivity {
 
     public void onNothingSelected(AdapterView<?> parent) {
         // Another interface callback
-    }*/
+    }
 
     public void toHomeScreen(View view) throws IOException {
         Intent intent = new Intent(CreateSport.this, HomeScreen.class);
         startActivity(intent);
     }
 
-    public void toStoreData(View view) throws IOException {
+    public void toSportHome(View view) throws IOException {
         EditText name = (EditText) findViewById(R.id.sportname);
         if (!name.getText().toString().isEmpty()) {
             newSport(sportStyle);
-            Intent intent = new Intent(CreateSport.this, SportStyle.class);
-            //EditText namePull = (EditText) findViewById(R.id.sportname);
+            Intent intent = new Intent(CreateSport.this, SportHome.class);
             String nameStr = name.getText().toString();
             intent.putExtra("sportName", nameStr);
             startActivity(intent);
@@ -84,7 +83,7 @@ public class CreateSport extends AppCompatActivity {
         Controller aController = (Controller) getApplicationContext();
         EditText namePull = (EditText) findViewById(R.id.sportname);
         EditText commentPull = (EditText) findViewById(R.id.commentCreateSport);
-
+Log.i("EllieStyle", style);
         String nameStr = namePull.getText().toString();
         String commentStr = commentPull.getText().toString();
         if (!namePull.getText().toString().isEmpty()) {

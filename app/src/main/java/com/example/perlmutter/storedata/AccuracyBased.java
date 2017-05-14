@@ -17,15 +17,17 @@ import static java.lang.Double.parseDouble;
 
 public class AccuracyBased extends AppCompatActivity {
     private String name;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accuracy_based);
-        TextView sportName=(TextView) findViewById(R.id.SportName);
-        Bundle bundle=getIntent().getExtras();
-        name=bundle.getString("sportName");
+        TextView sportName = (TextView) findViewById(R.id.SportName);
+        Bundle bundle = getIntent().getExtras();
+        name = bundle.getString("sportName");
         sportName.setText(name);
     }
+
     public void toViewData(View view) {
         EditText successfulPull = (EditText) findViewById(R.id.successful);
         EditText totalPull = (EditText) findViewById(R.id.total);
@@ -35,7 +37,7 @@ public class AccuracyBased extends AppCompatActivity {
         String totalStr = totalPull.getText().toString();
         String dateStr = datePull.getText().toString();
 
-        if(!successfulStr.isEmpty() && !totalStr.isEmpty() && !dateStr.isEmpty()) {
+        if (!successfulStr.isEmpty() && !totalStr.isEmpty() && !dateStr.isEmpty()) {
             Intent intent = new Intent(AccuracyBased.this, ViewData.class);
             intent.putExtra("sportName", name);
             startActivity(intent);
@@ -48,14 +50,14 @@ public class AccuracyBased extends AppCompatActivity {
         intent.putExtra("sportName", name);
         startActivity(intent);
         saveData(view);
-        TextView sportName=(TextView) findViewById(R.id.SportName);
+        TextView sportName = (TextView) findViewById(R.id.SportName);
 
     }
 
     public void saveData(View view) {
         Controller aController = (Controller) getApplicationContext();
         Log.i("Ellie", "Entered into newEvent");
-        TextView sportName=(TextView) findViewById(R.id.SportName);
+        TextView sportName = (TextView) findViewById(R.id.SportName);
         EditText successfulPull = (EditText) findViewById(R.id.successful);
         EditText totalPull = (EditText) findViewById(R.id.total);
         EditText datePull = (EditText) findViewById(R.id.date);
@@ -70,15 +72,15 @@ public class AccuracyBased extends AppCompatActivity {
             commentStr = " ";
         }
         if (successfulStr.isEmpty()) {
-            Toast.makeText(getBaseContext(),"Please enter a distance", Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), "Please enter a distance", Toast.LENGTH_LONG).show();
             print = false;
         }
         if (totalStr.isEmpty()) {
-            Toast.makeText(getBaseContext(),"Please enter a time", Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), "Please enter a time", Toast.LENGTH_LONG).show();
             print = false;
         }
         if (dateStr.isEmpty()) {
-            Toast.makeText(getBaseContext(),"Please enter a date", Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), "Please enter a date", Toast.LENGTH_LONG).show();
             print = false;
         }
 

@@ -17,16 +17,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".Storedata" />
         <activity android:name=".HomeScreen" />
         <activity android:name=".SportStyle" />
         <activity android:name=".CreateSport" />
         <activity android:name=".ViewData" />
         <activity android:name=".SportHome" />
-        <activity android:name=".Bargraph" />
         <activity android:name=".Pointsvstime" />
         <activity android:name=".Accuracyvstime" />
-        <activity android:name=".Timevstime"></activity>
+        <activity android:name=".Timevstime"/>
+        <activity android:name="AccuracyBased" />
+        <activity android:name="DistanceBased" />
+        <activity android:name="TimeBased" />
+
     </application>
 
 </manifest>

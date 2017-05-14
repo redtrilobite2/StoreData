@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.perlmutter.storedata.TimeBased">
+
+    <TextView
+        android:id="@+id/SportName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sport Name"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_dark"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/timeTag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter Total Time"
+        android:textColor="@android:color/background_dark"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/total"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/dateTag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter date:"
+        android:textColor="@android:color/background_dark"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:textColor="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/commentTag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Comments:"
+        android:textColor="@android:color/background_dark"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/commentStoreData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+    <LinearLayout
+        android:id="@+id/homeStoreData"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="184dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.03"
+            android:background="@color/colorPrimary"
+            android:onClick="toViewData"
+            android:text="Submit"
+            android:textSize="18sp"
+            tools:onClick="ViewData" />
+
+        <Button
+            android:id="@+id/submitStoreData"
+            android:layout_width="178dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.09"
+            android:background="@color/colorAccent"
+            android:onClick="toSportHome"
+            android:text="Home"
+            android:textSize="18sp"
+            tools:onClick="ViewData" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+</LinearLayout>

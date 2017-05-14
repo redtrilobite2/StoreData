@@ -9,7 +9,7 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
-class Sport {
+public class Sport {
     // Data
     private ArrayList<Event> events;
     private String name;
@@ -18,6 +18,7 @@ class Sport {
 
     // Constructor
     public Sport(String name, String comment, String style) {
+        Log.i("EllieStyle", style);
         this.name = name;
         this.comment = comment;
         this.style = style;
@@ -43,6 +44,7 @@ class Sport {
     }
 
     public String getStyle(){
+        Log.i("EllieEnteredStyle", style);
         return style;
     }
 
