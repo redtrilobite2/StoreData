@@ -14,11 +14,13 @@ class Sport {
     private ArrayList<Event> events;
     private String name;
     private String comment;
+    //private String type;
 
     // Constructor
     public Sport(String name, String comment) {
         this.name = name;
         this.comment = comment;
+        //this.type = type;
         this.events = new ArrayList<>();
     }
     public Sport(){
@@ -39,6 +41,10 @@ class Sport {
     public ArrayList getEvent() {
         return events;
     }
+
+    /*public String getType(){
+        return type;
+    }*/
 
     public void setName(String newName) { this.name = newName; }
 

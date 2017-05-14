@@ -2,6 +2,7 @@ package com.example.perlmutter.storedata;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -49,7 +50,7 @@ public class HomeScreen extends Activity implements AdapterView.OnItemSelectedLi
         // Another interface callback
     }
 
-    public void toSportStyle(View view) {
+    public void toCreateSport(View view) {
         Intent intent = new Intent(HomeScreen.this, CreateSport.class);
         startActivity(intent);
     }
