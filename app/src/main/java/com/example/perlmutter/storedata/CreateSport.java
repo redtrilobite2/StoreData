@@ -68,8 +68,16 @@ public class CreateSport extends Activity implements AdapterView.OnItemSelectedL
     }
 
     public void toSportHome(View view) throws IOException {
+        Boolean add = true;
+        Controller aController = (Controller) getApplicationContext();
         EditText name = (EditText) findViewById(R.id.sportname);
-        if (!name.getText().toString().isEmpty() && !sportStyle.equals("Select a Sport Type")) {
+        String namestr = name.getText().toString();
+        for(int i = 0; i< aController.getSports().size(); i++){
+            if(aController.getSports().get(i).getClass().getName().equalsIgnoreCase(namestr)){
+                add = false;
+            }
+        }
+        if (!name.getText().toString().isEmpty() && !sportStyle.equals("Select a Sport Type") && add) {
             newSport(sportStyle);
             Intent intent = new Intent(CreateSport.this, SportHome.class);
             String nameStr = name.getText().toString();
