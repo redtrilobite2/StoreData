@@ -7,21 +7,17 @@ package com.example.perlmutter.storedata;
 
 
 public class Event {
-    // Data
-    //String eventName;
-    //String sportName;
+    //Data
     private String date;
     private double time;
     private double distance;
     private String comment;
+    private int successfulAttempts;
+    private int totalAttempts;
+    private int delin;
+    private double points;
+    private String delinStr;
 
-    /**
-     * Constructs an event with a given time, distance, date and comment
-     * @param time time inputted
-     * @param distance distance inputted
-     * @param date date of event
-     * @param comment comment of event
-     */
     // Constructor
     public Event(double time, double distance, String date, String comment) {
         //	eventName = this.eventName;
@@ -31,12 +27,6 @@ public class Event {
         this.comment = comment;
     }
 
-    /**
-     * Constructs an event with a given distance, date, and comment
-     * @param distance distance inputted
-     * @param date date of event
-     * @param comment comment of event
-     */
     public Event(double distance, String date, String comment) {
         //	eventName = this.eventName;
         this.date = date;
@@ -44,25 +34,38 @@ public class Event {
         this.comment = comment;
     }
 
-    /*public Event(double points, String date, String comment) {
+    public Event(double time, String date, String comment, int delin){
+        this.time = time;
+        this.date =date;
+        this.comment = comment;
+        this.delin = delin;
+    }
+    public Event(double points, String date, String comment, String delinStr) {
         //	eventName = this.eventName;
         this.date = date;
         this.points = points;
         this.comment = comment;
+        this.delinStr = delinStr;
     }
-    public Event(double successfulAttempts, double totalAttempts, String date, String comment) {
+    public Event(int successfulAttempts, int totalAttempts, String date, String comment) {
         //	eventName = this.eventName;
         this.date = date;
         this.successfulAttempts = successfulAttempts;
         this.totalAttempts = totalAttempts;
         this.comment = comment;
-    }*/
+    }
 
+
+    public int getSuccessfulAttempts(){
+        return successfulAttempts;
+    }
+    public int getTotalAttempts(){
+        return totalAttempts;
+    }
     /**
      * Returns the date of the event
      * @return
      */
-
     public String getDate() {
         return date;
     }
@@ -92,6 +95,9 @@ public class Event {
 
     public String getComment() {
         return comment;
+    }
+    public double getPoints(){
+        return points;
     }
 
     /**

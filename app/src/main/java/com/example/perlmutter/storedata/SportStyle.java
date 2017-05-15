@@ -30,17 +30,12 @@ public class SportStyle extends AppCompatActivity {
     //Creates a new intent and goes to sport home
     //puts the name of the sport in the intent
     public void toSportHome(View view) throws IOException {
-        //Intent intent = new Intent(SportStyle.this, SportHome.class);
-        //startActivity(intent);
-        //Controller aController = (Controller) getApplicationContext();
         TextView name = (TextView) findViewById(R.id.sport);
         if (!name.getText().toString().isEmpty()){
 
             Intent intent = new Intent(SportStyle.this, SportHome.class);
-            //EditText namePull = (EditText) findViewById(R.id.sportname);
             String nameStr = name.getText().toString();
             intent.putExtra("sportName", nameStr);
-            //intent.putExtra("sportStyle",((Button) view).getText().toString());
             startActivity(intent);
         }
     }

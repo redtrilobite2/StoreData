@@ -1,24 +1,28 @@
 package com.example.perlmutter.storedata;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
+
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.DataPointInterface;
 import com.jjoe64.graphview.series.LineGraphSeries;
 import com.jjoe64.graphview.series.OnDataPointTapListener;
 import com.jjoe64.graphview.series.Series;
+
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
-public class Pointsvstime extends AppCompatActivity {
+/**
+ * Created by Ellie DeSota on 5/14/2017.
+ */
 
+public class DistanceGraph extends AppCompatActivity{
     private String sportName;
 
     @Override
@@ -29,24 +33,26 @@ public class Pointsvstime extends AppCompatActivity {
 
         final Controller control = (Controller) getApplicationContext();
         ArrayList<Double> Sportarray = new ArrayList<>();
-        ArrayList<Event> sportsarray = control.getSport(sportName).getEvent();
+        ArrayList<Event> sportsArray = control.getSport(sportName).getEvent();
+        double counterdt = 0;
+        double rate = 1;
+        for (int q = 0; q < sportsArray.size(); q++) {
 
-        for (int q = 0; q < sportsarray.size(); q++) {
-
-
+            if (sportsArray.get(q).getTime() != 0) {
+                counterdt++;
+                rate = sportsArray.get(q).getDistance();
                 if (q == 0) {
                     Sportarray.add(0.0);
                     Sportarray.add(0.0);
                 }
-                Sportarray.add((double)(q)+1);
-                Sportarray.add(sportsarray.get(q).getPoints());
-
-
+                Sportarray.add(counterdt);
+                Sportarray.add(rate);
+            }
         }
 
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_pointsvstime);
+        setContentView(R.layout.activity_distance_graph);
 
         GraphView line_graph = (GraphView) findViewById(R.id.graph);
         DataPoint[] data = new DataPoint[Sportarray.size() / 2];
@@ -75,19 +81,19 @@ public class Pointsvstime extends AppCompatActivity {
         line_series.setOnDataPointTapListener(new OnDataPointTapListener() {
             @Override
             public void onTap(Series series, DataPointInterface dataPoint) {
-                Toast.makeText(Pointsvstime.this, "Series: On Data Point clicked:" + dataPoint, Toast.LENGTH_SHORT).show();
+                Toast.makeText(DistanceGraph.this, "Series: On Data Point clicked:" + dataPoint, Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     public void toStoreData(View view) {
-        Intent intent=new Intent(Pointsvstime.this, Storedata.class);
+        Intent intent=new Intent(DistanceGraph.this, Storedata.class);
         intent.putExtra("sportName", sportName);
         startActivity(intent);
     }
 
     public void toSportHome(View view) {
-        Intent intent=new Intent(Pointsvstime.this, SportHome.class);
+        Intent intent=new Intent(DistanceGraph.this, SportHome.class);
         intent.putExtra("sportName", sportName);
         startActivity(intent);
     }
@@ -117,5 +123,3 @@ public class Pointsvstime extends AppCompatActivity {
         }
     }
 }
-
-

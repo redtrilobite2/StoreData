@@ -34,7 +34,7 @@ public class DistanceBased extends AppCompatActivity {
         String dateStr = datePull.getText().toString();
 
         if(!distanceStr.isEmpty() && !dateStr.isEmpty()) {
-            Intent intent = new Intent(DistanceBased.this, ViewData.class);
+            Intent intent = new Intent(DistanceBased.this, DistanceGraph.class);
             intent.putExtra("sportName", name);
             startActivity(intent);
         }

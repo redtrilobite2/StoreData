@@ -7,12 +7,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.DataPointInterface;
 import com.jjoe64.graphview.series.LineGraphSeries;
 import com.jjoe64.graphview.series.OnDataPointTapListener;
 import com.jjoe64.graphview.series.Series;
+
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
@@ -21,22 +23,21 @@ public class Accuracyvstime extends AppCompatActivity {
 
     private String sportName;
 
-    /* @Override
-      protected void onCreate(Bundle savedInstanceState) {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        Bundle bundle = getIntent().getExtras();
+        sportName = bundle.getString("sportName");
 
-        Bundle bundle=getIntent().getExtras();
-        sportName=bundle.getString("sportName");
-
-       final Controller control = (Controller) getApplicationContext();
-        ArrayList<Double> Sportarray = new ArrayList<Double>();
+        final Controller control = (Controller) getApplicationContext();
+        ArrayList<Double> Sportarray = new ArrayList<>();
         ArrayList<Event> sportsarray = control.getSport(sportName).getEvent();
         double counterdt = 0;
         double accuracy = 1;
         for (int q = 0; q < sportsarray.size(); q++) {
 
-            if (sportsarray.get(q).getMissed() != 0) {
+            if (sportsarray.get(q).getSuccessfulAttempts() != 0) {
                 counterdt++;
-                accuracy = (sportsarray.get(q).getScored() / sportsarray.get(q).getTotal())*100;
+                accuracy = (sportsarray.get(q).getSuccessfulAttempts() / sportsarray.get(q).getTotalAttempts()) * 100;
                 if (q == 0) {
                     Sportarray.add(0.0);
                     Sportarray.add(0.0);
@@ -48,7 +49,7 @@ public class Accuracyvstime extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_viewdata);
+        setContentView(R.layout.activity_accuracyvstime);
 
         GraphView line_graph = (GraphView) findViewById(R.id.graph);
         DataPoint[] data = new DataPoint[Sportarray.size() / 2];
@@ -83,13 +84,13 @@ public class Accuracyvstime extends AppCompatActivity {
     }
 
     public void toStoreData(View view) {
-        Intent intent=new Intent(Accuracyvstime.this, Storedata.class);
+        Intent intent = new Intent(Accuracyvstime.this, Storedata.class);
         intent.putExtra("sportName", sportName);
         startActivity(intent);
     }
 
     public void toSportHome(View view) {
-        Intent intent=new Intent(Accuracyvstime.this, SportHome.class);
+        Intent intent = new Intent(Accuracyvstime.this, SportHome.class);
         intent.putExtra("sportName", sportName);
         startActivity(intent);
     }
@@ -117,7 +118,7 @@ public class Accuracyvstime extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }*/
+    }
 }
 
 
