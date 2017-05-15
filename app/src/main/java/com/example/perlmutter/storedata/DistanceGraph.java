@@ -87,7 +87,7 @@ public class DistanceGraph extends AppCompatActivity{
     }
 
     public void toStoreData(View view) {
-        Intent intent=new Intent(DistanceGraph.this, Storedata.class);
+        Intent intent=new Intent(DistanceGraph.this, DistanceGraph.class);
         intent.putExtra("sportName", sportName);
         startActivity(intent);
     }
@@ -113,11 +113,10 @@ public class DistanceGraph extends AppCompatActivity{
             for (int i = 0; i < sports.size(); i++) {
                 print = printData.print();
                 outputWriter.write(print.get(i));
-                Log.i("EllieWrite", print.get(i));
+
             }
             outputWriter.close();
             //display file
-            Toast.makeText(getBaseContext(), (String) printData.print().get(1), Toast.LENGTH_LONG).show();
         } catch (Exception e) {
             e.printStackTrace();
         }

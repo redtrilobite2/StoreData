@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jjoe64.graphview.GraphView;
@@ -84,7 +83,7 @@ public class Accuracyvstime extends AppCompatActivity {
     }
 
     public void toStoreData(View view) {
-        Intent intent = new Intent(Accuracyvstime.this, Storedata.class);
+        Intent intent = new Intent(Accuracyvstime.this, AccuracyBased.class);
         intent.putExtra("sportName", sportName);
         startActivity(intent);
     }
@@ -97,7 +96,6 @@ public class Accuracyvstime extends AppCompatActivity {
 
     @Override
     public void onDestroy() {
-        Log.i("Ellie", "In onDestroy");
         super.onDestroy();
         try {
             ArrayList<String> print;
@@ -106,15 +104,15 @@ public class Accuracyvstime extends AppCompatActivity {
             final Controller aController = (Controller) getApplicationContext();
             ArrayList sports = aController.getSports();
             PrintData printData = new PrintData(sports);
-            Log.i("EllieCheck", sports.toString());
+
             for (int i = 0; i < sports.size(); i++) {
                 print = printData.print();
                 outputWriter.write(print.get(i));
-                Log.i("EllieWrite", print.get(i));
+
             }
             outputWriter.close();
             //display file
-            Toast.makeText(getBaseContext(), (String) printData.print().get(1), Toast.LENGTH_LONG).show();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
