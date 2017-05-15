@@ -43,7 +43,7 @@ public class Timevstime extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_viewdata);
+        setContentView(R.layout.activity_timevstime);
 
         GraphView line_graph = (GraphView) findViewById(R.id.graph);
         DataPoint[] data = new DataPoint[Sportarray.size() / 2];
@@ -78,7 +78,7 @@ public class Timevstime extends AppCompatActivity {
     }
 
     public void toStoreData(View view) {
-        Intent intent=new Intent(Timevstime.this, Storedata.class);
+        Intent intent=new Intent(Timevstime.this, TimeBased.class);
         intent.putExtra("sportName", sportName);
         startActivity(intent);
     }

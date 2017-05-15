@@ -81,7 +81,7 @@ public class Pointsvstime extends AppCompatActivity {
     }
 
     public void toStoreData(View view) {
-        Intent intent=new Intent(Pointsvstime.this, Storedata.class);
+        Intent intent=new Intent(Pointsvstime.this, Pointsvstime.class);
         intent.putExtra("sportName", sportName);
         startActivity(intent);
     }

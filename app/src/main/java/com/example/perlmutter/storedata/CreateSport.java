@@ -18,7 +18,7 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
 public class CreateSport extends Activity implements AdapterView.OnItemSelectedListener {
-
+    private int pos;
     Spinner spin;
     String sportStyle;
     ArrayList<String> styles = new ArrayList<>();
@@ -71,14 +71,16 @@ public class CreateSport extends Activity implements AdapterView.OnItemSelectedL
     //creates new intent and goes to the sport home screen
     public void toSportHome(View view) throws IOException {
         EditText name = (EditText) findViewById(R.id.sportname);
-        if (!name.getText().toString().isEmpty()) {
+        if (!name.getText().toString().isEmpty() && !sportStyle.equals("Select a Sport Type")) {
             newSport(sportStyle);
             Intent intent = new Intent(CreateSport.this, SportHome.class);
             String nameStr = name.getText().toString();
             intent.putExtra("sportName", nameStr);
             startActivity(intent);
-        } else {
+        } else if (name.getText().toString().isEmpty()){
             Toast.makeText(getBaseContext(), "Please enter your sport name", Toast.LENGTH_LONG).show();
+        }else if(sportStyle.equals("Select a Sport Type")){
+            Toast.makeText(getBaseContext(), "Please choose a sport style", Toast.LENGTH_LONG).show();
         }
     }
 
