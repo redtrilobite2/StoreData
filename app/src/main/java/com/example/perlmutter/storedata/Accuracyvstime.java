@@ -32,6 +32,7 @@ public class Accuracyvstime extends AppCompatActivity {
         ArrayList<Event> sportsarray = control.getSport(sportName).getEvent();
         double counterdt = 0;
         double accuracy = 1;
+Log.i("ElliePoint", Integer.toString(sportsarray.get(0).getSuccessfulAttempts()));
         for (int q = 0; q < sportsarray.size(); q++) {
 
             if (sportsarray.get(q).getSuccessfulAttempts() != 0) {

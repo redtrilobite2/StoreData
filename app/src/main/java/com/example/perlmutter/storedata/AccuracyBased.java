@@ -13,7 +13,7 @@ import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
-import static java.lang.Double.parseDouble;
+import static java.lang.Integer.parseInt;
 
 public class AccuracyBased extends AppCompatActivity {
     private String name;
@@ -72,11 +72,11 @@ public class AccuracyBased extends AppCompatActivity {
             commentStr = " ";
         }
         if (successfulStr.isEmpty()) {
-            Toast.makeText(getBaseContext(), "Please enter a distance", Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), "Please enter amount of successful attempts", Toast.LENGTH_LONG).show();
             print = false;
         }
         if (totalStr.isEmpty()) {
-            Toast.makeText(getBaseContext(), "Please enter a time", Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), "Please enter amount of total attempts", Toast.LENGTH_LONG).show();
             print = false;
         }
         if (dateStr.isEmpty()) {
@@ -86,10 +86,10 @@ public class AccuracyBased extends AppCompatActivity {
 
 
         if (print) {
-            double distance = parseDouble(successfulStr);
-            double time = parseDouble(totalStr);
+            Integer attemptsSuccessful = parseInt(successfulStr);
+            Integer total = parseInt(totalStr);
 
-            Event event = new Event(time, distance, dateStr, commentStr);
+            Event event = new Event(attemptsSuccessful, total, dateStr, commentStr);
             aController.getSport(sportName.getText().toString()).addEvent(event);
             Log.i("EllieSaveSport", aController.getSport(sportName.getText().toString()).getEvent().toString());
             Log.i("Ellie", Integer.toString(aController.getSport(sportName.getText().toString()).getEvent().size()));

@@ -81,9 +81,9 @@ public class TimeBased extends AppCompatActivity {
 
 
         if (print) {
-            double distance = parseDouble(timeStr);
+            double time = parseDouble(timeStr);
 
-            Event event = new Event(distance, dateStr, commentStr);
+            Event event = new Event(time, dateStr, commentStr, 3);
             aController.getSport(sportName.getText().toString()).addEvent(event);
             Log.i("EllieSaveSport", aController.getSport(sportName.getText().toString()).getEvent().toString());
             Log.i("Ellie", Integer.toString(aController.getSport(sportName.getText().toString()).getEvent().size()));

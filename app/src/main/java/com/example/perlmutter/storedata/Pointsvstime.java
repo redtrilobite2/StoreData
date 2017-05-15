@@ -5,14 +5,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
+
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.DataPointInterface;
 import com.jjoe64.graphview.series.LineGraphSeries;
 import com.jjoe64.graphview.series.OnDataPointTapListener;
 import com.jjoe64.graphview.series.Series;
+
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
@@ -23,25 +24,27 @@ public class Pointsvstime extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        Bundle bundle=getIntent().getExtras();
-        sportName=bundle.getString("sportName");
+        Bundle bundle = getIntent().getExtras();
+        sportName = bundle.getString("sportName");
 
         final Controller control = (Controller) getApplicationContext();
         ArrayList<Double> Sportarray = new ArrayList<>();
         ArrayList<Event> sportsarray = control.getSport(sportName).getEvent();
-
+        double counterdt = 0;
+        double point = 1;
+        Log.i("ElliePoint", Double.toString(sportsarray.get(0).getPoints()));
         for (int q = 0; q < sportsarray.size(); q++) {
 
-
+            if (sportsarray.get(q).getPoints() != 0) {
+                counterdt++;
+                point = sportsarray.get(q).getPoints();
                 if (q == 0) {
                     Sportarray.add(0.0);
                     Sportarray.add(0.0);
                 }
-                Sportarray.add((double)(q)+1);
-                Sportarray.add(sportsarray.get(q).getPoints());
-
-
+                Sportarray.add(counterdt);
+                Sportarray.add(point);
+            }
         }
 
         super.onCreate(savedInstanceState);
@@ -81,20 +84,19 @@ public class Pointsvstime extends AppCompatActivity {
     }
 
     public void toStoreData(View view) {
-        Intent intent=new Intent(Pointsvstime.this, Pointsvstime.class);
+        Intent intent = new Intent(Pointsvstime.this, PointBased.class);
         intent.putExtra("sportName", sportName);
         startActivity(intent);
     }
 
     public void toSportHome(View view) {
-        Intent intent=new Intent(Pointsvstime.this, SportHome.class);
+        Intent intent = new Intent(Pointsvstime.this, SportHome.class);
         intent.putExtra("sportName", sportName);
         startActivity(intent);
     }
 
     @Override
     public void onDestroy() {
-        Log.i("Ellie", "In onDestroy");
         super.onDestroy();
         try {
             ArrayList<String> print;
@@ -103,15 +105,15 @@ public class Pointsvstime extends AppCompatActivity {
             final Controller aController = (Controller) getApplicationContext();
             ArrayList sports = aController.getSports();
             PrintData printData = new PrintData(sports);
-            Log.i("EllieCheck", sports.toString());
+
             for (int i = 0; i < sports.size(); i++) {
                 print = printData.print();
                 outputWriter.write(print.get(i));
-                Log.i("EllieWrite", print.get(i));
+
             }
             outputWriter.close();
             //display file
-            Toast.makeText(getBaseContext(), (String) printData.print().get(1), Toast.LENGTH_LONG).show();
+
         } catch (Exception e) {
             e.printStackTrace();
         }

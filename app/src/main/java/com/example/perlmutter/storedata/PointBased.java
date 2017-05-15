@@ -17,15 +17,17 @@ import static java.lang.Double.parseDouble;
 
 public class PointBased extends AppCompatActivity {
     private String name;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_point_based);
-        TextView sportName=(TextView) findViewById(R.id.SportName);
-        Bundle bundle=getIntent().getExtras();
-        name=bundle.getString("sportName");
+        TextView sportName = (TextView) findViewById(R.id.SportName);
+        Bundle bundle = getIntent().getExtras();
+        name = bundle.getString("sportName");
         sportName.setText(name);
     }
+
     public void toViewData(View view) {
         EditText pointsPull = (EditText) findViewById(R.id.points);
         EditText datePull = (EditText) findViewById(R.id.date);
@@ -33,7 +35,7 @@ public class PointBased extends AppCompatActivity {
         String pointsStr = pointsPull.getText().toString();
         String dateStr = datePull.getText().toString();
 
-        if(!pointsStr.isEmpty() && !dateStr.isEmpty()) {
+        if (!pointsStr.isEmpty() && !dateStr.isEmpty()) {
             Intent intent = new Intent(PointBased.this, Pointsvstime.class);
             intent.putExtra("sportName", name);
             startActivity(intent);
@@ -53,7 +55,7 @@ public class PointBased extends AppCompatActivity {
     public void saveData(View view) {
         Controller aController = (Controller) getApplicationContext();
         Log.i("Ellie", "Entered into newEvent");
-        TextView sportName=(TextView) findViewById(R.id.SportName);
+        TextView sportName = (TextView) findViewById(R.id.SportName);
         EditText pointsPull = (EditText) findViewById(R.id.points);
         EditText datePull = (EditText) findViewById(R.id.date);
         EditText commentPull = (EditText) findViewById(R.id.commentStoreData);
@@ -66,19 +68,19 @@ public class PointBased extends AppCompatActivity {
             commentStr = " ";
         }
         if (pointsStr.isEmpty()) {
-            Toast.makeText(getBaseContext(),"Please enter a distance", Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), "Please enter a distance", Toast.LENGTH_LONG).show();
             print = false;
         }
         if (dateStr.isEmpty()) {
-            Toast.makeText(getBaseContext(),"Please enter a date", Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), "Please enter a date", Toast.LENGTH_LONG).show();
             print = false;
         }
 
 
         if (print) {
-            double distance = parseDouble(pointsStr);
+            double points = parseDouble(pointsStr);
 
-            Event event = new Event(distance, dateStr, commentStr);
+            Event event = new Event(points, dateStr, commentStr, "PointBased");
             aController.getSport(sportName.getText().toString()).addEvent(event);
             Log.i("EllieSaveSport", aController.getSport(sportName.getText().toString()).getEvent().toString());
             Log.i("Ellie", Integer.toString(aController.getSport(sportName.getText().toString()).getEvent().size()));
