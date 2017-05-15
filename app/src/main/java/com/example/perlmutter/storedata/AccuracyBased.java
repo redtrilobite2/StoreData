@@ -38,7 +38,7 @@ public class AccuracyBased extends AppCompatActivity {
         String dateStr = datePull.getText().toString();
 
         if (!successfulStr.isEmpty() && !totalStr.isEmpty() && !dateStr.isEmpty()) {
-            Intent intent = new Intent(AccuracyBased.this, ViewData.class);
+            Intent intent = new Intent(AccuracyBased.this, Accuracyvstime.class);
             intent.putExtra("sportName", name);
             startActivity(intent);
         }

@@ -27,10 +27,11 @@ public class CreateSport extends Activity implements AdapterView.OnItemSelectedL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_createsport);
         styles.add("Select a Sport Type");
-        styles.add("Time-Distance based");
-        styles.add("Time based");
-        styles.add("Distance based");
-        styles.add("Accuracy based");
+        styles.add("Time-Distance Based");
+        styles.add("Time Based");
+        styles.add("Distance Based");
+        styles.add("Accuracy Based");
+        styles.add("Point Based");
         Log.i("Ellie", Integer.toString(styles.size()));
         spin = (Spinner) findViewById(R.id.sportStyleSpinner);
         ArrayAdapter<CharSequence> adapter = new ArrayAdapter(CreateSport.this, android.R.layout.simple_spinner_item, styles);
@@ -52,6 +53,8 @@ public class CreateSport extends Activity implements AdapterView.OnItemSelectedL
             sportStyle = "distance";
         } else if (pos == 4) {
             sportStyle = "accuracy";
+        } else if (pos == 5){
+            sportStyle = "point";
         }
     }
 

@@ -34,7 +34,7 @@ public class PointBased extends AppCompatActivity {
         String dateStr = datePull.getText().toString();
 
         if(!pointsStr.isEmpty() && !dateStr.isEmpty()) {
-            Intent intent = new Intent(PointBased.this, ViewData.class);
+            Intent intent = new Intent(PointBased.this, Pointsvstime.class);
             intent.putExtra("sportName", name);
             startActivity(intent);
         }

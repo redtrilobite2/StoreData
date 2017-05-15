@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,15 +18,15 @@ import java.util.ArrayList;
  */
 
 public class SportHome extends AppCompatActivity {
-    private String name  = "";
+    private String name = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sporthome);
-        TextView sportName=(TextView) findViewById(R.id.SportName);
+        TextView sportName = (TextView) findViewById(R.id.SportName);
         Bundle bundle = getIntent().getExtras();
-        name=bundle.getString("sportName");
+        name = bundle.getString("sportName");
         sportName.setText(name);
 
     }
@@ -35,29 +34,32 @@ public class SportHome extends AppCompatActivity {
     //button controls
     public void toStoreData(View view) {
         final Controller aController = (Controller) getApplicationContext();
-        TextView sportName=(TextView) findViewById(R.id.SportName);
+        TextView sportName = (TextView) findViewById(R.id.SportName);
         String name = sportName.getText().toString();
         Log.i("EllieNull", name);
         String sport = aController.getSport(name).getStyle();
-        if(sport.equals("time_distance")){
+        if (sport.equals("time_distance")) {
             Intent intent = new Intent(SportHome.this, Storedata.class);
             intent.putExtra("sportName", sportName.getText());
             startActivity(intent);
-        }else if(sport.equals("time")) {
+        } else if (sport.equals("time")) {
             Intent intent = new Intent(SportHome.this, TimeBased.class);
             intent.putExtra("sportName", sportName.getText());
             startActivity(intent);
-        }else if(sport.equals("distance")){
+        } else if (sport.equals("distance")) {
             Intent intent = new Intent(SportHome.this, DistanceBased.class);
             intent.putExtra("sportName", sportName.getText());
             startActivity(intent);
-        }else if(sport.equals("accuracy")){
+        } else if (sport.equals("accuracy")) {
             Intent intent = new Intent(SportHome.this, AccuracyBased.class);
             intent.putExtra("sportName", sportName.getText());
             startActivity(intent);
+        } else if (sport.equals("point")){
+            Intent intent = new Intent(SportHome.this, PointBased.class);
+            intent.putExtra("sportName", sportName.getText());
+            startActivity(intent);
         }
-        }
-
+    }
 
 
     public void toViewData(View view) {
@@ -82,7 +84,7 @@ public class SportHome extends AppCompatActivity {
             final Controller aController = (Controller) getApplicationContext();
             ArrayList sports = aController.getSports();
             PrintData printData = new PrintData(sports);
-            Log.i("EllieCheck",Integer.toString(aController.getSport("mySport").getEvent().size())+" "+ Integer.toString(sports.size()));
+            Log.i("EllieCheck", Integer.toString(aController.getSport("mySport").getEvent().size()) + " " + Integer.toString(sports.size()));
             Log.i("EllieSportToString", sports.toString());
             for (int i = 0; i < sports.size(); i++) {
                 print = printData.print();

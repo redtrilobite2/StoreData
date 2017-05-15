@@ -28,31 +28,12 @@ public class SportStyle extends AppCompatActivity {
     }
 
     public void toSportHome(View view) throws IOException {
-        //Intent intent = new Intent(SportStyle.this, SportHome.class);
-        //startActivity(intent);
-        //Controller aController = (Controller) getApplicationContext();
         TextView name = (TextView) findViewById(R.id.sport);
         if (!name.getText().toString().isEmpty()){
-            //newSport();
-           // ((Button) view).getText().toString();
-            //Bundle bundle = getIntent().getExtras();
-            //String sportName=bundle.getString("sportName");
-           // String commentStr=bundle.getString("commentStr");
-
-            //Sport sport = new Sport(name.toString(), commentStr);
-
-            //aController.addSport(sport);
-
-            //String check1 = sport.getComment();
-            //String check2 = sport.getName();
-
-            //Log.i("Ellie", check1 + check2);
 
             Intent intent = new Intent(SportStyle.this, SportHome.class);
-            //EditText namePull = (EditText) findViewById(R.id.sportname);
             String nameStr = name.getText().toString();
             intent.putExtra("sportName", nameStr);
-            //intent.putExtra("sportStyle",((Button) view).getText().toString());
             startActivity(intent);
         }
     }

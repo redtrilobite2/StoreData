@@ -24,7 +24,7 @@ public class TimeBased extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_point_based);
+        setContentView(R.layout.activity_time_based);
         TextView sportName = (TextView) findViewById(R.id.SportName);
         Bundle bundle = getIntent().getExtras();
         name = bundle.getString("sportName");
@@ -32,10 +32,10 @@ public class TimeBased extends AppCompatActivity {
     }
 
     public void toViewData(View view) {
-        EditText pointsPull = (EditText) findViewById(R.id.total);
+        EditText timePull = (EditText) findViewById(R.id.total);
         EditText datePull = (EditText) findViewById(R.id.date);
 
-        String timeStr = pointsPull.getText().toString();
+        String timeStr = timePull.getText().toString();
         String dateStr = datePull.getText().toString();
 
         if (!timeStr.isEmpty() && !dateStr.isEmpty()) {

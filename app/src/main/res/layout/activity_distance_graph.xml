@@ -135,7 +135,7 @@
             android:hint="Y axis"
             android:inputType="textPersonName"
             android:rotation="270"
-            android:text="Rate"
+            android:text="Distance"
             android:textColor="@android:color/background_dark"
             android:textSize="24sp"
             tools:layout_editor_absoluteX="-67dp"
