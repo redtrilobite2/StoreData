@@ -18,7 +18,7 @@ public class WelcomeScreen extends AppCompatActivity {
         Log.i("EllieInOnCreate", "InOnCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcomescreen);
-
+        //gets all of the saved data from the file and repopulates the sport and event ArrayLists with the data
         try {
             FileInputStream fIn = openFileInput("NewSport.txt");
             InputStreamReader inRead = new InputStreamReader(fIn);
@@ -46,7 +46,7 @@ public class WelcomeScreen extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-
+    //Creates a new intent and directs app to the home screen
     public void toHomeScreen(View view) {
         Intent intent = new Intent(WelcomeScreen.this, HomeScreen.class);
         startActivity(intent);

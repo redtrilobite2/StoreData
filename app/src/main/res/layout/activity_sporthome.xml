@@ -69,24 +69,13 @@
             android:orientation="horizontal">
 
             <Button
-
-                android:id="@+id/EditData"
-                android:layout_width="210dp"
-                android:layout_height="225dp"
-                android:layout_weight="0.5"
-                android:background="@color/colorPrimaryDark"
-                android:onClick="buttonClick"
-                android:text="Edit Data or View data"
-                android:textSize="24sp" />
-
-            <Button
                 android:id="@+id/homeSportHome"
                 android:layout_width="210dp"
                 android:layout_height="225dp"
                 android:layout_weight="0.5"
-                android:background="@color/colorAccent"
+                android:background="@color/colorPrimary"
                 android:onClick="toHomeScreen"
-                android:text="Create New or Select different  sport"
+                android:text="Create New or Select different sport"
                 android:textSize="24sp" />
         </LinearLayout>
 

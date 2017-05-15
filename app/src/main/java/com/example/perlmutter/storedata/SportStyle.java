@@ -21,12 +21,14 @@ public class SportStyle extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sportstyle);
+        //Sets the textview at the top of the screen to the name of the sport selected by the user
         TextView sportName=(TextView) findViewById(R.id.sport);
         Bundle bundle = getIntent().getExtras();
         name=bundle.getString("sportName");
         sportName.setText(name);
     }
-
+    //Creates a new intent and goes to sport home
+    //puts the name of the sport in the intent
     public void toSportHome(View view) throws IOException {
         TextView name = (TextView) findViewById(R.id.sport);
         if (!name.getText().toString().isEmpty()){
@@ -37,30 +39,7 @@ public class SportStyle extends AppCompatActivity {
             startActivity(intent);
         }
     }
-
-    /*public void newSport() throws IOException {
-        //get Global Controller Class object (see application tag in AndroidManifest.xml)
-        Controller aController = (Controller) getApplicationContext();
-        //EditText namePull = (EditText) findViewById(R.id.sportname);
-        //EditText commentPull = (EditText) findViewById(R.id.commentCreateSport);
-
-        //String nameStr = namePull.getText().toString();
-        //String commentStr = commentPull.getText().toString();
-        Bundle bundle = getIntent().getExtras();
-        name=bundle.getString("sportName");
-        String commentStr=bundle.getString("commentStr");
-       // if (!namePull.getText().toString().isEmpty()) {
-            Sport sport = new Sport(name, commentStr,);
-
-            aController.addSport(sport);
-
-            String check1 = sport.getComment();
-            String check2 = sport.getName();
-
-            Log.i("Ellie", check1 + check2);
-        }*/
-    //}
-
+    //when the app is closed this method saves the data from the ArrayLists of sports and events to a text file
     @Override
     public void onDestroy() {
         super.onDestroy();

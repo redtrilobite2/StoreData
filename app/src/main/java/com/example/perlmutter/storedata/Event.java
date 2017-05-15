@@ -2,7 +2,7 @@ package com.example.perlmutter.storedata;
 
 /**
  * Created by Ellie DeSota on 4/12/2017.
- * This class Event constructs an instance of an Event with the paramaters time, distance, date, and comment.
+ * This class Event constructs an instance of an Event with the parameters time, distance, date, and comment.
  */
 
 
@@ -55,24 +55,43 @@ public class Event {
         this.comment = comment;
     }
 
+
     public int getSuccessfulAttempts(){
         return successfulAttempts;
     }
     public int getTotalAttempts(){
         return totalAttempts;
     }
-
+    /**
+     * Returns the date of the event
+     * @return
+     */
     public String getDate() {
         return date;
     }
+
+    /**
+     * Returns the time inputted
+     * @return
+     */
 
     public double getTime() {
         return time;
     }
 
+    /**
+     * Returns the distance inputted
+     * @return
+     */
+
     public double getDistance() {
         return distance;
     }
+
+    /**
+     * Returns the comment of the event
+     * @return
+     */
 
     public String getComment() {
         return comment;
@@ -81,6 +100,10 @@ public class Event {
         return points;
     }
 
+    /**
+     * Returns the date, time, distance, and comment of the event as one string
+     * @return
+     */
     @Override
     public String toString(){
         return date + " " + time + " " + distance + " " + comment;
