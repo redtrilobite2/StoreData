@@ -34,11 +34,11 @@ public class DistanceGraph extends AppCompatActivity{
         final Controller control = (Controller) getApplicationContext();
         ArrayList<Double> Sportarray = new ArrayList<>();
         ArrayList<Event> sportsArray = control.getSport(sportName).getEvent();
+        Log.i("ElliePoint", Double.toString(sportsArray.get(0).getDistance()));
         double counterdt = 0;
         double rate = 1;
         for (int q = 0; q < sportsArray.size(); q++) {
-
-            if (sportsArray.get(q).getTime() != 0) {
+            if (sportsArray.get(q).getDistance() != 0) {
                 counterdt++;
                 rate = sportsArray.get(q).getDistance();
                 if (q == 0) {

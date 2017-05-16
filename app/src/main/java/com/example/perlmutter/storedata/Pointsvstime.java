@@ -5,42 +5,48 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
+
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.DataPointInterface;
 import com.jjoe64.graphview.series.LineGraphSeries;
 import com.jjoe64.graphview.series.OnDataPointTapListener;
 import com.jjoe64.graphview.series.Series;
+
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
-
+//Constructs Graph for points vs time
 public class Pointsvstime extends AppCompatActivity {
 
     private String sportName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        Bundle bundle=getIntent().getExtras();
-        sportName=bundle.getString("sportName");
-
+        Bundle bundle = getIntent().getExtras();
+        sportName = bundle.getString("sportName");
+//Gets the sport for which the graph will be constructed
         final Controller control = (Controller) getApplicationContext();
         ArrayList<Double> Sportarray = new ArrayList<>();
+        //Creates arraylist for the data points to be added
         ArrayList<Event> sportsarray = control.getSport(sportName).getEvent();
-
+        //imports array list of information from the sport
+        double counterdt = 0;
+        //variable for the x-axis
+        double point = 1;
+        Log.i("ElliePoint", Double.toString(sportsarray.get(0).getPoints()));
         for (int q = 0; q < sportsarray.size(); q++) {
 
-
+                counterdt++;
+                point = sportsarray.get(q).getPoints();
                 if (q == 0) {
                     Sportarray.add(0.0);
                     Sportarray.add(0.0);
+                    //graph starts at (0,0)
                 }
-                Sportarray.add((double)(q)+1);
-                Sportarray.add(sportsarray.get(q).getPoints());
-
+                Sportarray.add(counterdt);
+                Sportarray.add(point);
 
         }
 
@@ -50,11 +56,12 @@ public class Pointsvstime extends AppCompatActivity {
 
         GraphView line_graph = (GraphView) findViewById(R.id.graph);
         DataPoint[] data = new DataPoint[Sportarray.size() / 2];
-
+//creates list of data points
         int counter = 0;
         for (int i = 0; i < (Sportarray.size() / 2); i++) {
             data[i] = new DataPoint(Sportarray.get(i + counter), Sportarray.get(i + 1 + counter));
             counter++;
+            //fills data point list with array list of points vs time
         }
 
         for (int j = 0; j < Sportarray.size() / 2; j++) {
@@ -68,7 +75,7 @@ public class Pointsvstime extends AppCompatActivity {
 
                 new LineGraphSeries<>(data);
 
-
+//Creates graph
         line_graph.addSeries(line_series);
         line_series.setDrawDataPoints(true);
         line_series.setDataPointsRadius(10); // set the radius of data point
@@ -81,20 +88,19 @@ public class Pointsvstime extends AppCompatActivity {
     }
 
     public void toStoreData(View view) {
-        Intent intent=new Intent(Pointsvstime.this, Pointsvstime.class);
+        Intent intent = new Intent(Pointsvstime.this, PointBased.class);
         intent.putExtra("sportName", sportName);
         startActivity(intent);
     }
 
     public void toSportHome(View view) {
-        Intent intent=new Intent(Pointsvstime.this, SportHome.class);
+        Intent intent = new Intent(Pointsvstime.this, SportHome.class);
         intent.putExtra("sportName", sportName);
         startActivity(intent);
     }
 
     @Override
     public void onDestroy() {
-        Log.i("Ellie", "In onDestroy");
         super.onDestroy();
         try {
             ArrayList<String> print;
@@ -103,15 +109,15 @@ public class Pointsvstime extends AppCompatActivity {
             final Controller aController = (Controller) getApplicationContext();
             ArrayList sports = aController.getSports();
             PrintData printData = new PrintData(sports);
-            Log.i("EllieCheck", sports.toString());
+
             for (int i = 0; i < sports.size(); i++) {
                 print = printData.print();
                 outputWriter.write(print.get(i));
-                Log.i("EllieWrite", print.get(i));
+
             }
             outputWriter.close();
             //display file
-            Toast.makeText(getBaseContext(), (String) printData.print().get(1), Toast.LENGTH_LONG).show();
+
         } catch (Exception e) {
             e.printStackTrace();
         }

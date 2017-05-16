@@ -22,6 +22,7 @@ public class CreateSport extends Activity implements AdapterView.OnItemSelectedL
     Spinner spin;
     String sportStyle;
     ArrayList<String> styles = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,11 +41,12 @@ public class CreateSport extends Activity implements AdapterView.OnItemSelectedL
         spin.setOnItemSelectedListener(this);
         //EditText sportName = (EditText) findViewById(R.id.sportname);
     }
+
     //when an item from the spinner is called, this method gets the position of that item and assigns it
     //to a style of sport
     public void onItemSelected(AdapterView<?> parent, View view,
                                int pos, long id) {
-        final Controller aController = (Controller) getApplicationContext();
+
         pos = spin.getSelectedItemPosition();
 
         if (pos == 1) {
@@ -55,32 +57,46 @@ public class CreateSport extends Activity implements AdapterView.OnItemSelectedL
             sportStyle = "distance";
         } else if (pos == 4) {
             sportStyle = "accuracy";
-        } else if (pos == 5){
+        } else if (pos == 5) {
             sportStyle = "point";
         }
     }
+
     //doees nothing when no item from the spinner is called
     public void onNothingSelected(AdapterView<?> parent) {
         // Another interface callback
     }
+
     //creates new intent and goes to the home screen
     public void toHomeScreen(View view) throws IOException {
         Intent intent = new Intent(CreateSport.this, HomeScreen.class);
         startActivity(intent);
     }
+
     //creates new intent and goes to the sport home screen
     public void toSportHome(View view) throws IOException {
+        Boolean add = true;
+        Controller aController = (Controller) getApplicationContext();
         EditText name = (EditText) findViewById(R.id.sportname);
-        if (!name.getText().toString().isEmpty() && !sportStyle.equals("Select a Sport Type")) {
+        String namestr = name.getText().toString();
+        for (int i = 0; i < aController.getSports().size(); i++) {
+            if (aController.getSports().get(i).getClass().getName().equalsIgnoreCase(namestr)) {
+                Log.i("EllieRepeat", namestr + " " + aController.getSports().get(i).getClass().getName());
+                add = false;
+            }
+        }
+        if (!name.getText().toString().isEmpty() && !sportStyle.equals("Select a Sport Type") && add) {
             newSport(sportStyle);
             Intent intent = new Intent(CreateSport.this, SportHome.class);
             String nameStr = name.getText().toString();
             intent.putExtra("sportName", nameStr);
             startActivity(intent);
-        } else if (name.getText().toString().isEmpty()){
-            Toast.makeText(getBaseContext(), "Please enter your sport name", Toast.LENGTH_LONG).show();
-        }else if(sportStyle.equals("Select a Sport Type")){
-            Toast.makeText(getBaseContext(), "Please choose a sport style", Toast.LENGTH_LONG).show();
+        } else if (name.getText().toString().isEmpty()) {
+            Toast.makeText(getBaseContext(), "Please enter your sport name", Toast.LENGTH_SHORT).show();
+        } else if (sportStyle.equals("Select a Sport Type")) {
+            Toast.makeText(getBaseContext(), "Please choose a sport style", Toast.LENGTH_SHORT).show();
+        } else if (!add) {
+            Toast.makeText(getBaseContext(), "There is already a sport with this name", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -106,6 +122,7 @@ public class CreateSport extends Activity implements AdapterView.OnItemSelectedL
             Log.i("Ellie", check1 + check2 + check3);
         }
     }
+
     //when the app is closed this method saves the data from the ArrayLists of sports and events to a text file
     @Override
     public void onDestroy() {
