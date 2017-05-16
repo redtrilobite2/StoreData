@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class CreateSport extends Activity implements AdapterView.OnItemSelectedListener {
     private int pos;
     Spinner spin;
-    String sportStyle;
+    int sportStyle;
     ArrayList<String> styles = new ArrayList<>();
 
     @Override
@@ -39,7 +39,6 @@ public class CreateSport extends Activity implements AdapterView.OnItemSelectedL
         ArrayAdapter<CharSequence> adapter = new ArrayAdapter(CreateSport.this, android.R.layout.simple_spinner_item, styles);
         spin.setAdapter(adapter);
         spin.setOnItemSelectedListener(this);
-        //EditText sportName = (EditText) findViewById(R.id.sportname);
     }
 
     //when an item from the spinner is called, this method gets the position of that item and assigns it
@@ -48,21 +47,15 @@ public class CreateSport extends Activity implements AdapterView.OnItemSelectedL
                                int pos, long id) {
 
         pos = spin.getSelectedItemPosition();
-
-        if (pos == 1) {
-            sportStyle = "time_distance";
-        } else if (pos == 2) {
-            sportStyle = "time";
-        } else if (pos == 3) {
-            sportStyle = "distance";
-        } else if (pos == 4) {
-            sportStyle = "accuracy";
-        } else if (pos == 5) {
-            sportStyle = "point";
-        }
+        setPos(pos);
     }
-
-    //doees nothing when no item from the spinner is called
+    public void setPos(int pos){
+        this.pos = pos;
+    }
+    public int getPos(){
+        return pos;
+    }
+    //does nothing when no item from the spinner is called
     public void onNothingSelected(AdapterView<?> parent) {
         // Another interface callback
     }
@@ -85,7 +78,8 @@ public class CreateSport extends Activity implements AdapterView.OnItemSelectedL
                 add = false;
             }
         }
-        if (!name.getText().toString().isEmpty() && !sportStyle.equals("Select a Sport Type") && add) {
+        Log.i("ElliePos", Integer.toString(getPos()));
+        if (!name.getText().toString().isEmpty() && getPos() != 0 && add) {
             newSport(sportStyle);
             Intent intent = new Intent(CreateSport.this, SportHome.class);
             String nameStr = name.getText().toString();
@@ -93,7 +87,7 @@ public class CreateSport extends Activity implements AdapterView.OnItemSelectedL
             startActivity(intent);
         } else if (name.getText().toString().isEmpty()) {
             Toast.makeText(getBaseContext(), "Please enter your sport name", Toast.LENGTH_SHORT).show();
-        } else if (sportStyle.equals("Select a Sport Type")) {
+        } else if (getPos() == 0) {
             Toast.makeText(getBaseContext(), "Please choose a sport style", Toast.LENGTH_SHORT).show();
         } else if (!add) {
             Toast.makeText(getBaseContext(), "There is already a sport with this name", Toast.LENGTH_SHORT).show();
@@ -102,12 +96,12 @@ public class CreateSport extends Activity implements AdapterView.OnItemSelectedL
 
     //Adds a new sport to the arraylist of sports
     //The name of the sport and the comment that is added is gotten from the user's input in the edit text boxes on the screen
-    public void newSport(String style) throws IOException {
+    public void newSport(int style) throws IOException {
         //get Global Controller Class object (see application tag in AndroidManifest.xml)
         Controller aController = (Controller) getApplicationContext();
         EditText namePull = (EditText) findViewById(R.id.sportname);
         EditText commentPull = (EditText) findViewById(R.id.commentCreateSport);
-        Log.i("EllieStyle", style);
+        Log.i("EllieStyle", Integer.toString(style));
         String nameStr = namePull.getText().toString();
         String commentStr = commentPull.getText().toString();
         if (!namePull.getText().toString().isEmpty()) {
@@ -117,7 +111,7 @@ public class CreateSport extends Activity implements AdapterView.OnItemSelectedL
 
             String check1 = sport.getComment();
             String check2 = sport.getName();
-            String check3 = sport.getStyle();
+            int check3 = sport.getStyle();
 
             Log.i("Ellie", check1 + check2 + check3);
         }

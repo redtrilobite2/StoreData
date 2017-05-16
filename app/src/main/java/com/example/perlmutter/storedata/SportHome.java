@@ -36,24 +36,24 @@ public class SportHome extends AppCompatActivity {
         TextView sportName = (TextView) findViewById(R.id.SportName);
         String name = sportName.getText().toString();
         Log.i("EllieNull", name);
-        String sport = aController.getSport(name).getStyle();
-        if (sport.equals("time_distance")) {
+       int sport = aController.getSport(name).getStyle();
+        if (sport==1) {
             Intent intent = new Intent(SportHome.this, Storedata.class);
             intent.putExtra("sportName", sportName.getText());
             startActivity(intent);
-        } else if (sport.equals("time")) {
+        } else if (sport==2) {
             Intent intent = new Intent(SportHome.this, TimeBased.class);
             intent.putExtra("sportName", sportName.getText());
             startActivity(intent);
-        } else if (sport.equals("distance")) {
+        } else if (sport==3) {
             Intent intent = new Intent(SportHome.this, DistanceBased.class);
             intent.putExtra("sportName", sportName.getText());
             startActivity(intent);
-        } else if (sport.equals("accuracy")) {
+        } else if (sport==4) {
             Intent intent = new Intent(SportHome.this, AccuracyBased.class);
             intent.putExtra("sportName", sportName.getText());
             startActivity(intent);
-        } else if (sport.equals("point")){
+        } else if (sport==5){
             Intent intent = new Intent(SportHome.this, PointBased.class);
             intent.putExtra("sportName", sportName.getText());
             startActivity(intent);
@@ -62,9 +62,32 @@ public class SportHome extends AppCompatActivity {
 
 
     public void toViewData(View view) {
-        Intent intent = new Intent(SportHome.this, ViewData.class);
-        intent.putExtra("sportName", name);
-        startActivity(intent);
+        final Controller aController = (Controller) getApplicationContext();
+        TextView sportName = (TextView) findViewById(R.id.SportName);
+        String name = sportName.getText().toString();
+        Log.i("EllieNull", name);
+        int sport = aController.getSport(name).getStyle();
+        if (sport == 1) {
+            Intent intent = new Intent(SportHome.this, ViewData.class);
+            intent.putExtra("sportName", sportName.getText());
+            startActivity(intent);
+        } else if (sport == 2) {
+            Intent intent = new Intent(SportHome.this, Timevstime.class);
+            intent.putExtra("sportName", sportName.getText());
+            startActivity(intent);
+        } else if (sport == 3) {
+            Intent intent = new Intent(SportHome.this, DistanceGraph.class);
+            intent.putExtra("sportName", sportName.getText());
+            startActivity(intent);
+        } else if (sport == 4) {
+            Intent intent = new Intent(SportHome.this, Accuracyvstime.class);
+            intent.putExtra("sportName", sportName.getText());
+            startActivity(intent);
+        } else if (sport == 5){
+            Intent intent = new Intent(SportHome.this, Pointsvstime.class);
+            intent.putExtra("sportName", sportName.getText());
+            startActivity(intent);
+        }
     }
 
     public void toHomeScreen(View view) {

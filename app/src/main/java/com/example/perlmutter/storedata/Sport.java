@@ -18,7 +18,7 @@ public class Sport {
     private ArrayList<Event> events;
     private String name;
     private String comment;
-    private String style;
+    private int style;
 
     // Constructor
 
@@ -28,8 +28,8 @@ public class Sport {
      * @param comment the user's comment for the sport
      * @param style the style of the sport
      */
-    public Sport(String name, String comment, String style) {
-        Log.i("EllieStyle", style);
+    public Sport(String name, String comment, int style) {
+        Log.i("EllieStyle", Integer.toString(style));
         this.name = name;
         this.comment = comment;
         this.style = style;
@@ -77,8 +77,8 @@ public class Sport {
      * @return
      */
 
-    public String getStyle(){
-        Log.i("EllieEnteredStyle", style);
+    public int getStyle(){
+        Log.i("EllieEnteredStyle", Integer.toString(style));
         return style;
     }
 

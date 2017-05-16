@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -33,19 +34,21 @@ public class WelcomeScreen extends AppCompatActivity {
                 StringTokenizer help = new StringTokenizer(lineString, ";;");
                 String sportName = help.nextToken();
                 String sportComment = help.nextToken();
-                String sportStyle = help.nextToken();
+                Integer sportStyle = Integer.parseInt(help.nextToken());
                 sports.add(new Sport(sportName, sportComment, sportStyle));
-                Log.i("EllieNextStyle", sportStyle);
+                Log.i("EllieNextStyle", Integer.toString(sportStyle));
+
 
                 aController.getSport(sportName).addEvent(new Event(Double.parseDouble(help.nextToken()), Double.parseDouble(help.nextToken()), help.nextToken(), help.nextToken()));
 
-               // aController.allNames();
+                // aController.allNames();
             }
             inRead.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     //Creates a new intent and directs app to the home screen
     public void toHomeScreen(View view) {
         Intent intent = new Intent(WelcomeScreen.this, HomeScreen.class);
