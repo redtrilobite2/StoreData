@@ -16,7 +16,7 @@ import com.jjoe64.graphview.series.Series;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
-
+//Constructs Graph for rate vs time
 public class ViewData extends AppCompatActivity {
 
     private String sportName;
@@ -26,18 +26,24 @@ public class ViewData extends AppCompatActivity {
 
         Bundle bundle=getIntent().getExtras();
         sportName=bundle.getString("sportName");
-
+//Gets the sport for which the graph will be constructed
         final Controller control = (Controller) getApplicationContext();
         ArrayList<Double> Sportarray = new ArrayList<Double>();
+        //Creates arraylist for the data points to be added
         ArrayList<Event> sportsarray = control.getSport(sportName).getEvent();
+        //imports array list of information from the sport
         double counterdt = 0;
+        //variable for the x-axis
         double rate = 1;
         for (int q = 0; q < sportsarray.size(); q++) {
 
             if (sportsarray.get(q).getTime() != 0) {
+                //prevents dividing by zero
                 counterdt++;
                 rate = sportsarray.get(q).getDistance() / sportsarray.get(q).getTime();
+                //the rate is calculated by distance/time
                 if (q == 0) {
+                    //graph starts at (0,0)
                     Sportarray.add(0.0);
                     Sportarray.add(0.0);
                 }
@@ -52,11 +58,12 @@ public class ViewData extends AppCompatActivity {
 
         GraphView line_graph = (GraphView) findViewById(R.id.graph);
         DataPoint[] data = new DataPoint[Sportarray.size() / 2];
-
+//creates list of data points
         int counter = 0;
         for (int i = 0; i < (Sportarray.size() / 2); i++) {
             data[i] = new DataPoint(Sportarray.get(i + counter), Sportarray.get(i + 1 + counter));
             counter++;
+            //fills data point list with array list of rate vs time
         }
 
         for (int j = 0; j < Sportarray.size() / 2; j++) {
@@ -70,7 +77,7 @@ public class ViewData extends AppCompatActivity {
 
                 new LineGraphSeries<>(data);
 
-
+//Creates graph
         line_graph.addSeries(line_series);
         line_series.setDrawDataPoints(true);
         line_series.setDataPointsRadius(10); // set the radius of data point
