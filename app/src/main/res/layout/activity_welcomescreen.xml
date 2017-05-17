@@ -18,7 +18,7 @@
         android:id="@+id/welcome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Welcome to the Athlete's Log!"
+        android:text="Welcome to the Sports Tracker!"
         android:textAlignment="center"
         android:textColor="@android:color/background_dark"
         android:textSize="50sp" />

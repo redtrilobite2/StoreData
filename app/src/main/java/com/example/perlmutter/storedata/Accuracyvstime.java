@@ -17,33 +17,42 @@ import com.jjoe64.graphview.series.Series;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
-
+//Constructs Graph for accuracy vs time
 public class Accuracyvstime extends AppCompatActivity {
 
     private String sportName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         Bundle bundle = getIntent().getExtras();
         sportName = bundle.getString("sportName");
-
+//Gets the sport for which the graph will be constructed
         final Controller control = (Controller) getApplicationContext();
-        ArrayList<Double> Sportarray = new ArrayList<>();
+        ArrayList<Double> Sportarray = new ArrayList<Double>();
+        //Creates arraylist for the data points to be added
         ArrayList<Event> sportsarray = control.getSport(sportName).getEvent();
+        //imports array list of information from the sport
         double counterdt = 0;
+        //variable for the x-axis
         double accuracy = 1;
 Log.i("ElliePoint", Integer.toString(sportsarray.get(0).getSuccessfulAttempts()));
         for (int q = 0; q < sportsarray.size(); q++) {
 
             if (sportsarray.get(q).getSuccessfulAttempts() != 0) {
+                //prevents dividing by zero
                 counterdt++;
-                accuracy = (sportsarray.get(q).getSuccessfulAttempts() / sportsarray.get(q).getTotalAttempts()) * 100;
+                accuracy = (sportsarray.get(q).getSuccessfulAttempts() / sportsarray.get(q).getTotalAttempts()*100);
+                //the accuracy is calculated by successful/total
                 if (q == 0) {
                     Sportarray.add(0.0);
                     Sportarray.add(0.0);
+                    //graph starts at (0,0)
                 }
                 Sportarray.add(counterdt);
+
                 Sportarray.add(accuracy);
+
             }
         }
 
@@ -53,11 +62,12 @@ Log.i("ElliePoint", Integer.toString(sportsarray.get(0).getSuccessfulAttempts())
 
         GraphView line_graph = (GraphView) findViewById(R.id.graph);
         DataPoint[] data = new DataPoint[Sportarray.size() / 2];
-
+//creates list of data points
         int counter = 0;
         for (int i = 0; i < (Sportarray.size() / 2); i++) {
             data[i] = new DataPoint(Sportarray.get(i + counter), Sportarray.get(i + 1 + counter));
             counter++;
+            //fills data point list with array list of accuracy vs time
         }
 
         for (int j = 0; j < Sportarray.size() / 2; j++) {
@@ -71,7 +81,7 @@ Log.i("ElliePoint", Integer.toString(sportsarray.get(0).getSuccessfulAttempts())
 
                 new LineGraphSeries<>(data);
 
-
+//Creates graph
         line_graph.addSeries(line_series);
         line_series.setDrawDataPoints(true);
         line_series.setDataPointsRadius(10); // set the radius of data point
