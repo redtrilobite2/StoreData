@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * A sport class contains an ArrayList of events, the name of the sportname, the comment for the sport, and the style of the sport.
  * This class can get the name, comment, and style of the sport. It can set the name of the sport and can also add an event to the ArrayList of events.
  */
-public class Sport {
+ class Sport {
     // Data
     private ArrayList<Event> events;
     private String name;
@@ -28,7 +28,7 @@ public class Sport {
      * @param comment the user's comment for the sport
      * @param style the style of the sport
      */
-    public Sport(String name, String comment, int style) {
+    Sport(String name, String comment, int style) {
         Log.i("EllieStyle", Integer.toString(style));
         this.name = name;
         this.comment = comment;
@@ -36,19 +36,11 @@ public class Sport {
         this.events = new ArrayList<>();
     }
 
-    /**
-     * Contructs a sport with no name, no comment, and no events
-     */
-    public Sport(){
-        this.name = "";
-        this.comment = "";
-        events = new ArrayList<>();
-    }
     // Methods
 
     /**
      * Returns the name of the sport
-     * @return
+     * @return name
      */
     public String getName() {
         return name;
@@ -56,16 +48,16 @@ public class Sport {
 
     /**
      * Returns the comment
-     * @return
+     * @return comment
      */
 
-    public String getComment() {
+   String getComment() {
         return comment;
     }
 
     /**
      * Returns the event
-     * @return
+     * @return events
      */
 
     public ArrayList getEvent() {
@@ -74,7 +66,7 @@ public class Sport {
 
     /**
      * Returns the style
-     * @return
+     * @return style
      */
 
     public int getStyle(){
@@ -92,17 +84,23 @@ public class Sport {
      * Adds an event to the ArrayList of events
      * @param event an event within a sport
      */
-    public void addEvent(Event event) {
+    void addEvent(Event event) {
         Log.i("Ellie", "Entered Event");
         events.add(event);
     }
 
+    public void setStyle(int style) {
+        this.style = style;
+    }
+
+
     /**
      * Returns the name of the sport and comment as one string
-     * @return
+     * @return name and comment
      */
     @Override
     public String toString(){
         return name + " " + comment;
     }
+
 }

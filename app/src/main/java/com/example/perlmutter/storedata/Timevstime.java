@@ -31,13 +31,13 @@ public class Timevstime extends AppCompatActivity {
         ArrayList<Double> Sportarray = new ArrayList<>();
         ArrayList<Event> sportsarray = control.getSport(sportName).getEvent();
         double counterdt = 0;
-        double time = 1;
+        double time;
         Log.i("ElliePoint", Double.toString(sportsarray.get(0).getTime()));
         for (int q = 0; q < sportsarray.size(); q++) {
 
             if (sportsarray.get(q).getTime() != 0) {
                 counterdt++;
-               time = sportsarray.get(q).getTime();
+                time = sportsarray.get(q).getTime();
                 if (q == 0) {
                     Sportarray.add(0.0);
                     Sportarray.add(0.0);

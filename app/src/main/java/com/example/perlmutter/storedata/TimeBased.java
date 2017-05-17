@@ -8,14 +8,15 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+
 import static java.lang.Double.parseDouble;
 
 /**
  * Created by Ellie DeSota on 5/14/2017.
- *
  */
 
 public class TimeBased extends AppCompatActivity {

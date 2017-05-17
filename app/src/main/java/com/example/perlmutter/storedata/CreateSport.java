@@ -2,7 +2,6 @@ package com.example.perlmutter.storedata;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -49,12 +48,15 @@ public class CreateSport extends Activity implements AdapterView.OnItemSelectedL
         pos = spin.getSelectedItemPosition();
         setPos(pos);
     }
-    public void setPos(int pos){
+
+    public void setPos(int pos) {
         this.pos = pos;
     }
-    public int getPos(){
+
+    public int getPos() {
         return pos;
     }
+
     //does nothing when no item from the spinner is called
     public void onNothingSelected(AdapterView<?> parent) {
         // Another interface callback
@@ -72,14 +74,15 @@ public class CreateSport extends Activity implements AdapterView.OnItemSelectedL
         Controller aController = (Controller) getApplicationContext();
         EditText name = (EditText) findViewById(R.id.sportname);
         String namestr = name.getText().toString();
+        sportStyle = getPos();
         for (int i = 0; i < aController.getSports().size(); i++) {
             if (aController.getSports().get(i).getClass().getName().equalsIgnoreCase(namestr)) {
                 Log.i("EllieRepeat", namestr + " " + aController.getSports().get(i).getClass().getName());
                 add = false;
             }
         }
-        Log.i("ElliePos", Integer.toString(getPos()));
-        if (!name.getText().toString().isEmpty() && getPos() != 0 && add) {
+        Log.i("ElliePos", Integer.toString(sportStyle));
+        if (!name.getText().toString().isEmpty() && sportStyle != 0 && add) {
             newSport(sportStyle);
             Intent intent = new Intent(CreateSport.this, SportHome.class);
             String nameStr = name.getText().toString();
@@ -87,7 +90,7 @@ public class CreateSport extends Activity implements AdapterView.OnItemSelectedL
             startActivity(intent);
         } else if (name.getText().toString().isEmpty()) {
             Toast.makeText(getBaseContext(), "Please enter your sport name", Toast.LENGTH_SHORT).show();
-        } else if (getPos() == 0) {
+        } else if (sportStyle == 0) {
             Toast.makeText(getBaseContext(), "Please choose a sport style", Toast.LENGTH_SHORT).show();
         } else if (!add) {
             Toast.makeText(getBaseContext(), "There is already a sport with this name", Toast.LENGTH_SHORT).show();

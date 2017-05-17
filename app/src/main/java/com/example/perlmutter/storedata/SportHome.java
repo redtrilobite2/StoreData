@@ -14,13 +14,14 @@ import java.util.ArrayList;
 
 /**
  * Created by Ellie DeSota on 4/6/2017.
+ * A SportHome class extends the activity_sporthome activity and...
  */
 
 public class SportHome extends AppCompatActivity {
-    private String name = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        String name;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sporthome);
         TextView sportName = (TextView) findViewById(R.id.SportName);
@@ -36,24 +37,25 @@ public class SportHome extends AppCompatActivity {
         TextView sportName = (TextView) findViewById(R.id.SportName);
         String name = sportName.getText().toString();
         Log.i("EllieNull", name);
-       int sport = aController.getSport(name).getStyle();
-        if (sport==1) {
+        int sport = aController.getSport(name).getStyle();
+        Log.i("EllieSport", Integer.toString(sport));
+        if (sport == 1) {
             Intent intent = new Intent(SportHome.this, Storedata.class);
             intent.putExtra("sportName", sportName.getText());
             startActivity(intent);
-        } else if (sport==2) {
+        } else if (sport == 2) {
             Intent intent = new Intent(SportHome.this, TimeBased.class);
             intent.putExtra("sportName", sportName.getText());
             startActivity(intent);
-        } else if (sport==3) {
+        } else if (sport == 3) {
             Intent intent = new Intent(SportHome.this, DistanceBased.class);
             intent.putExtra("sportName", sportName.getText());
             startActivity(intent);
-        } else if (sport==4) {
+        } else if (sport == 4) {
             Intent intent = new Intent(SportHome.this, AccuracyBased.class);
             intent.putExtra("sportName", sportName.getText());
             startActivity(intent);
-        } else if (sport==5){
+        } else if (sport == 5) {
             Intent intent = new Intent(SportHome.this, PointBased.class);
             intent.putExtra("sportName", sportName.getText());
             startActivity(intent);
@@ -83,7 +85,7 @@ public class SportHome extends AppCompatActivity {
             Intent intent = new Intent(SportHome.this, Accuracyvstime.class);
             intent.putExtra("sportName", sportName.getText());
             startActivity(intent);
-        } else if (sport == 5){
+        } else if (sport == 5) {
             Intent intent = new Intent(SportHome.this, Pointsvstime.class);
             intent.putExtra("sportName", sportName.getText());
             startActivity(intent);

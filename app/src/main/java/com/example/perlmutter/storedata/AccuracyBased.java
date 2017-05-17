@@ -50,8 +50,6 @@ public class AccuracyBased extends AppCompatActivity {
         intent.putExtra("sportName", name);
         startActivity(intent);
         saveData(view);
-        TextView sportName = (TextView) findViewById(R.id.SportName);
-
     }
 
     public void saveData(View view) {
