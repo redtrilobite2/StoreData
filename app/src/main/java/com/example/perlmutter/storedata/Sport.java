@@ -89,11 +89,6 @@ import java.util.ArrayList;
         events.add(event);
     }
 
-    public void setStyle(int style) {
-        this.style = style;
-    }
-
-
     /**
      * Returns the name of the sport and comment as one string
      * @return name and comment
