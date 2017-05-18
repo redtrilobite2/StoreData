@@ -28,7 +28,7 @@ public class SportHome extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         name = bundle.getString("sportName");
         sportName.setText(name);
-        toViewComment();
+        //toViewComment();
 
     }
 

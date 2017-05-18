@@ -35,14 +35,14 @@ public class Accuracyvstime extends AppCompatActivity {
         //imports array list of information from the sport
         double counterdt = 0;
         //variable for the x-axis
-        double accuracy = 1;
-Log.i("ElliePoint", Integer.toString(sportsarray.get(0).getSuccessfulAttempts()));
+        double accuracy;
+Log.i("ElliePoint", Double.toString(sportsarray.get(0).getSuccessfulAttempts()));
         for (int q = 0; q < sportsarray.size(); q++) {
 
-            if (sportsarray.get(q).getSuccessfulAttempts() != 0) {
+            if (sportsarray.get(q).getTotalAttempts() != 0) {
                 //prevents dividing by zero
                 counterdt++;
-                accuracy = (sportsarray.get(q).getSuccessfulAttempts() / sportsarray.get(q).getTotalAttempts()*100);
+                accuracy = (sportsarray.get(q).getSuccessfulAttempts() / sportsarray.get(q).getTotalAttempts()*100.0);
                 //the accuracy is calculated by successful/total
                 if (q == 0) {
                     Sportarray.add(0.0);

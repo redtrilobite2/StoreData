@@ -12,8 +12,8 @@ public class Event {
     private double time;
     private double distance;
     private String comment;
-    private int successfulAttempts;
-    private int totalAttempts;
+    private double successfulAttempts;
+    private double totalAttempts;
     private int delin;
     private double points;
     private String delinStr;
@@ -47,7 +47,7 @@ public class Event {
         this.comment = comment;
         this.delinStr = delinStr;
     }
-    public Event(int successfulAttempts, int totalAttempts, String date, String comment) {
+    public Event(double successfulAttempts, double totalAttempts, String date, String comment, int delin) {
         //	eventName = this.eventName;
         this.date = date;
         this.successfulAttempts = successfulAttempts;
@@ -56,10 +56,10 @@ public class Event {
     }
 
 
-    public int getSuccessfulAttempts(){
+    public double getSuccessfulAttempts(){
         return successfulAttempts;
     }
-    public int getTotalAttempts(){
+    public double getTotalAttempts(){
         return totalAttempts;
     }
     /**
