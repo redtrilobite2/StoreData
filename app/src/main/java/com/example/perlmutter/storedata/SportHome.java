@@ -28,6 +28,7 @@ public class SportHome extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         name = bundle.getString("sportName");
         sportName.setText(name);
+        toViewComment();
 
     }
 
@@ -62,6 +63,35 @@ public class SportHome extends AppCompatActivity {
         }
     }
 
+    public void toViewComment(){
+        //final Controller aController = (Controller) getApplicationContext();
+        TextView sportName = (TextView) findViewById(R.id.SportName);
+       // String name = sportName.getText().toString();
+        Intent intent = new Intent(SportHome.this, ViewComment.class);
+        intent.putExtra("sportName", sportName.getText());
+        startActivity(intent);
+        /*if (sport == 1) {
+            Intent intent = new Intent(SportHome.this, ViewData.class);
+            intent.putExtra("sportName", sportName.getText());
+            startActivity(intent);
+        } else if (sport == 2) {
+            Intent intent = new Intent(SportHome.this, Timevstime.class);
+            intent.putExtra("sportName", sportName.getText());
+            startActivity(intent);
+        } else if (sport == 3) {
+            Intent intent = new Intent(SportHome.this, DistanceGraph.class);
+            intent.putExtra("sportName", sportName.getText());
+            startActivity(intent);
+        } else if (sport == 4) {
+            Intent intent = new Intent(SportHome.this, Accuracyvstime.class);
+            intent.putExtra("sportName", sportName.getText());
+            startActivity(intent);
+        } else if (sport == 5) {
+            Intent intent = new Intent(SportHome.this, Pointsvstime.class);
+            intent.putExtra("sportName", sportName.getText());
+            startActivity(intent);
+        }*/
+    }
 
     public void toViewData(View view) {
         final Controller aController = (Controller) getApplicationContext();

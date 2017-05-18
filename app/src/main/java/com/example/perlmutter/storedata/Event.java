@@ -34,7 +34,7 @@ public class Event {
         this.comment = comment;
     }
 
-    public Event(double time, String date, String comment, int delin){
+   Event(double time, String date, String comment, int delin){
         this.time = time;
         this.date =date;
         this.comment = comment;
@@ -64,15 +64,15 @@ public class Event {
     }
     /**
      * Returns the date of the event
-     * @return
+     * @return date
      */
-    public String getDate() {
+  String getDate() {
         return date;
     }
 
     /**
      * Returns the time inputted
-     * @return
+     * @return time
      */
 
     public double getTime() {
@@ -81,28 +81,33 @@ public class Event {
 
     /**
      * Returns the distance inputted
-     * @return
+     * @return distance
      */
 
-    public double getDistance() {
+   double getDistance() {
         return distance;
     }
 
     /**
      * Returns the comment of the event
-     * @return
+     * @return comment
      */
 
-    public String getComment() {
+   String getComment() {
         return comment;
     }
+
+    /**
+     * Returns the points input
+     * @return points
+     */
     public double getPoints(){
         return points;
     }
 
     /**
      * Returns the date, time, distance, and comment of the event as one string
-     * @return
+     * @return date, time, disance, and comment
      */
     @Override
     public String toString(){

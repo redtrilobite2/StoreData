@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
@@ -17,13 +18,14 @@ import static java.lang.Double.parseDouble;
 
 public class Storedata extends AppCompatActivity {
     private String name;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_storedata);
-        TextView sportName=(TextView) findViewById(R.id.SportName);
-        Bundle bundle=getIntent().getExtras();
-        name=bundle.getString("sportName");
+        TextView sportName = (TextView) findViewById(R.id.SportName);
+        Bundle bundle = getIntent().getExtras();
+        name = bundle.getString("sportName");
         sportName.setText(name);
     }
 
@@ -36,7 +38,7 @@ public class Storedata extends AppCompatActivity {
         String timeStr = timePull.getText().toString();
         String dateStr = datePull.getText().toString();
 
-        if(!distanceStr.isEmpty() && !timeStr.isEmpty() && !dateStr.isEmpty()) {
+        if (!distanceStr.isEmpty() && !timeStr.isEmpty() && !dateStr.isEmpty()) {
             Intent intent = new Intent(Storedata.this, ViewData.class);
             intent.putExtra("sportName", name);
             startActivity(intent);
@@ -49,14 +51,14 @@ public class Storedata extends AppCompatActivity {
         intent.putExtra("sportName", name);
         startActivity(intent);
         saveData(view);
-        TextView sportName=(TextView) findViewById(R.id.SportName);
+        TextView sportName = (TextView) findViewById(R.id.SportName);
 
     }
 
     public void saveData(View view) {
         Controller aController = (Controller) getApplicationContext();
         Log.i("Ellie", "Entered into newEvent");
-        TextView sportName=(TextView) findViewById(R.id.SportName);
+        TextView sportName = (TextView) findViewById(R.id.SportName);
         EditText distancePull = (EditText) findViewById(R.id.distance);
         EditText timePull = (EditText) findViewById(R.id.time);
         EditText datePull = (EditText) findViewById(R.id.date);
@@ -67,20 +69,20 @@ public class Storedata extends AppCompatActivity {
         String dateStr = datePull.getText().toString();
         String commentStr = commentPull.getText().toString();
 
-boolean print = true;
+        boolean print = true;
         if (commentStr.isEmpty()) {
             commentStr = " ";
         }
         if (distanceStr.isEmpty()) {
-            Toast.makeText(getBaseContext(),"Please enter a distance", Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), "Please enter a distance", Toast.LENGTH_LONG).show();
             print = false;
         }
         if (timeStr.isEmpty()) {
-            Toast.makeText(getBaseContext(),"Please enter a time", Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), "Please enter a time", Toast.LENGTH_LONG).show();
             print = false;
         }
         if (dateStr.isEmpty()) {
-            Toast.makeText(getBaseContext(),"Please enter a date", Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), "Please enter a date", Toast.LENGTH_LONG).show();
             print = false;
         }
 

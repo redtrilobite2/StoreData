@@ -6,7 +6,6 @@ package com.example.perlmutter.storedata;
  */
 
 import android.util.Log;
-
 import java.util.ArrayList;
 
 /**
@@ -19,6 +18,9 @@ import java.util.ArrayList;
     private String name;
     private String comment;
     private int style;
+    private Event event;
+    ArrayList<String> eventComments;
+
 
     // Constructor
 
@@ -51,7 +53,7 @@ import java.util.ArrayList;
      * @return comment
      */
 
-   String getComment() {
+   public String getComment() {
         return comment;
     }
 
@@ -60,7 +62,7 @@ import java.util.ArrayList;
      * @return events
      */
 
-    public ArrayList getEvent() {
+    public ArrayList getEvents() {
         return events;
     }
 
@@ -87,6 +89,14 @@ import java.util.ArrayList;
     void addEvent(Event event) {
         Log.i("Ellie", "Entered Event");
         events.add(event);
+    }
+
+    public ArrayList<String> getEventComments(){
+        for(int i = 0; i<getEvents().size(); i++){
+            event = (Event) getEvents().get(i);
+            eventComments.add(event.getComment());
+        }
+        return eventComments;
     }
 
     /**
