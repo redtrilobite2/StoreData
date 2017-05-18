@@ -42,7 +42,7 @@ Log.i("ElliePoint", Integer.toString(sportsarray.get(0).getSuccessfulAttempts())
             if (sportsarray.get(q).getSuccessfulAttempts() != 0) {
                 //prevents dividing by zero
                 counterdt++;
-                accuracy = (sportsarray.get(q).getSuccessfulAttempts() / sportsarray.get(q).getTotalAttempts()*100);
+                accuracy = (sportsarray.get(q).getSuccessfulAttempts() / sportsarray.get(q).getTotalAttempts())*100;
                 //the accuracy is calculated by successful/total
                 if (q == 0) {
                     Sportarray.add(0.0);
