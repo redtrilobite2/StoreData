@@ -30,7 +30,7 @@ public class Timevstime extends AppCompatActivity {
         final Controller control = (Controller) getApplicationContext();
         ArrayList<Double> Sportarray = new ArrayList<>();
         //Creates arraylist for the data points to be added
-        ArrayList<Event> sportsarray = control.getSport(sportName).getEvent();
+        ArrayList<Event> sportsarray = control.getSport(sportName).getEvents();
         //imports array list of information from the sport
         double counterdt = 0;
         //variable for the x-axis

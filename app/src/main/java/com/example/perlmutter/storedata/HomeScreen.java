@@ -67,7 +67,7 @@ public class HomeScreen extends Activity implements AdapterView.OnItemSelectedLi
             final Controller aController = (Controller) getApplicationContext();
             ArrayList sports = aController.getSports();
             PrintData printData = new PrintData(sports);
-            Log.i("EllieCheck",Integer.toString(aController.getSport("mySport").getEvent().size())+" "+ Integer.toString(sports.size()));
+            Log.i("EllieCheck",Integer.toString(aController.getSport("mySport").getEvents().size())+" "+ Integer.toString(sports.size()));
             for (int i = 0; i < sports.size(); i++) {
                 print = printData.print();
                 outputWriter.write(print.get(i));
