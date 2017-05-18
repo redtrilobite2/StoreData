@@ -39,10 +39,3 @@ for(int i = 0; i<comments.size(); i++){
 
 
 
-
-        /*
-
-}
-
-
-}
