@@ -68,7 +68,7 @@ public class PointBased extends AppCompatActivity {
             commentStr = " ";
         }
         if (pointsStr.isEmpty()) {
-            Toast.makeText(getBaseContext(), "Please enter a distance", Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), "Please enter a point value", Toast.LENGTH_LONG).show();
             print = false;
         }
         if (dateStr.isEmpty()) {

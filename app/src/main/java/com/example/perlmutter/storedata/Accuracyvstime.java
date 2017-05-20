@@ -36,7 +36,7 @@ public class Accuracyvstime extends AppCompatActivity {
         double counterdt = 0;
         //variable for the x-axis
         double accuracy;
-Log.i("ElliePoint", Double.toString(sportsarray.get(0).getSuccessfulAttempts()));
+
         for (int q = 0; q < sportsarray.size(); q++) {
 
             if (sportsarray.get(q).getTotalAttempts() != 0) {

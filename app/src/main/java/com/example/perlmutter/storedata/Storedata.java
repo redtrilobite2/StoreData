@@ -43,19 +43,17 @@ public class Storedata extends AppCompatActivity {
             intent.putExtra("sportName", name);
             startActivity(intent);
         }
-        saveData(view);
+        saveData(view, 2);
     }
 
     public void toSportHome(View view) {
         Intent intent = new Intent(Storedata.this, SportHome.class);
         intent.putExtra("sportName", name);
         startActivity(intent);
-        saveData(view);
-        TextView sportName = (TextView) findViewById(R.id.SportName);
-
+        saveData(view, 1);
     }
 
-    public void saveData(View view) {
+    public void saveData(View view, int delin) {
         Controller aController = (Controller) getApplicationContext();
         Log.i("Ellie", "Entered into newEvent");
         TextView sportName = (TextView) findViewById(R.id.SportName);
@@ -68,7 +66,11 @@ public class Storedata extends AppCompatActivity {
         String timeStr = timePull.getText().toString();
         String dateStr = datePull.getText().toString();
         String commentStr = commentPull.getText().toString();
-
+if(delin == 1 && commentStr.isEmpty() && distanceStr.isEmpty() && timeStr.isEmpty() && dateStr.isEmpty()){
+    Intent intent = new Intent(Storedata.this, SportHome.class);
+    intent.putExtra("sportName", name);
+    startActivity(intent);
+}
         boolean print = true;
         if (commentStr.isEmpty()) {
             commentStr = " ";

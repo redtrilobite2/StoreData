@@ -34,8 +34,8 @@ public class Pointsvstime extends AppCompatActivity {
         //imports array list of information from the sport
         double counterdt = 0;
         //variable for the x-axis
-        double point = 1;
-        Log.i("ElliePoint", Double.toString(sportsarray.get(0).getPoints()));
+        double point;
+
         for (int q = 0; q < sportsarray.size(); q++) {
 
                 counterdt++;

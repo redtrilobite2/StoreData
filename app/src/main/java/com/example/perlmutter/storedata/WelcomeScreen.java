@@ -1,6 +1,8 @@
 package com.example.perlmutter.storedata;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +13,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.StringTokenizer;
+import java.util.UUID;
 
 public class WelcomeScreen extends AppCompatActivity {
 
@@ -49,6 +52,13 @@ public class WelcomeScreen extends AppCompatActivity {
         }
     }
 
+   /* public void setupUser(){
+        Context context = this;
+        SharedPreferences sharedPref = context.getSharedPreferences(
+                getString(R.string.user_preferences_id), Context.MODE_PRIVATE);
+int userID = sharedPref.getInt(fetStringR.string.user_id, null);
+    }
+*/
     //Creates a new intent and directs app to the home screen
     public void toHomeScreen(View view) {
         Intent intent = new Intent(WelcomeScreen.this, HomeScreen.class);

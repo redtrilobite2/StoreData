@@ -1,11 +1,14 @@
 package com.example.perlmutter.storedata;
 
 
+import android.support.design.widget.AppBarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import android.support.v7.widget.LinearLayoutCompat;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -30,11 +33,11 @@ public void onCreate(Bundle savedInstanceState){
         Bundle bundle = getIntent().getExtras();
         name = bundle.getString("sportName");
 
-    /*    ArrayList<String> comments = aController.getSport(name).getEventComments();
-for(int i = 0; i<comments.size(); i++){
-    EditText myEditText = new EditText(activity_); // Pass it an Activity or Context
-    myEditText.setLayoutParams(new LayoutParams(..., ...)); // Pass two args; must be LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT, or an integer pixel value.
-    myLayout.addView(myEditText);*/
+        ArrayList<String> comments = aController.getSport(name).getEventComments();
+/*for(int i = 0; i<comments.size(); i++){
+    EditText myEditText = new EditText(getApplicationContext()); //Pass it an Activity or Context
+    myEditText.setLayoutParams(new LinearLayoutCompat.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, AppBarLayout.LayoutParams.WRAP_CONTENT)); // Pass two args; must be LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT, or an integer pixel value.
+   getApplication().addView(myEditText);*/
 }}
 
 

@@ -35,10 +35,7 @@ public class Timevstime extends AppCompatActivity {
         double counterdt = 0;
         //variable for the x-axis
         double time;
-        Log.i("ElliePoint", Double.toString(sportsarray.get(0).getTime()));
         for (int q = 0; q < sportsarray.size(); q++) {
-
-
                 counterdt++;
                time = sportsarray.get(q).getTime();
                 if (q == 0) {

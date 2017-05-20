@@ -34,7 +34,7 @@ public class ViewData extends AppCompatActivity {
         //imports array list of information from the sport
         double counterdt = 0;
         //variable for the x-axis
-        double rate = 1;
+        double rate;
         for (int q = 0; q < sportsarray.size(); q++) {
 
             if (sportsarray.get(q).getTime() != 0) {
