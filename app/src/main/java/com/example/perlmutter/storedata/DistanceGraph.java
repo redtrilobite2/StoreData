@@ -86,7 +86,7 @@ public class DistanceGraph extends AppCompatActivity{
     }
 
     public void toStoreData(View view) {
-        Intent intent=new Intent(DistanceGraph.this, DistanceGraph.class);
+        Intent intent=new Intent(DistanceGraph.this, DistanceBased.class);
         intent.putExtra("sportName", sportName);
         startActivity(intent);
     }
