@@ -84,13 +84,13 @@ public class AccuracyBased extends AppCompatActivity {
 
 
         if (print) {
-            Integer attemptsSuccessful = parseInt(successfulStr);
-            Integer total = parseInt(totalStr);
+            Double attemptsSuccessful = Double.parseDouble(successfulStr);
+            Double total = Double.parseDouble(totalStr);
 
-            Event event = new Event(attemptsSuccessful, total, dateStr, commentStr);
+            Event event = new Event(attemptsSuccessful, total, dateStr, commentStr, 1);
             aController.getSport(sportName.getText().toString()).addEvent(event);
-            Log.i("EllieSaveSport", aController.getSport(sportName.getText().toString()).getEvent().toString());
-            Log.i("Ellie", Integer.toString(aController.getSport(sportName.getText().toString()).getEvent().size()));
+            Log.i("EllieSaveSport", aController.getSport(sportName.getText().toString()).getEvents().toString());
+            Log.i("Ellie", Integer.toString(aController.getSport(sportName.getText().toString()).getEvents().size()));
         }
 
 

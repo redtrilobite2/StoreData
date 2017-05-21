@@ -30,12 +30,12 @@ public class Pointsvstime extends AppCompatActivity {
         final Controller control = (Controller) getApplicationContext();
         ArrayList<Double> Sportarray = new ArrayList<>();
         //Creates arraylist for the data points to be added
-        ArrayList<Event> sportsarray = control.getSport(sportName).getEvent();
+        ArrayList<Event> sportsarray = control.getSport(sportName).getEvents();
         //imports array list of information from the sport
         double counterdt = 0;
         //variable for the x-axis
-        double point = 1;
-        Log.i("ElliePoint", Double.toString(sportsarray.get(0).getPoints()));
+        double point;
+
         for (int q = 0; q < sportsarray.size(); q++) {
 
                 counterdt++;

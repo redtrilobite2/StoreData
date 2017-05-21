@@ -33,8 +33,7 @@ public class DistanceGraph extends AppCompatActivity{
 
         final Controller control = (Controller) getApplicationContext();
         ArrayList<Double> Sportarray = new ArrayList<>();
-        ArrayList<Event> sportsArray = control.getSport(sportName).getEvent();
-        Log.i("ElliePoint", Double.toString(sportsArray.get(0).getDistance()));
+        ArrayList<Event> sportsArray = control.getSport(sportName).getEvents();
         double counterdt = 0;
         double rate = 1;
         for (int q = 0; q < sportsArray.size(); q++) {
@@ -87,7 +86,7 @@ public class DistanceGraph extends AppCompatActivity{
     }
 
     public void toStoreData(View view) {
-        Intent intent=new Intent(DistanceGraph.this, DistanceGraph.class);
+        Intent intent=new Intent(DistanceGraph.this, DistanceBased.class);
         intent.putExtra("sportName", sportName);
         startActivity(intent);
     }

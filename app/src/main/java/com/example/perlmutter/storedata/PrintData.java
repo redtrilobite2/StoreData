@@ -31,7 +31,7 @@ public class PrintData {
         Sport sport;
         for (int i = 0; i < sports.size(); i++) {
             sport = sports.get(i);
-            events = sport.getEvent();
+            events = sport.getEvents();
             for (int m = 0; m < events.size(); m++) {
                 data.add(sport.getName() + " ;; " + sport.getComment() + " ;; " + sport.getStyle() + " ;; "+ events.get(m).getTime() + " ;; "
                         + events.get(m).getDistance() + " ;; " + events.get(m).getDate() + " ;; " + events.get(m).getComment());

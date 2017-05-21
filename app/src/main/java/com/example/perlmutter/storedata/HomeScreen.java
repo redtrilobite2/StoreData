@@ -58,7 +58,6 @@ public class HomeScreen extends Activity implements AdapterView.OnItemSelectedLi
     //when the app is closed this method prints the sport data into a file
     @Override
     public void onDestroy() {
-        Log.i("Ellie", "In onDestroy");
         super.onDestroy();
         try {
             ArrayList<String> print;
@@ -67,7 +66,7 @@ public class HomeScreen extends Activity implements AdapterView.OnItemSelectedLi
             final Controller aController = (Controller) getApplicationContext();
             ArrayList sports = aController.getSports();
             PrintData printData = new PrintData(sports);
-            Log.i("EllieCheck",Integer.toString(aController.getSport("mySport").getEvent().size())+" "+ Integer.toString(sports.size()));
+            Log.i("EllieCheck", sports.toString());
             for (int i = 0; i < sports.size(); i++) {
                 print = printData.print();
                 outputWriter.write(print.get(i));
@@ -79,7 +78,6 @@ public class HomeScreen extends Activity implements AdapterView.OnItemSelectedLi
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
 }

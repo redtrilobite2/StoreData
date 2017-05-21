@@ -2,6 +2,6 @@
     <string name="app_name">StoreData</string>
     <string name="title_activity_welcome__screen">Welcome Screen</string>
     <string name="title_activity_welcome_screen">WelcomeScreen</string>
-
-
+    <string name="user_preferences_id">user_preferences</string>
+    <string name="user_id">user_id</string>>
 </resources>

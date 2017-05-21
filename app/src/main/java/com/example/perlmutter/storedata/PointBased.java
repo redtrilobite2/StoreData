@@ -68,7 +68,7 @@ public class PointBased extends AppCompatActivity {
             commentStr = " ";
         }
         if (pointsStr.isEmpty()) {
-            Toast.makeText(getBaseContext(), "Please enter a distance", Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), "Please enter a point value", Toast.LENGTH_LONG).show();
             print = false;
         }
         if (dateStr.isEmpty()) {
@@ -82,8 +82,8 @@ public class PointBased extends AppCompatActivity {
 
             Event event = new Event(points, dateStr, commentStr, "PointBased");
             aController.getSport(sportName.getText().toString()).addEvent(event);
-            Log.i("EllieSaveSport", aController.getSport(sportName.getText().toString()).getEvent().toString());
-            Log.i("Ellie", Integer.toString(aController.getSport(sportName.getText().toString()).getEvent().size()));
+            Log.i("EllieSaveSport", aController.getSport(sportName.getText().toString()).getEvents().toString());
+            Log.i("Ellie", Integer.toString(aController.getSport(sportName.getText().toString()).getEvents().size()));
         }
 
 
