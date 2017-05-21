@@ -19,6 +19,7 @@ public class Controller extends Application {
 
     /**
      * Returns the newest sport added to the ArrayList of sports
+     *
      * @return
      */
     public Sport getNewSport() {
@@ -27,32 +28,35 @@ public class Controller extends Application {
 
     /**
      * Returns the ArrayList of sports
+     *
      * @return
      */
-    public ArrayList getSports(){
+    public ArrayList getSports() {
         return allSports;
     }
 
     /**
      * Adds a sport to the ArrayList of sports
+     *
      * @param sport the sport inputted by the user
      */
-     public void addSport(Sport sport) {
-        for(int i = 0; i < allSports.size(); i++){
-            if(allSports.get(i).getName().equalsIgnoreCase(sport.getName())){
+    public void addSport(Sport sport) {
+        for (int i = 0; i < allSports.size(); i++) {
+            if (allSports.get(i).getName().equalsIgnoreCase(sport.getName())) {
                 add = false;
             }
         }
-         if(add == true){
+        if (add == true) {
             allSports.add(sport);
-         }
+        }
     }
 
     /**
      * Checks if a sport has been added. Returns true if sport has been added
+     *
      * @return
      */
-    public Boolean sportIsAdded(){
+    public Boolean sportIsAdded() {
         return add;
     }
 
@@ -60,6 +64,7 @@ public class Controller extends Application {
      * Gets the name of the sport and checks if another sport in the ArrayList has the same name.
      * Returns the sport name is already in the ArrayList of sports. Returns null if the sport is
      * not in the ArrayList
+     *
      * @param name name of the sport
      * @return
      */
@@ -76,13 +81,14 @@ public class Controller extends Application {
 
     /**
      * Returns the names of the sports in the ArrayList of sports
+     *
      * @return
      */
-    public ArrayList<String> allNames(){
-        Log.i("Please",Integer.toString(allSports.size()));
-        ArrayList<String> allNames=new ArrayList<>();
-        for (int i=0; i<allSports.size(); i++){
-            String name=allSports.get(i).getName();
+    public ArrayList<String> allNames() {
+        Log.i("Please", Integer.toString(allSports.size()));
+        ArrayList<String> allNames = new ArrayList<>();
+        for (int i = 0; i < allSports.size(); i++) {
+            String name = allSports.get(i).getName();
             allNames.add(name);
         }
         return allNames;
@@ -90,20 +96,22 @@ public class Controller extends Application {
 
     /**
      * Sets i to a integer
+     *
      * @param i postion of the spinner
      */
-    public void setInti(int i){
-        this.i=i;
+    public void setInti(int i) {
+        this.i = i;
     }
 
     /**
      * Returns the value of i
+     *
      * @return
      */
-    public int getInti(){
+    public int getInti() {
         return i;
     }
-    }
+}
 
 
 

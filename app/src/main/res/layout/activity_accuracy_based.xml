@@ -103,7 +103,7 @@
             android:layout_weight="0.09"
             android:background="@color/colorAccent"
             android:onClick="toSportHome"
-            android:text="Home"
+            android:text="Cancel"
             android:textSize="18sp"
             tools:onClick="ViewData" />
     </LinearLayout>

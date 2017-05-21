@@ -27,7 +27,7 @@ public class Accuracyvstime extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         sportName = bundle.getString("sportName");
-//Gets the sport for which the graph will be constructed
+        //Gets the sport for which the graph will be constructed
         final Controller control = (Controller) getApplicationContext();
         ArrayList<Double> Sportarray = new ArrayList<Double>();
         //Creates arraylist for the data points to be added
