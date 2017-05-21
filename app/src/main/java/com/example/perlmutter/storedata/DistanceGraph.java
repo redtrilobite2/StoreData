@@ -19,7 +19,7 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
 /**
- * Created by Ellie DeSota on 5/14/2017.
+ Constructs Graph for distance vs time
  */
 
 public class DistanceGraph extends AppCompatActivity{
@@ -29,10 +29,17 @@ public class DistanceGraph extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
 
         Bundle bundle=getIntent().getExtras();
+        /**
+         * Gets the sport for which the graph will be constructed
+         */
         sportName=bundle.getString("sportName");
 
         final Controller control = (Controller) getApplicationContext();
+        /**
+         *Creates arraylist for the data points to be added
+         */
         ArrayList<Double> Sportarray = new ArrayList<>();
+        //imports array list of information from the sport
         ArrayList<Event> sportsArray = control.getSport(sportName).getEvents();
         double counterdt = 0;
         double rate = 1;
@@ -57,6 +64,7 @@ public class DistanceGraph extends AppCompatActivity{
         DataPoint[] data = new DataPoint[Sportarray.size() / 2];
 
         int counter = 0;
+        //fills data point list with array list of accuracy vs time
         for (int i = 0; i < (Sportarray.size() / 2); i++) {
             data[i] = new DataPoint(Sportarray.get(i + counter), Sportarray.get(i + 1 + counter));
             counter++;
@@ -74,6 +82,7 @@ public class DistanceGraph extends AppCompatActivity{
                 new LineGraphSeries<>(data);
 
 
+//Creates graph
         line_graph.addSeries(line_series);
         line_series.setDrawDataPoints(true);
         line_series.setDataPointsRadius(10); // set the radius of data point
@@ -84,19 +93,27 @@ public class DistanceGraph extends AppCompatActivity{
             }
         });
     }
-
+    /**
+     * Switches to entering data interface
+     * @param view
+     */
     public void toStoreData(View view) {
         Intent intent=new Intent(DistanceGraph.this, DistanceBased.class);
         intent.putExtra("sportName", sportName);
         startActivity(intent);
     }
-
+    /**
+     *Switches to sport home interface
+     * @param view
+     */
     public void toSportHome(View view) {
         Intent intent=new Intent(DistanceGraph.this, SportHome.class);
         intent.putExtra("sportName", sportName);
         startActivity(intent);
     }
-
+    /**
+     *Adds the data into an arraylist and then prints the arraylist into a text file.
+     */
     @Override
     public void onDestroy() {
         Log.i("Ellie", "In onDestroy");
