@@ -15,7 +15,10 @@ import java.util.ArrayList;
 
 
 import static java.lang.Double.parseDouble;
-
+/**
+ * This class allows users to input data for time and distance based sports. It also allows users to transition to either
+ * the ViewData interface or SportHome
+ */
 public class Storedata extends AppCompatActivity {
     private String name;
 
@@ -28,7 +31,11 @@ public class Storedata extends AppCompatActivity {
         name = bundle.getString("sportName");
         sportName.setText(name);
     }
-
+    /**
+     * This method pulls the data that the user inputs into the edit text boxes and transitions to ViewData if
+     * the distance, time, and date edit texts are filled in. It also calls the saveData method.
+     * @param view builds the user interface and widgets in the app
+     */
     public void toViewData(View view) {
         EditText distancePull = (EditText) findViewById(R.id.distance);
         EditText timePull = (EditText) findViewById(R.id.time);
@@ -45,14 +52,22 @@ public class Storedata extends AppCompatActivity {
         }
         saveData(view, 2);
     }
-
+    /**
+     * This method allows the user to transition to Sport Home. It also puts the sport name as an extra in the intent and calls
+     * the saveData method.
+     * @param view builds the user interface and widgets in the app
+     */
     public void toSportHome(View view) {
         Intent intent = new Intent(Storedata.this, SportHome.class);
         intent.putExtra("sportName", name);
         startActivity(intent);
         saveData(view, 1);
     }
-
+    /**
+     * This method saves the user's inputted data. However, if the user does not input the distance, time, or date, the method
+     * creates a toast that asks the user to input the missing information.
+     * @param view builds the user interface and widgets in the app
+     */
     public void saveData(View view, int delin) {
         Controller aController = (Controller) getApplicationContext();
         Log.i("Ellie", "Entered into newEvent");
@@ -101,7 +116,10 @@ if(delin == 1 && commentStr.isEmpty() && distanceStr.isEmpty() && timeStr.isEmpt
 
 
     }
-
+    /**
+     * This method is called when the app is closed. It prints the inputted data into a text file so that when the app is closed,
+     * the data will persist.
+     */
     @Override
     public void onDestroy() {
         super.onDestroy();

@@ -15,6 +15,10 @@ import java.util.ArrayList;
 
 import static java.lang.Integer.parseInt;
 
+/**
+ * This class allows users to input data for accuracy based sports. It also allows users to transition to either the AccuracyvsTime
+ * interface or SportHome
+ */
 public class AccuracyBased extends AppCompatActivity {
     private String name;
 
@@ -28,6 +32,11 @@ public class AccuracyBased extends AppCompatActivity {
         sportName.setText(name);
     }
 
+    /**
+     * This method pulls the data that the user inputs into the edit text boxes and transitions to Accuracyvstime if
+     * the successful, total, and date edit texts are filled in. It also calls the saveData method.
+     * @param view builds the user interface and widgets in the app
+     */
     public void toViewData(View view) {
         EditText successfulPull = (EditText) findViewById(R.id.successful);
         EditText totalPull = (EditText) findViewById(R.id.total);
@@ -45,6 +54,11 @@ public class AccuracyBased extends AppCompatActivity {
         saveData(view);
     }
 
+    /**
+     * This method allows the user to transition to Sport Home. It also puts the sport name as an extra in the intent and calls
+     * the saveData method.
+     * @param view builds the user interface and widgets in the app
+     */
     public void toSportHome(View view) {
         Intent intent = new Intent(AccuracyBased.this, SportHome.class);
         intent.putExtra("sportName", name);
@@ -52,6 +66,11 @@ public class AccuracyBased extends AppCompatActivity {
         saveData(view);
     }
 
+    /**
+     * This method saves the user's inputted data. However, if the user does not input a successful attempt,
+     * total attempt, or date, the method creates a toast that asks the user to input the missing information.
+     * @param view builds the user interface and widgets in the app
+     */
     public void saveData(View view) {
         Controller aController = (Controller) getApplicationContext();
         Log.i("Ellie", "Entered into newEvent");
@@ -96,6 +115,10 @@ public class AccuracyBased extends AppCompatActivity {
 
     }
 
+    /**
+     * This method is called when the app is closed. It prints the inputted data into a text file so that when the app is closed,
+     * the data will persist.
+     */
     @Override
     public void onDestroy() {
         super.onDestroy();

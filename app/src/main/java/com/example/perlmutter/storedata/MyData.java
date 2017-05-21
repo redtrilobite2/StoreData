@@ -10,18 +10,26 @@ import com.example.perlmutter.storedata.R;
 import java.util.ArrayList;
 
 /**
- * Created by Perlmutter on 4/25/2017.
+ * This class gets the graph data.
  */
 
 public class MyData
 {
     public ArrayList GraphData;
 
+    /**
+     * Contructs a MyData object with a graphdata ArrayList
+     * @param graphdata data from the graph
+     */
     public MyData(ArrayList graphdata)
     {
         this.GraphData = graphdata;
     }
 
+    /**
+     * Returns the graph data
+     * @return
+     */
     public ArrayList getGraphData() {
 
         return GraphData;

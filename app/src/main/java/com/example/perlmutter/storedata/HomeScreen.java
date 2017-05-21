@@ -14,6 +14,9 @@ import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
+/**
+ * The Home Screen class allows the user to either make a new sport or select a previously made sport
+ */
 public class HomeScreen extends Activity implements AdapterView.OnItemSelectedListener {
 
     Spinner spin;
@@ -32,6 +35,14 @@ public class HomeScreen extends Activity implements AdapterView.OnItemSelectedLi
         spin.setAdapter(adapter);
         spin.setOnItemSelectedListener(this);
     }
+
+    /**
+     * Gets the position of the selected item, makes and transitions to new intent, and puts the sport name as an extra in the intent
+     * @param parent the view of the adapter
+     * @param view builds the interface and the widgets
+     * @param pos the position of the selected item
+     * @param id the id of the selected item
+     */
     //Creates a new intent and goes to the sport home screen when an item from the spinner is selected
     public void onItemSelected(AdapterView<?> parent, View view,
                                int pos, long id) {
@@ -46,16 +57,26 @@ public class HomeScreen extends Activity implements AdapterView.OnItemSelectedLi
 
         }
     }
-    //does nothing when no item from the spinner is selected
+    /**
+     * Does nothing when the spinner is called
+     * @param parent view of the adapter
+     */
     public void onNothingSelected(AdapterView<?> parent) {
         // Another interface callback
     }
-    //creates a new intent and goes to the create sport screen
+
+    /**
+     * Creates a new intent and goes to the Create Sport screen
+     * @param view builds the user interface and the widgets
+     */
     public void toCreateSport(View view) {
         Intent intent = new Intent(HomeScreen.this, CreateSport.class);
         startActivity(intent);
     }
-    //when the app is closed this method prints the sport data into a file
+    /**
+     * This method is called when the app is closed. It prints the inputted data into a text file so that when the app is closed,
+     * the data will persist.
+     */
     @Override
     public void onDestroy() {
         super.onDestroy();

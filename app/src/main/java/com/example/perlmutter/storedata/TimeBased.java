@@ -14,9 +14,9 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
 import static java.lang.Double.parseDouble;
-
 /**
- * Created by Ellie DeSota on 5/14/2017.
+ * This class allows users to input data for time based sports. It also allows users to transition to either the Timevstime
+ * interface or SportHome
  */
 
 public class TimeBased extends AppCompatActivity {
@@ -31,7 +31,11 @@ public class TimeBased extends AppCompatActivity {
         name = bundle.getString("sportName");
         sportName.setText(name);
     }
-
+    /**
+     * This method pulls the data that the user inputs into the edit text boxes and transitions to Timevstime if
+     * the time and date edit texts are filled in. It also calls the saveData method.
+     * @param view builds the user interface and widgets in the app
+     */
     public void toViewData(View view) {
         EditText timePull = (EditText) findViewById(R.id.total);
         EditText datePull = (EditText) findViewById(R.id.date);
@@ -46,7 +50,11 @@ public class TimeBased extends AppCompatActivity {
         }
         saveData(view);
     }
-
+    /**
+     * This method allows the user to transition to Sport Home. It also puts the sport name as an extra in the intent and calls
+     * the saveData method.
+     * @param view builds the user interface and widgets in the app
+     */
     public void toSportHome(View view) {
         Intent intent = new Intent(TimeBased.this, SportHome.class);
         intent.putExtra("sportName", name);
@@ -55,7 +63,11 @@ public class TimeBased extends AppCompatActivity {
         //TextView sportName=(TextView) findViewById(R.id.SportName);
 
     }
-
+    /**
+     * This method saves the user's inputted data. However, if the user does not input the time or date, the method
+     * creates a toast that asks the user to input the missing information.
+     * @param view builds the user interface and widgets in the app
+     */
     public void saveData(View view) {
         Controller aController = (Controller) getApplicationContext();
         Log.i("Ellie", "Entered into newEvent");
@@ -93,6 +105,10 @@ public class TimeBased extends AppCompatActivity {
 
     }
 
+    /**
+     * This method is called when the app is closed. It prints the inputted data into a text file so that when the app is closed,
+     * the data will persist.
+     */
     @Override
     public void onDestroy() {
         super.onDestroy();

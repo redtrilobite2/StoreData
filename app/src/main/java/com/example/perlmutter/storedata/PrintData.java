@@ -37,6 +37,7 @@ public class PrintData {
                         + events.get(m).getDistance() + " ;; " + events.get(m).getDate() + " ;; " + events.get(m).getComment());
             }
         }
+
         Log.i("EllieWrite", Integer.toString(data.size()));
         return data;
     }

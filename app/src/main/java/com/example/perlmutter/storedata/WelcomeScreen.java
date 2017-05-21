@@ -15,6 +15,10 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 import java.util.UUID;
 
+/**
+ * This class extends activity_welcomscreen.xml and retrieves persisted data when the app is reopened. It also allows the user
+ * to transition to the home screen.
+ */
 public class WelcomeScreen extends AppCompatActivity {
 
     @Override
@@ -59,7 +63,11 @@ public class WelcomeScreen extends AppCompatActivity {
 int userID = sharedPref.getInt(fetStringR.string.user_id, null);
     }
 */
-    //Creates a new intent and directs app to the home screen
+
+    /**
+     * Creates new intent and transitions to Home Screen
+     * @param view
+     */
     public void toHomeScreen(View view) {
         Intent intent = new Intent(WelcomeScreen.this, HomeScreen.class);
         startActivity(intent);

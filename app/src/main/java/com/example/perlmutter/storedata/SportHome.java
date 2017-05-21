@@ -14,7 +14,8 @@ import java.util.ArrayList;
 
 /**
  * Created by Ellie DeSota on 4/6/2017.
- * A SportHome class extends the activity_sporthome activity and...
+ * A SportHome class extends the activity_sporthome activity and is able to go to the add data page, view data page, and to
+ * home screen.
  */
 
 public class SportHome extends AppCompatActivity {
@@ -32,6 +33,11 @@ public class SportHome extends AppCompatActivity {
 
     }
 
+    /**
+     * Transitions either to Storedata, TimeBased, DistanceBased, AccuracyBased, or PointBased based on the selected
+     * style of the sport
+     * @param view builds the user interface and the widgets
+     */
     //button controls
     public void toStoreData(View view) {
         final Controller aController = (Controller) getApplicationContext();
@@ -63,6 +69,9 @@ public class SportHome extends AppCompatActivity {
         }
     }
 
+    /**
+     * Allow users to view the comment they inputted when adding data or creating a sport
+     */
     public void toViewComment(){
         //final Controller aController = (Controller) getApplicationContext();
         TextView sportName = (TextView) findViewById(R.id.SportName);
@@ -93,6 +102,11 @@ public class SportHome extends AppCompatActivity {
         }*/
     }
 
+    /**
+     * Transitions to ViewData, Timevstime, Distancevstime, Accuracyvstime, or Distancevstime based on the selected style
+     * of the sport
+     * @param view builds the user interface and the widgets
+     */
     public void toViewData(View view) {
         final Controller aController = (Controller) getApplicationContext();
         TextView sportName = (TextView) findViewById(R.id.SportName);
@@ -122,12 +136,19 @@ public class SportHome extends AppCompatActivity {
         }
     }
 
+    /**
+     * Builds a new intent and transitions back to the home screen
+     * @param view
+     */
     public void toHomeScreen(View view) {
         Intent intent = new Intent(SportHome.this, HomeScreen.class);
         startActivity(intent);
 
     }
-
+    /**
+     * This method is called when the app is closed. It prints the inputted data into a text file so that when the app is closed,
+     * the data will persist.
+     */
     @Override
     public void onDestroy() {
         super.onDestroy();

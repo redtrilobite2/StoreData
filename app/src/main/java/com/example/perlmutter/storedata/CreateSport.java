@@ -16,6 +16,9 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
+/**
+ * This class creates a sport that is either time based, distance based, time-distance based, accuracy based, or point based.
+ */
 public class CreateSport extends Activity implements AdapterView.OnItemSelectedListener {
     private int pos;
     Spinner spin;
@@ -40,8 +43,14 @@ public class CreateSport extends Activity implements AdapterView.OnItemSelectedL
         spin.setOnItemSelectedListener(this);
     }
 
-    //when an item from the spinner is called, this method gets the position of that item and assigns it
-    //to a style of sport
+    /**
+     * Gets the position of the selected item
+     * @param parent the view of the adapter
+     * @param view builds the interface and the widgets
+     * @param pos the position of the selected item
+     * @param id the id of the selected item
+     */
+
     public void onItemSelected(AdapterView<?> parent, View view,
                                int pos, long id) {
 
@@ -49,26 +58,45 @@ public class CreateSport extends Activity implements AdapterView.OnItemSelectedL
         setPos(pos);
     }
 
+    /**
+     * Sets pos to the position of the selected item
+     * @param pos position of selected item
+     */
     public void setPos(int pos) {
         this.pos = pos;
     }
 
+    /**
+     * Gets the position of the selected item
+     * @return
+     */
     public int getPos() {
         return pos;
     }
 
-    //does nothing when no item from the spinner is called
+    /**
+     * Does nothing when the spinner is called
+     * @param parent view of the adapter
+     */
     public void onNothingSelected(AdapterView<?> parent) {
         // Another interface callback
     }
 
-    //creates new intent and goes to the home screen
+    /**
+     * Creates new intent and goes to the Home Screen
+     * @param view builds the interface and widgets
+     * @throws IOException
+     */
     public void toHomeScreen(View view) throws IOException {
         Intent intent = new Intent(CreateSport.this, HomeScreen.class);
         startActivity(intent);
     }
 
-    //creates new intent and goes to the sport home screen
+    /**
+     * Creates new intent and goes to Sport Home
+     * @param view builds the interface and widgets
+     * @throws IOException
+     */
     public void toSportHome(View view) throws IOException {
         Boolean add = true;
         Controller aController = (Controller) getApplicationContext();
@@ -97,8 +125,13 @@ public class CreateSport extends Activity implements AdapterView.OnItemSelectedL
         }
     }
 
-    //Adds a new sport to the arraylist of sports
-    //The name of the sport and the comment that is added is gotten from the user's input in the edit text boxes on the screen
+    /**
+     * Adds a new sport to the ArrayList of sports. The name and comment of the sport are gotten from the user's inputs in the
+     * edit text boxes and the style of the sport is from the spinner
+     * @param style position of the selected style in the spinner
+     * @throws IOException
+     */
+
     public void newSport(int style) throws IOException {
         //get Global Controller Class object (see application tag in AndroidManifest.xml)
         Controller aController = (Controller) getApplicationContext();
@@ -120,7 +153,10 @@ public class CreateSport extends Activity implements AdapterView.OnItemSelectedL
         }
     }
 
-    //when the app is closed this method saves the data from the ArrayLists of sports and events to a text file
+    /**
+     * This method is called when the app is closed. It prints the inputted data into a text file so that when the app is closed,
+     * the data will persist.
+     */
     @Override
     public void onDestroy() {
         Log.i("Ellie", "In onDestroy");

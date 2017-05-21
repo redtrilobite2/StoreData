@@ -1,9 +1,5 @@
 package com.example.perlmutter.storedata;
 
-/*
- * Created by Ellie DeSota on 4/12/2017.
- * The Sport class constructs a Sport with name, comment, and ArrayLIst of the Event class.
- */
 
 import android.util.Log;
 import java.util.ArrayList;
