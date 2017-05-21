@@ -17,7 +17,12 @@ import com.jjoe64.graphview.series.Series;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
-//Constructs Graph for accuracy vs time
+
+
+
+/**
+ Constructs Graph for accuracy vs time
+ */
 public class Accuracyvstime extends AppCompatActivity {
 
     private String sportName;
@@ -26,9 +31,16 @@ public class Accuracyvstime extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         Bundle bundle = getIntent().getExtras();
+        /**
+         * Gets the sport for which the graph will be constructed
+         */
         sportName = bundle.getString("sportName");
         //Gets the sport for which the graph will be constructed
+
         final Controller control = (Controller) getApplicationContext();
+        /**
+         *Creates arraylist for the data points to be added
+         */
         ArrayList<Double> Sportarray = new ArrayList<Double>();
         //Creates arraylist for the data points to be added
         ArrayList<Event> sportsarray = control.getSport(sportName).getEvents();

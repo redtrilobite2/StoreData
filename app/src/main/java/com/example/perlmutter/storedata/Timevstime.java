@@ -17,7 +17,9 @@ import com.jjoe64.graphview.series.Series;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
-//Constructs Graph for time vs time
+/**
+ Constructs Graph for time vs time
+ */
 public class Timevstime extends AppCompatActivity {
 
     private String sportName;
@@ -26,14 +28,19 @@ public class Timevstime extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         Bundle bundle = getIntent().getExtras();
         sportName = bundle.getString("sportName");
-//Gets the sport for which the graph will be constructed
+        /**
+         * Gets the sport for which the graph will be constructed
+         */
         final Controller control = (Controller) getApplicationContext();
+        /**
+         *Creates arraylist for the data points to be added
+         */
         ArrayList<Double> Sportarray = new ArrayList<>();
-        //Creates arraylist for the data points to be added
-        ArrayList<Event> sportsarray = control.getSport(sportName).getEvents();
         //imports array list of information from the sport
-        double counterdt = 0;
+        ArrayList<Event> sportsarray = control.getSport(sportName).getEvents();
         //variable for the x-axis
+        double counterdt = 0;
+
         double time;
         for (int q = 0; q < sportsarray.size(); q++) {
                 counterdt++;
@@ -56,10 +63,11 @@ public class Timevstime extends AppCompatActivity {
         DataPoint[] data = new DataPoint[Sportarray.size() / 2];
 //creates list of data points
         int counter = 0;
+        //fills data point list with array list of accuracy vs time
         for (int i = 0; i < (Sportarray.size() / 2); i++) {
             data[i] = new DataPoint(Sportarray.get(i + counter), Sportarray.get(i + 1 + counter));
             counter++;
-            //fills data point list with array list of points vs time
+
         }
 
         for (int j = 0; j < Sportarray.size() / 2; j++) {
@@ -85,12 +93,20 @@ public class Timevstime extends AppCompatActivity {
         });
     }
 
+    /**
+     * Switches to entering data interface
+     * @param view
+     */
     public void toStoreData(View view) {
         Intent intent = new Intent(Timevstime.this, TimeBased.class);
         intent.putExtra("sportName", sportName);
         startActivity(intent);
     }
 
+    /**
+     *Switches to sport home interface
+     * @param view
+     */
     public void toSportHome(View view) {
         Intent intent = new Intent(Timevstime.this, SportHome.class);
         intent.putExtra("sportName", sportName);
@@ -98,7 +114,11 @@ public class Timevstime extends AppCompatActivity {
     }
 
     @Override
+    /**
+     *Adds the data into an arraylist and then prints the arraylist into a text file.
+     */
     public void onDestroy() {
+
         super.onDestroy();
         try {
             ArrayList<String> print;

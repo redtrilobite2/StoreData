@@ -22,14 +22,14 @@ import java.util.ArrayList;
  * Created by Ellie DeSota on 5/14/2017.
  */
 
-public class DistanceGraph extends AppCompatActivity {
+public class DistanceGraph extends AppCompatActivity{
     private String sportName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        Bundle bundle = getIntent().getExtras();
-        sportName = bundle.getString("sportName");
+        Bundle bundle=getIntent().getExtras();
+        sportName=bundle.getString("sportName");
 
         final Controller control = (Controller) getApplicationContext();
         ArrayList<Double> Sportarray = new ArrayList<>();
@@ -86,13 +86,13 @@ public class DistanceGraph extends AppCompatActivity {
     }
 
     public void toStoreData(View view) {
-        Intent intent = new Intent(DistanceGraph.this, DistanceBased.class);
+        Intent intent=new Intent(DistanceGraph.this, DistanceBased.class);
         intent.putExtra("sportName", sportName);
         startActivity(intent);
     }
 
     public void toSportHome(View view) {
-        Intent intent = new Intent(DistanceGraph.this, SportHome.class);
+        Intent intent=new Intent(DistanceGraph.this, SportHome.class);
         intent.putExtra("sportName", sportName);
         startActivity(intent);
     }
